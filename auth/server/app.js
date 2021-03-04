@@ -1,5 +1,6 @@
 const express = require('express'); 
 const app = express();
+const passport = require('passport');
 
 app.use(function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -11,11 +12,22 @@ app.use(function(req, res, next) {
 
 app.use(require('./routes/authentications'));
 
+app.use(passport.initialize());
+require('./authenticate');
+app.get("/google", passport.authenticate('google', {scope: ['profile', 'email']}));
+
+app.get('/google/callback', passport.authenticate('google', {failureRedirect: '/login'}), (req, res) =>{
+  // res.redirect('/');
+  res.send('Logged in!');
+})
 
 
 app.listen(3001, () => {
     console.log('listening on port 3001');
 })
+
+
+// OAuth gives you a token so you don't need your own JWT 
 
 
 // EXAMPLE OF HOW TO USE JWT
