@@ -12,7 +12,9 @@ app.use(function(req, res, next) {
 
 app.use(require('./routes/authentications'));
 
+
 // app.use(passport.initialize());
+
 // require('./authenticate');
 // app.get("/google", passport.authenticate('google', {scope: ['profile', 'email']}));
 
