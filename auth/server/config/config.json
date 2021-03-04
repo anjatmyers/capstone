@@ -1,9 +1,0 @@
-{
-  "development": {
-    "username": "postgres",
-    "password": "DCNov2020!!",
-    "database": "postgres",
-    "host": "capstoneproject1.cimjtczzqhhe.us-east-2.rds.amazonaws.com",
-    "dialect": "postgres"
-  }
-}

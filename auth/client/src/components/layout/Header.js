@@ -4,7 +4,7 @@ import { Navbar, NavDropdown, Nav, Form, FormControl, Button } from 'react-boots
 import {
     Link
 } from 'react-router-dom';
-
+import '../../assets/styles.css'
 
 
 const Header = () => {
