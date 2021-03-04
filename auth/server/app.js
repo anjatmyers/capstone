@@ -12,14 +12,14 @@ app.use(function(req, res, next) {
 
 app.use(require('./routes/authentications'));
 
-app.use(passport.initialize());
-require('./authenticate');
-app.get("/google", passport.authenticate('google', {scope: ['profile', 'email']}));
+// app.use(passport.initialize());
+// require('./authenticate');
+// app.get("/google", passport.authenticate('google', {scope: ['profile', 'email']}));
 
-app.get('/google/callback', passport.authenticate('google', {failureRedirect: '/login'}), (req, res) =>{
-  // res.redirect('/');
-  res.send('Logged in!');
-})
+// app.get('/google/callback', passport.authenticate('google', {failureRedirect: '/login'}), (req, res) =>{
+//   // res.redirect('/');
+//   res.send('Logged in!');
+// })
 
 
 app.listen(3001, () => {
