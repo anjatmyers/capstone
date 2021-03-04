@@ -1,18 +1,17 @@
 import React from "react";
 import Header from "./Header";
-import Sidebar from "./Sidebar"
 import Footer from "./Footer";
+import ClippedDrawer from "./Sidebar"
 
 
 const BaseLayout = (props) => {
   return (
     <>
-      <Header />
+      {/* <Header /> */}
+
+      <ClippedDrawer />
       
       {props.children}
-
-      <Sidebar />
-
       <br />
       <br />
     
