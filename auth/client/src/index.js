@@ -10,6 +10,7 @@ import BaseLayout from './components/layout/BaseLayout';
 import 'react-pro-sidebar/dist/css/styles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+
 import {createStore, applyMiddleware, compose} from 'redux';
 import reduxThunk from 'redux-thunk';
 import {Provider} from 'react-redux';
