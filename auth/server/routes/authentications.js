@@ -5,7 +5,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const db = require('../models');
 // ^allows us to encrypt passwords
-const config = require('../secrets');
+const config = require('../secrets2');
 // ^ our secret file to make jwt
 
 router.use(express.urlencoded({extended: false}));
@@ -17,7 +17,7 @@ const jwt = require('jwt-simple');
 
 const passport = require('passport');
 // this is our node passport middleware
-require('../config/passAuth'); //imports all of passport auth stuff
+require('../config2/passAuth'); //imports all of passport auth stuff
 
 let requireSignIn = passport.authenticate('local', {session: false});
 let requireAuth = passport.authenticate('jwt', {session: false});
