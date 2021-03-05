@@ -12,6 +12,8 @@ app.use(function(req, res, next) {
 
 app.use(require('./routes/authentications'));
 
+app.use(require('./routes/googleAuth'))
+
 
 // app.use(passport.initialize());
 
