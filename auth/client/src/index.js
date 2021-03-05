@@ -7,9 +7,9 @@ import Signin from './components/auth/Signin';
 import Signout from './components/auth/Signout';
 import Signup from './components/auth/Signup';
 import BaseLayout from './components/layout/BaseLayout';
-import "./assets/styles.scss"
-import 'react-pro-sidebar/dist/css/styles.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import "./assets/styles.scss";
+
 
 import {createStore, applyMiddleware, compose} from 'redux';
 import reduxThunk from 'redux-thunk';
@@ -20,6 +20,26 @@ import {
   BrowserRouter as Router,
   Route, Switch
 } from 'react-router-dom'
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+
+
+
+const theme = createMuiTheme({
+  palette: {
+    primary: {
+      light: '#ffffff',
+      main: '#e1f5fe',
+      dark: '#b0c3cc',
+      contrastText: '#000000',
+    },
+    secondary: {
+      light: '#e5ffff',
+      main: '#b2ebf2',
+      dark: '#81b9bf',
+      contrastText: '#424242',
+    },
+  },
+});
 
 
 // initializing redux store
@@ -38,6 +58,7 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
     <Router>
+      <ThemeProvider theme={theme}>
       <BaseLayout>
           <Switch>
             <Route exact path='/' component={App}/>
@@ -48,6 +69,7 @@ ReactDOM.render(
             <Route path='/signin' component={Signin}/>
           </Switch>
       </BaseLayout>
+      </ThemeProvider>
       </Router>
       </Provider>
   </React.StrictMode>,
