@@ -15,8 +15,7 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import InboxIcon from '@material-ui/icons/MoveToInbox';
-import MailIcon from '@material-ui/icons/Mail';
+import { DiJsBadge, DiPython, DiDatabase, DiHtml5 } from "react-icons/di";
 
 const drawerWidth = 240;
 
@@ -110,7 +109,7 @@ export default function PersistentDrawerLeft() {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap>
-            Persistent drawer
+            Bootcamp Survival Guide
           </Typography>
         </Toolbar>
       </AppBar>
@@ -130,21 +129,33 @@ export default function PersistentDrawerLeft() {
         </div>
         <Divider />
         <List>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+        <ListItem button key={"dfkjad"}>
+            <ListItemIcon><DiJsBadge /></ListItemIcon>
+            <ListItemText primary={"JavaScript"}></ListItemText>
+          </ListItem>
+
+          <ListItem button key={"dfkjad"}>
+            <ListItemIcon><DiPython /></ListItemIcon>
+            <ListItemText primary={"Python"}></ListItemText>
+          </ListItem>
+
+          <ListItem button key={"dfkjad"}>
+            <ListItemIcon><DiHtml5 /></ListItemIcon>
+            <ListItemText primary={"HTML/CSS"}></ListItemText>
+          </ListItem>
+
+          <ListItem button key={"dfkjad"}>
+            <ListItemIcon><DiDatabase /></ListItemIcon>
+            <ListItemText primary={"SQL"}></ListItemText>
+          </ListItem>
+
         </List>
         <Divider />
         <List>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
-            </ListItem>
-          ))}
+          <ListItem button key={"dfkjad"}>
+            <ListItemIcon><DiJsBadge /></ListItemIcon>
+            <ListItemText primary={"Second List"}></ListItemText>
+          </ListItem>
         </List>
       </Drawer>
       <main

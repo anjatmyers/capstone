@@ -21,7 +21,7 @@ const Signin = () => {
       password: password
     }, ()=>{
       console.log('pushing to another page');
-      history.push('/feature');
+      history.push('/');
     }))
 
   }
@@ -34,7 +34,7 @@ const Signin = () => {
       <div className="register">
 
         <img height="100px" src="https://avatars.githubusercontent.com/u/67744643?s=200&v=4" alt=""/>
-       
+      
 
         <h2>Sign In</h2>
 
@@ -44,14 +44,14 @@ const Signin = () => {
               <input type="email" placeholder="info@mailaddress.com"
                 value={email}
                 onChange={(e)=>setEmail(e.target.value)}
-               />
+              />
             </div>
 
             <div className="form__field">
               <input type="password"
               value={password}
               onChange={(e)=>setPassword(e.target.value)}
-               placeholder="••••••••••••" />
+              placeholder="••••••••••••" />
             </div>
 
             <div className="form__field">
