@@ -34,7 +34,7 @@ const Login = () => {
         },
         () => {
           console.log("pushing to another page");
-          history.push("/");
+          history.push("/home");
         }
       )
     );
@@ -70,6 +70,11 @@ const Login = () => {
 
               <div className="form__field">
                 <input type="submit" value="Log In" />
+              </div>
+
+
+              <div>
+              <p>Don't have an account? <Link to="/signup">Register Here</Link></p>
               </div>
             </form>
           </Grid>

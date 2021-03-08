@@ -12,7 +12,7 @@ const Welcome = () => {
 
      <h5 className="text-info">This is an unprotected page.  Any user should be able to see this page, regardless of their login status.</h5>
     
-     <p>Already have an account? <Link to="/signin">Log in</Link></p>
+     <p>Already have an account? <Link to="/login">Log in</Link></p>
      <p>New here? <Link to="/signup">Register</Link></p>
     
     </div>
