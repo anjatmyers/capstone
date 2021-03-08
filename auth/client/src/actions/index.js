@@ -1,6 +1,38 @@
 import actionTypes from './actionTypes';
 import axios from 'axios';
 
+
+// function to get oauth URL from back end
+export const getURL = () => {
+
+    return async dispatch =>{
+
+        try{
+            let response = await axios.post('http://localhost:3001/getURL');
+
+            console.log(response.data);
+
+            // window.location = function() {
+            //     location.href = response.data;
+            // }
+
+            window.location.href = response.data;
+            // dispatch({type: "AUTH_USER", data: response.data.token});
+
+            // console.log('signin', response.data.token);
+            // localStorage.setItem('token', response.data.token);
+
+            // cb();
+        }
+        catch(e){
+            console.log("error from getURL action")
+        }
+    }
+    
+}
+
+
+
 export const signUp = (formData, cb) => {
     
     console.log(formData);

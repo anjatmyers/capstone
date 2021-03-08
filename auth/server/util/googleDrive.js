@@ -31,7 +31,7 @@ function createFile(auth){
           },
           media: {
             mimeType: 'text/plain',
-            body: 'Hello World. This is Andrea creating a file from the terminal.'
+            body: 'Hello World. Creating a file from the terminal.'
           }
       })
       .then(res =>{
