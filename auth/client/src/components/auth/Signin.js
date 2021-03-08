@@ -21,7 +21,7 @@ const Signin = () => {
       password: password
     }, ()=>{
       console.log('pushing to another page');
-      history.push('/');
+      history.push('/home');
     }))
 
   }

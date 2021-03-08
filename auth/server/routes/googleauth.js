@@ -29,7 +29,8 @@ router.get('/googleAuth', (req, res) => {
               if (err) return console.error("Error retrieving access token", err);
               oAuth2Client.setCredentials(token);
               // Store the token to disk for later program executions
-              console.log(token.access_token, token.refresh_token, token.scope, token.token_type)
+              // console.log(token.access_token, token.refresh_token, token.scope, token.token_type)
+              console.log(token)
         
             //   let storedToken = await db.auth.create({
             //       token: token.access_token,
@@ -42,8 +43,8 @@ router.get('/googleAuth', (req, res) => {
             // console.log(userToken[0].dataValues.token)
 
             // console.log(drive.listFiles(userToken[0].dataValues.token));
-            console.log(drive.listFiles(oAuth2Client));
-            console.log(drive.createFile(oAuth2Client));
+            drive.listFiles(oAuth2Client);
+            // console.log(drive.createFile(oAuth2Client));
             
             
             });
