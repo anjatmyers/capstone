@@ -100,7 +100,7 @@ ReactDOM.render(
             <Route path='/signup' component={Signup}/>
             <Route path='/feature' component={requireAuth(Feature)}/>
             <Route path='/signout' component={Signout}/>
-            <Route path='/signin' component={Signin}/>
+            {/* <Route path='/signin' component={Signin}/> */}
             <Route path='/login' component={Login}/>
 
           </Switch>
