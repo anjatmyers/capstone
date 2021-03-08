@@ -7,13 +7,12 @@ import Signin from './components/auth/Signin';
 import Signout from './components/auth/Signout';
 import Signup from './components/auth/Signup';
 import BaseLayout from './components/layout/BaseLayout';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import "./assets/styles.scss";
 
 import {createStore, applyMiddleware, compose} from 'redux';
 import reduxThunk from 'redux-thunk';
 import {Provider} from 'react-redux';
-import reducer from './reducers/index'; //don't have to put index, its implied
+import reducer from './reducers/index'; 
 import requireAuth from './requireAuth';
 import {
   BrowserRouter as Router,
@@ -58,7 +57,6 @@ ReactDOM.render(
     <Provider store={store}>
     <Router>
       <ThemeProvider theme={theme}>
-      <BaseLayout>
           <Switch>
             <Route exact path='/' component={App}/>
             <Route path='/welcome' component={requireAuth(Welcome)}/>
@@ -67,7 +65,6 @@ ReactDOM.render(
             <Route path='/signout' component={Signout}/>
             <Route path='/signin' component={Signin}/>
           </Switch>
-      </BaseLayout>
       </ThemeProvider>
       </Router>
       </Provider>

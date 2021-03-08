@@ -1,7 +1,7 @@
 import React from "react";
 import Header from "./Header";
 import Footer from "./Footer";
-import ClippedDrawer from "./Sidebar"
+import PersistentDrawerLeft from "./Sidebar"
 
 
 const BaseLayout = (props) => {
@@ -9,7 +9,7 @@ const BaseLayout = (props) => {
     <>
       {/* <Header /> */}
 
-      <ClippedDrawer />
+      <PersistentDrawerLeft />
       
       {props.children}
       <br />
