@@ -16,6 +16,8 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { DiJsBadge, DiPython, DiDatabase, DiHtml5 } from "react-icons/di";
+import {useDispatch} from 'react-redux';
+import {getURL} from './actions/index'
 
 const drawerWidth = 240;
 
@@ -80,6 +82,7 @@ export default function App() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  const dispatch = useDispatch();
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -88,6 +91,11 @@ export default function App() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+// function for google docs button
+  const handleDocs = () => {
+    dispatch(getURL());
+  }
 
   return (
     <div className={classes.root}>
@@ -170,6 +178,8 @@ export default function App() {
         <Typography paragraph>
           Resources Can go here
         </Typography>
+
+        <button onClick={handleDocs}>Get Google Docs</button>
       </main>
     </div>
   );
