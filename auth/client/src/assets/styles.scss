@@ -1,5 +1,5 @@
 $base-bgcolor: #354152;
-$base-color: #7e8ba3;
+$base-color: #1d1c1c;
 $base-font-weight: 300;
 $base-font-size: 1rem;
 $base-line-height: 1.5;
@@ -50,7 +50,7 @@ body {
   }
 }
 
-$input-placeholder-color: #7e8ba3;
+$input-placeholder-color: #1b1b1b;
 
 input {
   border: 0;
@@ -69,8 +69,8 @@ input {
   input {
     outline: 0;
     padding: 0.5rem 1rem;
-    color: white;
-    font-size: 25px;
+    color: rgb(24, 24, 24);
+    font-size: 20px;
     &[type="email"],
     &[type="password"] {
       width: 100%;
@@ -107,7 +107,7 @@ a {
 }
 
 .register {
-  box-shadow: 0 0 250px #000;
+  box-shadow: 0 0 20px #000;
   text-align: center;
   padding: 4rem 2rem;
 

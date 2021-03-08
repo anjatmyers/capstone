@@ -6,6 +6,7 @@ import Feature from './components/Feature'; //protect
 import Signin from './components/auth/Signin';
 import Signout from './components/auth/Signout';
 import Signup from './components/auth/Signup';
+import Login from "./components/auth/Login";
 import BaseLayout from './components/layout/BaseLayout';
 import "./assets/styles.scss";
 
@@ -65,6 +66,7 @@ ReactDOM.render(
             <Route path='/feature' component={requireAuth(Feature)}/>
             <Route path='/signout' component={Signout}/>
             <Route path='/signin' component={Signin}/>
+            <Route path='/login' component={Login}/>
           </Switch>
       </ThemeProvider>
       </Router>
