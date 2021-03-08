@@ -21,7 +21,7 @@ const Signin = () => {
       password: password
     }, ()=>{
       console.log('pushing to another page');
-      history.push('/');
+      history.push('/home');
     }))
 
   }
@@ -33,7 +33,7 @@ const Signin = () => {
 
       <div className="register">
 
-        <img height="100px" src="https://avatars.githubusercontent.com/u/67744643?s=200&v=4" alt=""/>
+        <img height="100px" src="" alt=""/>
       
 
         <h2>Sign In</h2>

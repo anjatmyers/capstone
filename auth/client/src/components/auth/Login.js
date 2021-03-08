@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { signUp } from "../../actions/index";
+import { signIn } from "../../actions/index";
 import { useHistory } from "react-router-dom";
 import { Grid, Paper, Avatar } from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 
-const Signup = () => {
+const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const dispatch = useDispatch();
@@ -23,25 +23,22 @@ const Signup = () => {
     height: 100,
     width: 100,};
 
-  
-    const handleSubmit = (e) => {
-      
-      e.preventDefault();
-  
-      // call action
-      //pass the email address and password to our action
-      //dispatch(sinup(), cb)
-  
-      dispatch(signUp({
-        email: email,
-        password: password
-      }, ()=>{
-        console.log('pushing to another page');
-        history.push('/home');
-      }))
+  const handleSubmit = (e) => {
+    e.preventDefault();
 
-  
-    }
+    dispatch(
+      signIn(
+        {
+          email: email,
+          password: password,
+        },
+        () => {
+          console.log("pushing to another page");
+          history.push("/home");
+        }
+      )
+    );
+  };
 
   return (
     <div>
@@ -51,7 +48,7 @@ const Signup = () => {
             <Avatar style={avatarStyle}>
               <LockOutlinedIcon fontSize="large" />
             </Avatar>
-            <h3>Register a new account</h3>
+            <h3>Sign In</h3>
             <form onSubmit={handleSubmit} className="form">
               <div className="form__field">
                 <input
@@ -72,12 +69,12 @@ const Signup = () => {
               </div>
 
               <div className="form__field">
-                <input type="submit" value="Sign Up" />
+                <input type="submit" value="Log In" />
               </div>
 
 
               <div>
-              <p>Already have an account? <Link to="/login">Log In</Link></p>
+              <p>Don't have an account? <Link to="/signup">Register Here</Link></p>
               </div>
             </form>
           </Grid>
@@ -87,12 +84,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
-
-
-
-
-
-
-
-
+export default Login;

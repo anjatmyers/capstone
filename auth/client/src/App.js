@@ -17,7 +17,8 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { DiJsBadge, DiPython, DiDatabase, DiHtml5 } from "react-icons/di";
 import {useDispatch} from 'react-redux';
-import {getURL} from './actions/index'
+import {getURL} from './actions/index';
+import {Link} from 'react-router-dom'
 
 const drawerWidth = 240;
 
@@ -180,6 +181,10 @@ export default function App() {
         </Typography>
 
         <button onClick={handleDocs}>Get Google Docs</button>
+        <p><Link to="/feature">Go to page 2</Link></p>
+        <br></br>
+        <p><Link to="/signout">Sign Out</Link></p>
+
       </main>
     </div>
   );

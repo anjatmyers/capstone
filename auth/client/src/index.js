@@ -6,6 +6,7 @@ import Feature from './components/Feature'; //protect
 import Signin from './components/auth/Signin';
 import Signout from './components/auth/Signout';
 import Signup from './components/auth/Signup';
+import Login from "./components/auth/Login";
 import BaseLayout from './components/layout/BaseLayout';
 import "./assets/styles.scss";
 
@@ -41,14 +42,49 @@ const theme = createMuiTheme({
 });
 
 
+// ***********
+const saveToLocalStorage = (reduxGlobalState) => {
+  // serialize = converting JS object to a string
+  try{
+
+    const serializeState = JSON.stringify(reduxGlobalState);
+    localStorage.setItem('state', serializeState);
+  }
+  catch(e){
+    console.log(e);
+  }
+
+
+}
+const loadFromLocalStorage = (reduxGlobalState) => {
+  
+  const serializeState = localStorage.getItem('state');
+
+  if(serializeState === null){
+    return undefined;
+  }
+  else{
+    return JSON.parse(serializeState);
+    // returns a JS object representing local storage
+  }
+
+}
+// ******
+
+
+const persistedState = loadFromLocalStorage();
 // initializing redux store
 // requires a reducer. Second argument is for redux dev-tools extension.
-let store = createStore(reducer, {}, 
+let store = createStore(reducer, persistedState, 
   compose(
     applyMiddleware(reduxThunk),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
     ) );
 
+
+  store.subscribe(() => {
+    saveToLocalStorage(store.getState());
+  })
 
 //provider hooks react to redux.  
 //Must pass redux instance to provider via "store" prop.
@@ -59,12 +95,14 @@ ReactDOM.render(
     <Router>
       <ThemeProvider theme={theme}>
           <Switch>
-            <Route exact path='/' component={App}/>
-            <Route path='/welcome' component={requireAuth(Welcome)}/>
+            <Route exact path='/' component={Welcome}/>
+            <Route path='/home' component={requireAuth(App)}/>
             <Route path='/signup' component={Signup}/>
             <Route path='/feature' component={requireAuth(Feature)}/>
             <Route path='/signout' component={Signout}/>
-            <Route path='/signin' component={Signin}/>
+            {/* <Route path='/signin' component={Signin}/> */}
+            <Route path='/login' component={Login}/>
+
           </Switch>
       </ThemeProvider>
       </Router>
