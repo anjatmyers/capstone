@@ -15,10 +15,14 @@ app.use(express.static('public'));
 
 
 app.use(require('./routes/authentications'));
+<<<<<<< HEAD
 
 // app.use(require('./routes/picker'))
 
 
+=======
+app.use(require('./routes/googleauth'));
+>>>>>>> main
 
 // app.use(passport.initialize());
 

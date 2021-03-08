@@ -2,4 +2,4 @@ config2
 node_modules
 
 secrets2.js
-
+credentials.json
