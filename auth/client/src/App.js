@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -18,6 +18,7 @@ import ListItemText from '@material-ui/core/ListItemText';
 import { DiJsBadge, DiPython, DiDatabase, DiHtml5 } from "react-icons/di";
 import {useDispatch} from 'react-redux';
 import {getURL} from './actions/index'
+import {setLanguage} from './actions/index'
 
 const drawerWidth = 240;
 
@@ -97,6 +98,11 @@ export default function App() {
     dispatch(getURL());
   }
 
+  const handleClick = (language) => {
+    console.log(language);
+    dispatch(setLanguage(language))
+  }
+  
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -136,23 +142,23 @@ export default function App() {
           </IconButton>
         </div>
         <Divider />
-        <List>
-        <ListItem button key={"dfkjad"}>
+        <List >
+        <ListItem button key={"dfkjad"} onClick={()=>dispatch(setLanguage("javaScript"))} value="javaScript">
             <ListItemIcon><DiJsBadge /></ListItemIcon>
             <ListItemText primary={"JavaScript"}></ListItemText>
           </ListItem>
 
-          <ListItem button key={"dfkjad"}>
+          <ListItem button key={"dfkjad"} onClick={()=>dispatch(setLanguage("python"))}value="python">
             <ListItemIcon><DiPython /></ListItemIcon>
             <ListItemText primary={"Python"}></ListItemText>
           </ListItem>
 
-          <ListItem button key={"dfkjad"}>
+          <ListItem button key={"dfkjad"} onClick={()=>dispatch(setLanguage("html"))}value="html">
             <ListItemIcon><DiHtml5 /></ListItemIcon>
             <ListItemText primary={"HTML/CSS"}></ListItemText>
           </ListItem>
 
-          <ListItem button key={"dfkjad"}>
+          <ListItem button key={"dfkjad"} onClick={()=>dispatch(setLanguage("sql"))}value="sql">
             <ListItemIcon><DiDatabase /></ListItemIcon>
             <ListItemText primary={"SQL"}></ListItemText>
           </ListItem>
