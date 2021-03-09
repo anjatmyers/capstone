@@ -1,7 +1,9 @@
 import actionTypes from '../actions/actionTypes';
 
+
 const initialState = {
-    authenticated: ""
+    authenticated: "",
+    language: ""
 }
 
 const reducerTemplate = (state = initialState, action) => {
@@ -12,6 +14,11 @@ const reducerTemplate = (state = initialState, action) => {
             return{
                 ...state,
                 authenticated: action.data //json web token 
+            }
+        case "CHANGE_LANGUAGE":
+            return{
+                ...state,
+                language: action.language
             }
         default:
             return state;
