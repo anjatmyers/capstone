@@ -18,10 +18,12 @@ const Login = () => {
     width: 350,
     margin: "20px auto",
   };
-  const avatarStyle = { 
-    backgroundColor: "#0ff1c3",
+
+  const avatarStyle = {
+    backgroundColor: "rgb(60, 216, 138)",
     height: 100,
-    width: 100,};
+    width: 100,
+  };
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -72,9 +74,10 @@ const Login = () => {
                 <input type="submit" value="Log In" />
               </div>
 
-
               <div>
-              <p>Don't have an account? <Link to="/signup">Register Here</Link></p>
+                <p>
+                  Don't have an account? <Link to="/signup">Register Here</Link>
+                </p>
               </div>
             </form>
           </Grid>
