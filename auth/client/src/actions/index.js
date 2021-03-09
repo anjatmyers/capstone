@@ -108,6 +108,13 @@ export const signOut = (cb) => {
 }
 
 
+export const setLanguage = (language) =>{
+    return {
+        type: "CHANGE_LANGUAGE",
+        language: language
+    }
+
+}
 
 
 
