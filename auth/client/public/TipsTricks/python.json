@@ -1,5 +1,5 @@
 {
-    "Python": [{
+    "python": [{
         "Tip": "Python is considered a high level language, meaning it was built on top of other languages like C.  It's built for speed and it's most common use is data analysis."
     }, {
         "Tip": "Indentation is everything in Python!  An improper indent can stop your code cold!"
