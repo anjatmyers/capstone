@@ -15,8 +15,8 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import Button from "@material-ui/core/Button"
 import MasterEditor from "./components/MasterEditor"
-import Grid from "@material-ui/core/Grid"
 import { DiJsBadge, DiPython, DiDatabase, DiHtml5, DiTerminal } from "react-icons/di";
 import {useDispatch} from 'react-redux';
 
@@ -83,6 +83,16 @@ const useStyles = makeStyles((theme) => ({
     }),
     marginLeft: 0,
   },
+  signOut: {
+    fontWeight: "bold",
+    marginLeft: "auto",
+  },
+  navContent:{
+    display: "flex",
+    justifyContent: "center",
+    width: "100%",
+    
+  }
 }));
 
 
@@ -115,12 +125,15 @@ export default function App() {
   return (
     <div className={classes.root}>
       <CssBaseline />
+
+    {/* Start of the top Navbar */}
       <AppBar
         position="fixed"
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
       >
+
         <Toolbar>
           <IconButton
             color="inherit"
@@ -130,12 +143,24 @@ export default function App() {
             className={clsx(classes.menuButton, open && classes.hide)}
           >
             <MenuIcon />
+
           </IconButton>
+          <div className={classes.navContent}>
           <Typography variant="h6" noWrap>
             Bootcamp Survival Guide
           </Typography>
+
+        <Button size="large" variant="contained" className={classes.signOut}><Link to="/signout">Log Out</Link></Button>
+        </div>
         </Toolbar>
+
+
+
+
       </AppBar>
+      {/* End of top Navbar */}
+
+      {/* Start of Drawer */}
       <Drawer
         className={classes.drawer}
         variant="persistent"
@@ -180,12 +205,13 @@ export default function App() {
         </List>
         <Divider />
         <List>
-          <ListItem button key={"5"}>
+          <ListItem button key={"6"}>
             <ListItemIcon><DiJsBadge /></ListItemIcon>
             <ListItemText primary={"Second List"}></ListItemText>
           </ListItem>
         </List>
       </Drawer>
+      {/* Start of main content window */}
       <main
         className={clsx(classes.content, {
           [classes.contentShift]: open,
@@ -193,20 +219,19 @@ export default function App() {
       >
         <div className={classes.drawerHeader} />
         
-        <div classname="mainWindow">
+        <div>
 
-          <MasterEditor className="mainWindow"/>
+          <MasterEditor/>
 
         </div>
         
-        
-
         <button onClick={handleDocs}>Get Google Docs</button>
         <p><Link to="/feature">Go to page 2</Link></p>
         <br></br>
         <p><Link to="/signout">Sign Out</Link></p>
 
       </main>
+      {/* End of main content window */}
     </div>
   );
 }
