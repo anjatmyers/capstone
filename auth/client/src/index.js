@@ -45,6 +45,7 @@ const theme = createMuiTheme({
 });
 
 
+
 // ***********
 const saveToLocalStorage = (reduxGlobalState) => {
   // serialize = converting JS object to a string
@@ -58,9 +59,15 @@ const saveToLocalStorage = (reduxGlobalState) => {
   }
 
 
+
 }
 const loadFromLocalStorage = (reduxGlobalState) => {
   
+  const serializeState = localStorage.getItem('state');
+
+
+}
+const loadFromLocalStorage = (reduxGlobalState) => {
   const serializeState = localStorage.getItem('state');
 
   if(serializeState === null){
@@ -71,15 +78,15 @@ const loadFromLocalStorage = (reduxGlobalState) => {
     // returns a JS object representing local storage
   }
 
+
 }
-// ******
+
 
 
 const persistedState = loadFromLocalStorage();
 // initializing redux store
 // requires a reducer. Second argument is for redux dev-tools extension.
 
-// ***********
 
 let store = createStore(reducer, persistedState, 
   compose(

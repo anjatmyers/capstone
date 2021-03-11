@@ -15,7 +15,9 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import { DiJsBadge, DiPython, DiDatabase, DiHtml5 } from "react-icons/di";
+import MasterEditor from "./components/MasterEditor"
+import Grid from "@material-ui/core/Grid"
+import { DiJsBadge, DiPython, DiDatabase, DiHtml5, DiTerminal } from "react-icons/di";
 import {useDispatch} from 'react-redux';
 
 import {getURL} from './actions/index'
@@ -83,6 +85,8 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
+
 export default function App() {
   const classes = useStyles();
   const theme = useTheme();
@@ -107,6 +111,7 @@ export default function App() {
     dispatch(setLanguage(language))
   }
   
+
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -147,30 +152,35 @@ export default function App() {
         </div>
         <Divider />
         <List >
-        <ListItem button key={"dfkjad"} onClick={()=>dispatch(setLanguage("javaScript"))} value="javaScript">
+        <ListItem button key={"1"} onClick={()=>dispatch(setLanguage("javaScript"))} value="javaScript">
             <ListItemIcon><DiJsBadge /></ListItemIcon>
             <ListItemText primary={"JavaScript"}></ListItemText>
           </ListItem>
 
-          <ListItem button key={"dfkjad"} onClick={()=>dispatch(setLanguage("python"))}value="python">
+          <ListItem button key={"2"} onClick={()=>dispatch(setLanguage("python"))}value="python">
             <ListItemIcon><DiPython /></ListItemIcon>
             <ListItemText primary={"Python"}></ListItemText>
           </ListItem>
 
-          <ListItem button key={"dfkjad"} onClick={()=>dispatch(setLanguage("html"))}value="html">
+          <ListItem button key={"3"} onClick={()=>dispatch(setLanguage("html"))}value="html">
             <ListItemIcon><DiHtml5 /></ListItemIcon>
             <ListItemText primary={"HTML/CSS"}></ListItemText>
           </ListItem>
 
-          <ListItem button key={"dfkjad"} onClick={()=>dispatch(setLanguage("sql"))}value="sql">
+          <ListItem button key={"4"} onClick={()=>dispatch(setLanguage("sql"))}value="sql">
             <ListItemIcon><DiDatabase /></ListItemIcon>
             <ListItemText primary={"SQL"}></ListItemText>
+          </ListItem>
+
+          <ListItem button key={"5"} onClick={()=>dispatch(setLanguage("Shell"))}value="sql">
+            <ListItemIcon><DiTerminal /></ListItemIcon>
+            <ListItemText primary={"Shell"}></ListItemText>
           </ListItem>
 
         </List>
         <Divider />
         <List>
-          <ListItem button key={"dfkjad"}>
+          <ListItem button key={"5"}>
             <ListItemIcon><DiJsBadge /></ListItemIcon>
             <ListItemText primary={"Second List"}></ListItemText>
           </ListItem>
@@ -182,12 +192,14 @@ export default function App() {
         })}
       >
         <div className={classes.drawerHeader} />
-        <Typography paragraph>
-          Note Taking Goes Here
-        </Typography>
-        <Typography paragraph>
-          Resources Can go here
-        </Typography>
+        
+        <div classname="mainWindow">
+
+          <MasterEditor className="mainWindow"/>
+
+        </div>
+        
+        
 
         <button onClick={handleDocs}>Get Google Docs</button>
         <p><Link to="/feature">Go to page 2</Link></p>
