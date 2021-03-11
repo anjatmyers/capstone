@@ -1,5 +1,5 @@
 {
-    "HTML/CSS": [{
+    "html": [{
         "Tip": "HTML (HyperText Markup Language) and CSS (Cascading StyleSheets) make up a huge chunk of the internet as we know it!"
     }, {
         "Tip": "You can use CSS on it's own to style your pages, or you can use a library or framework to enhance your look!  Some popular ones include Bootstrap, Material UI, Tailwind or SASS." 

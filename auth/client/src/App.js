@@ -16,7 +16,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Button from "@material-ui/core/Button"
-import {Modal, Button} from 'react-bootstrap'
+import {Modal} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux';
 import {getURL, folderStatus} from './actions/index';
 
@@ -235,7 +235,7 @@ export default function App() {
             <ListItemText primary={"SQL"}></ListItemText>
           </ListItem>
 
-          <ListItem button key={"5"} onClick={()=>dispatch(setLanguage("Shell"))}value="sql">
+          <ListItem button key={"5"} onClick={()=>dispatch(setLanguage("shell"))}value="shell">
             <ListItemIcon><DiTerminal /></ListItemIcon>
             <ListItemText primary={"Shell"}></ListItemText>
           </ListItem>
