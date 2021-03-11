@@ -116,6 +116,14 @@ export const setLanguage = (language) =>{
 
 }
 
+export const setTipsData = (data) =>{
+    return {
+        type: "SET_DATA",
+        payload: data
+
+    }
+}
+
 
 
 
