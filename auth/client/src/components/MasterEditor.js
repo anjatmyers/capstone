@@ -146,17 +146,9 @@ const setLanguage = (language) =>{
 
   return (
     <>
-    {/* <div className={program.style}>
-    <JS
-      language={program.language}
-      displayName={program.display}
-      value={program.value}
-
-      onChange={program.onChange}
-    /> */}
     {setLanguage(language)}
     
-    {/* </div> */}
+
     <div className="console" >
        <iframe className="iFrame"
         // value={javaScript}
