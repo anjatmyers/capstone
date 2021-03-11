@@ -235,7 +235,7 @@ export default function App() {
             <ListItemText primary={"SQL"}></ListItemText>
           </ListItem>
 
-          <ListItem button key={"5"} onClick={()=>dispatch(setLanguage("Shell"))}value="sql">
+          <ListItem button key={"5"} onClick={()=>dispatch(setLanguage("shell"))}value="shell">
             <ListItemIcon><DiTerminal /></ListItemIcon>
             <ListItemText primary={"Shell"}></ListItemText>
           </ListItem>

@@ -1,5 +1,5 @@
 {
-    "Javascript": [{
+    "javaScript": [{
         "Tip": "To comment out code, use two forward slashes //.  Make use of comments to better explain your code and make it easier for other developers to see where work may be needed."
     }, {
         "Tip": "Know your variable types!  Use LET when setting a variable that you want to update without redeclaring it, CONST when you want to assign a specific, fixed value to a variable.  VAR is an older declaration that comes with some issues.  Be wary before using."
