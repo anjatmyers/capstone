@@ -5,6 +5,7 @@ import { signUp } from "../../actions/index";
 import { useHistory } from "react-router-dom";
 import { Grid, Paper, Avatar } from "@material-ui/core";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
+import {getURL} from '../../actions/index';
 
 const Signup = () => {
   const [email, setEmail] = useState("");
@@ -31,6 +32,10 @@ const Signup = () => {
       // call action
       //pass the email address and password to our action
       //dispatch(sinup(), cb)
+
+      // dispatch(getURL());
+
+
   
       dispatch(signUp({
         email: email,

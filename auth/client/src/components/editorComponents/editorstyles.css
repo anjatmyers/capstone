@@ -52,3 +52,9 @@
     height: 100px;
     margin-top: 5px;
 }
+
+.tipsList {
+    list-style: none;
+    color: white;
+
+}

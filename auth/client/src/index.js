@@ -14,7 +14,6 @@ import Login from "./components/auth/Login";
 import BaseLayout from './components/layout/BaseLayout';
 import "./assets/styles.scss";
 
-
 import {createStore, applyMiddleware, compose} from 'redux';
 import reduxThunk from 'redux-thunk';
 import {Provider} from 'react-redux';
@@ -64,6 +63,7 @@ const saveToLocalStorage = (reduxGlobalState) => {
 }
 
 
+
 const loadFromLocalStorage = (reduxGlobalState) => {
   const serializeState = localStorage.getItem('state');
 
@@ -76,6 +76,7 @@ const loadFromLocalStorage = (reduxGlobalState) => {
   }
 
 }
+
 
 
 

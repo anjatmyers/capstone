@@ -21,11 +21,14 @@ export default function EditorTemplate(props) {
 
     function handleChange(editor, data, value) {
         setInput(value)
+
     }
     // console.log(input);
     const saveFile = () => {
             console.log('need to get files')
         }
+
+    console.log(input)
 
   return (
     <div className={heading}>

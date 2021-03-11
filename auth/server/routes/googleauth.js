@@ -100,6 +100,7 @@ router.post('/completeAuth', requireAuth,(req, res) => {
               expiry_date : expiry_date
             })
           
+
           // res.json(token);
           console.log("successfully stored token in db")
           res.send('successful')
@@ -120,4 +121,12 @@ router.post('/completeAuth', requireAuth,(req, res) => {
 
 module.exports = router;
 
+
+
+
+
+
+    
+
+    
 
