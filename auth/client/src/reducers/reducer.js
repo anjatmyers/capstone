@@ -1,7 +1,9 @@
 import actionTypes from '../actions/actionTypes';
 
 const initialState = {
-    authenticated: ""
+    authenticated: "",
+    userid: "",
+    folderStatus: false
 }
 
 const reducerTemplate = (state = initialState, action) => {
@@ -12,6 +14,16 @@ const reducerTemplate = (state = initialState, action) => {
             return{
                 ...state,
                 authenticated: action.data //json web token 
+            }
+        case "USER_ID":
+            return{
+                ...state,
+                userid: action.data
+            }
+        case "CHANGE_STATUS":
+            return{
+                ...state,
+                folderStatus: action.data
             }
         default:
             return state;

@@ -13,6 +13,7 @@ module.exports = (sequelize, DataTypes) => {
       // define association here
       models.assess.belongsTo(models.user, {foreignKey: "id"})
       models.notes.belongsTo(models.user, {foreignKey: "id"})
+      models.folderIDs.belongsTo(models.user, {foreignKey: "id"})
     }
   };
   user.init({

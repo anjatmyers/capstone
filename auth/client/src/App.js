@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -15,12 +15,14 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
+import {Modal, Button} from 'react-bootstrap'
 import { DiJsBadge, DiPython, DiDatabase, DiHtml5 } from "react-icons/di";
-import {useDispatch} from 'react-redux';
-import {getURL} from './actions/index';
+import {useDispatch, useSelector} from 'react-redux';
+import {getURL, folderStatus} from './actions/index';
 import {Link} from 'react-router-dom'
 
 const drawerWidth = 240;
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -85,6 +87,10 @@ export default function App() {
   const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
 
+  const hasFolders = useSelector(state => state.auth.folderStatus);
+  dispatch(folderStatus(false))
+  console.log(hasFolders)
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -97,6 +103,20 @@ export default function App() {
   const handleDocs = () => {
     dispatch(getURL());
   }
+
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const handleDownload = () => {
+    
+    // dispatch(folderStatus(true))
+
+    dispatch(getURL());
+
+  }
+  
 
   return (
     <div className={classes.root}>
@@ -179,6 +199,36 @@ export default function App() {
         <Typography paragraph>
           Resources Can go here
         </Typography>
+        {
+          hasFolders === false
+          ?
+          <button type="button" onClick={handleShow}>
+            Open Modal
+          </button>
+          :
+          <h4>Your folders are set up!</h4> 
+        }
+
+        <Modal show={show} className="modal-info">
+          <Modal.Dialog className="p-0 m-0">
+            <Modal.Header closeButton onClick={handleClose}>
+              <Modal.Title className="row d-flex justify-content-center">
+                <div className="modal-title text-center"></div>
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <div className="row d-flex justify-content-center m-2">
+                Have you downloaded your folders yet?
+              </div>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="primary" onClick={handleDownload}>Download</Button>
+              <Button variant="secondary" onClick={handleClose}>Close</Button>
+            </Modal.Footer>
+          </Modal.Dialog>
+        </Modal>
+        
+        
 
         <button onClick={handleDocs}>Get Google Docs</button>
         <p><Link to="/feature">Go to page 2</Link></p>

@@ -49,12 +49,15 @@ export const signUp = (formData, cb) => {
             let response = await axios.post('http://localhost:3001/signup', formData) //formdata will put on header
 
             console.log(response.data.token);//token
+            console.log(response.data.id[0].id)
 
             //dispatch action to reducer 
 
             dispatch({type: "AUTH_USER", data: response.data.token});
+            dispatch({type: "USER_ID", data: response.data.id[0].id});
 
             localStorage.setItem('token', response.data.token);
+            localStorage.setItem('id', response.data.id[0].id);
 
             cb();
 
@@ -76,9 +79,11 @@ export const signIn = (formData, cb) => {
             let response = await axios.post('http://localhost:3001/signin', formData);
 
             dispatch({type: "AUTH_USER", data: response.data.token});
+            dispatch({type: "USER_ID", data: response.data.id[0].id});
 
             console.log('signin', response.data.token);
             localStorage.setItem('token', response.data.token);
+            localStorage.setItem('id', response.data.id[0].id);
 
             cb();
         }
@@ -99,12 +104,26 @@ export const signOut = (cb) => {
             data: ''
         })
 
+        localStorage.removeItem('id');
+        dispatch({
+            type: "USER_ID",
+            data: ''
+        })
+
         console.log('signing out');
 
         cb();
     }
       
     
+}
+
+export const folderStatus = (status) => {
+
+    return {
+        type: "CHANGE_STATUS",
+        data: status
+    }
 }
 
 

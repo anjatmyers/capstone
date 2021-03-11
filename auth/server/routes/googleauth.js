@@ -30,24 +30,37 @@ router.get('/googleAuth', (req, res) => {
               oAuth2Client.setCredentials(token);
               // Store the token to disk for later program executions
               // console.log(token.access_token, token.refresh_token, token.scope, token.token_type)
-              console.log(token)
-        
-            //   let storedToken = await db.auth.create({
-            //       token: token.access_token,
-            //       refresh_token: token.refresh_token,
-            //       scope: token.scope,
-            //       token_type: token.token_type
-            //   })
+              // console.log(token)
+ 
+            console.log("+++++++++++++++++++")
+            console.log(token)
+            console.log("====================")
+            console.log(token.access_token)
+              // let storedToken = await db.auth.create({
+              //     token: token.access_token,
+              //     refresh_token: token.refresh_token,
+              //     scope: token.scope,
+              //     token_type: token.token_type
+              // })
 
             // let userToken = await db.auth.findAll({where: {id: 21}}, {raw: true})
             // console.log(userToken[0].dataValues.token)
 
             // console.log(drive.listFiles(userToken[0].dataValues.token));
             drive.listFiles(oAuth2Client);
+            console.log('------------------------------');
+            drive.listFiles(token.access_token);
             // console.log(drive.createFile(oAuth2Client));
+            // drive.createJSFolder(oAuth2Client);
+            // drive.createPYFolder(oAuth2Client);
+            // drive.createHTMLCSSFolder(oAuth2Client);
+            // drive.createSQLFolder(oAuth2Client);
+            // drive.createNotesFolder(oAuth2Client);
             
             
             });
+
+        // res.redirect('http://localhost:3000/')
 
         
     }
