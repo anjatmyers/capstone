@@ -41,12 +41,17 @@ router.get('/', requireAuth, (req, res) => {
 
 
 // SIGNING IN with credentials: insert passport middleware that will either allow them to have a token or divert them somewhere else 
-router.post('/signin', requireSignIn, (req, res) => {
+router.post('/signin', requireSignIn, async (req, res) => {
+
+    let email = req.body.email;
+    
+    let userID = await db.user.findAll({where: {email: email}}, {raw:true})
+    console.log(userID[0].dataValues.id)
     
     // validate user
     // send back a token 
     
-    res.json({token: token(req.user)})
+    res.json({token: token(req.user), id: userID})
 })
 
 
@@ -70,10 +75,11 @@ router.post('/signup', async (req, res) => {
     if(records.length === 0){
         // add new record
         let user = await db.user.create({email: email, password: password});
-        
+        let userID = await db.user.findAll({where: {email: email}}, {raw:true})
+        console.log(userID[0].dataValues.id)
         let jwtToken = token(user)
         // return jwt, pass it back to client
-        return res.json({token: jwtToken})
+        return res.json({token: jwtToken, id: userID})
     }
     else{
         // send back an error to the front end since the email exists

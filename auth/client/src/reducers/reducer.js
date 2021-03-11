@@ -3,6 +3,8 @@ import actionTypes from '../actions/actionTypes';
 
 const initialState = {
     authenticated: "",
+    userid: "",
+    folderStatus: false,
     language: ""
 }
 
@@ -14,6 +16,16 @@ const reducerTemplate = (state = initialState, action) => {
             return{
                 ...state,
                 authenticated: action.data //json web token 
+            }
+        case "USER_ID":
+            return{
+                ...state,
+                userid: action.data
+            }
+        case "CHANGE_STATUS":
+            return{
+                ...state,
+                folderStatus: action.data
             }
         case "CHANGE_LANGUAGE":
             return{
