@@ -22,6 +22,10 @@ export default function EditorTemplate(props) {
     function handleChange(editor, data, value) {
         setInput(value)
     }
+    // console.log(input);
+    const saveFile = () => {
+            console.log('need to get files')
+        }
 
   return (
     <div className={heading}>
@@ -41,7 +45,9 @@ export default function EditorTemplate(props) {
              lineNumbers: true
          }}
         />
+
     </div>
+    {/* <button onClick={saveFile}>Save to Google Drive</button> */}
     </div>
   );
 }

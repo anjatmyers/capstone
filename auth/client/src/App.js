@@ -126,7 +126,8 @@ export default function App() {
     console.log(language);
     dispatch(setLanguage(language))
   }
-  
+
+
 
   return (
     <div className={classes.root}>
@@ -209,7 +210,7 @@ export default function App() {
       >
         <div className={classes.drawerHeader} />
         
-        <div classname="mainWindow">
+        <div className="mainWindow">
 
           <MasterEditor className="mainWindow"/>
 
@@ -219,6 +220,7 @@ export default function App() {
 
         <button onClick={handleDocs}>Get Google Docs</button>
         <button onClick={getFiles}>Get Files</button>
+        {/* <button onClick={()=>saveFile}>Save to Google Drive</button> */}
         <p><Link to="/feature">Go to page 2</Link></p>
         <br></br>
         <p><Link to="/signout">Sign Out</Link></p>
