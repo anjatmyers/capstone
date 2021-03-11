@@ -1,0 +1,22 @@
+{
+    "Javascript": [{
+        "Tip": "To comment out code, use two forward slashes //.  Make use of comments to better explain your code and make it easier for other developers to see where work may be needed."
+    }, {
+        "Tip": "Know your variable types!  Use LET when setting a variable that you want to update without redeclaring it, CONST when you want to assign a specific, fixed value to a variable.  VAR is an older declaration that comes with some issues.  Be wary before using."
+    }, {
+        "Tip": "When JavaScript is used by itself, it's often called 'vanilla'.  Often, though, it is used with a library,  like NODE.js, REACT, or ANGULAR."
+    }, {
+        "Tip": "ES is often shorthand for 'ECMA SCRIPT', which is a JavaScript standard to ensure web pages behave similiarly across different browsers.  This makes sure that developers don't have to write completely different code for each individual browser!"
+    }, {
+        "Tip": "Mind your equal signs!  '=' sets a value to a variable. '==' checks if two values are equal to each other. '===' checks if the values not only equal each other, but if they are the same data type."
+    }, {
+        "Tip": "Logging data to the console?  Consider using 'console.table' as opposed to 'console.log'."
+    }, {
+        "Tip": "JavaScript arrays are zero-indexed.  Meaning that the first value is at position 0, not position 1.  So an array of numbers [5, 7, 90, 3] would have 5 at index 0, and 90 at index 2."
+    }, {
+        "Tip": "Know your Scope!  GLOBAL scope are variables that are declared in the main body of a document, and can be accessed by all scripts and functions on a page.  LOCAL scope refers to variables declared inside of a function, then discarded after the function runs."
+    }, {
+        "Tip": "Internet browsers have their own JavaScript engines built into them!  V8 powers Google Chrome, SpiderMonkey comes in FireFox, JavaScriptCore runs Apple's Safari Browser, and Chekra is the engine originally implemented in Microsoft Internet Explorer."
+    }
+]
+}
