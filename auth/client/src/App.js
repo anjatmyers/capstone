@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import React, {useState} from 'react';
+=======
+import React, { useState } from 'react';
+>>>>>>> main
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -17,9 +21,18 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import {Modal, Button} from 'react-bootstrap'
 import { DiJsBadge, DiPython, DiDatabase, DiHtml5 } from "react-icons/di";
+<<<<<<< HEAD
 import {useDispatch, useSelector} from 'react-redux';
 import {getURL, folderStatus} from './actions/index';
+=======
+import {useDispatch} from 'react-redux';
+
+import {getURL} from './actions/index'
+import {setLanguage} from './actions/index'
+
+>>>>>>> main
 import {Link} from 'react-router-dom'
+
 
 const drawerWidth = 240;
 
@@ -104,6 +117,7 @@ export default function App() {
     dispatch(getURL());
   }
 
+<<<<<<< HEAD
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
@@ -118,6 +132,13 @@ export default function App() {
   }
   
 
+=======
+  const handleClick = (language) => {
+    console.log(language);
+    dispatch(setLanguage(language))
+  }
+  
+>>>>>>> main
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -157,23 +178,23 @@ export default function App() {
           </IconButton>
         </div>
         <Divider />
-        <List>
-        <ListItem button key={"dfkjad"}>
+        <List >
+        <ListItem button key={"dfkjad"} onClick={()=>dispatch(setLanguage("javaScript"))} value="javaScript">
             <ListItemIcon><DiJsBadge /></ListItemIcon>
             <ListItemText primary={"JavaScript"}></ListItemText>
           </ListItem>
 
-          <ListItem button key={"dfkjad"}>
+          <ListItem button key={"dfkjad"} onClick={()=>dispatch(setLanguage("python"))}value="python">
             <ListItemIcon><DiPython /></ListItemIcon>
             <ListItemText primary={"Python"}></ListItemText>
           </ListItem>
 
-          <ListItem button key={"dfkjad"}>
+          <ListItem button key={"dfkjad"} onClick={()=>dispatch(setLanguage("html"))}value="html">
             <ListItemIcon><DiHtml5 /></ListItemIcon>
             <ListItemText primary={"HTML/CSS"}></ListItemText>
           </ListItem>
 
-          <ListItem button key={"dfkjad"}>
+          <ListItem button key={"dfkjad"} onClick={()=>dispatch(setLanguage("sql"))}value="sql">
             <ListItemIcon><DiDatabase /></ListItemIcon>
             <ListItemText primary={"SQL"}></ListItemText>
           </ListItem>

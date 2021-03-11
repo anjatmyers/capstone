@@ -1,0 +1,54 @@
+.editor-title {
+    text-align: center;
+    padding-top: 2px;
+
+}
+
+.top-pane {
+    background-color: rgb(34, 34, 34);
+    color: #f7df1e;
+   
+
+}
+.py-top-pane {
+    background-color: #3776ab;
+    color: #f7df1e;
+   
+
+}
+.xml-top-pane {
+    background-color: rgb(230, 10, 10);
+}
+
+.css-top-pane {
+    background-color: rgb(69, 38, 245);
+    color: white;
+}
+
+.shell-top-pane {
+    background-color: rgb(19, 1, 1);
+    color: white;
+}
+
+.sql-top-pane {
+    background-color: rgb(204, 99, 0);
+    color: white;
+}
+.code-mirror-wrapper {
+    border: black;
+}
+.runButton {
+    display: flex;
+    float: right;
+    margin-top: 20px;
+}
+
+.iFrame {
+    display: none;
+}
+
+.notes-section{
+    width: 100%;
+    height: 100px;
+    margin-top: 5px;
+}

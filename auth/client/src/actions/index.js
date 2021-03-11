@@ -127,6 +127,13 @@ export const folderStatus = (status) => {
 }
 
 
+export const setLanguage = (language) =>{
+    return {
+        type: "CHANGE_LANGUAGE",
+        language: language
+    }
+
+}
 
 
 
