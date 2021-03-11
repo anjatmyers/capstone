@@ -1,5 +1,5 @@
 {
-    "SQL": [{
+    "sql": [{
         "Tip": "SQL stands for Structured Query Language, and is the primary language used for working with relational databases."
     }, {
         "Tip": "CRUD = Create Read Update Delete.  A good database makes it easy to do all of these things."

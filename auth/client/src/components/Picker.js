@@ -18,12 +18,35 @@ const Picker = () => {
     // Scope to use to access user's Drive items.
     var SCOPE = ['https://www.googleapis.com/auth/drive'];
 
+    // function pickerCallback(data) {
+    //     function pickerCallback(data) {
+    //         if (data.action == google.picker.Action.PICKED) {
+    //           var fileId = data.docs[0].id;
+    //           alert('The user selected: ' + fileId);
+    //         }
+    //       }
+    //   }
 
-    
 
   return (
     <>
       <div className="container">
+      {/* <GooglePicker clientId={CLIENT_ID}
+                    developerKey={DEVELOPER_KEY}
+                    scope={SCOPE}
+                    onChange={data => console.log('on change:', data)}
+                    onAuthFailed={data => console.log('on auth failed:', data)}
+                    multiselect={true}
+                    navHidden={true}
+                    authImmediate={false}
+                    mimeTypes={['image/png', 'image/jpeg', 'image/jpg']}
+                    viewId={'DOCS'}>
+        <span>Click me!</span>
+        <div className="google"></div>
+      </GooglePicker> */}
+        <br/>
+        <hr/>
+        <br/>
         <GooglePicker clientId={CLIENT_ID}
                       developerKey={DEVELOPER_KEY}
                       scope={SCOPE}
@@ -41,17 +64,25 @@ const Picker = () => {
                               .setSelectFolderEnabled(true);
 
                           const picker = new window.google.picker.PickerBuilder()
-                              .addView(docsView)
-                              .setOAuthToken(oauthToken)
-                              .setDeveloperKey(DEVELOPER_KEY)
-                              .setCallback(()=>{
-                                console.log('Custom picker is ready!');
-                              });
+                            .addView(docsView)
+                            .setOAuthToken(oauthToken)
+                            .setDeveloperKey(DEVELOPER_KEY)
+                            //   .setCallback(()=>{
+                            //     console.log('Custom picker is ready!');
+                            //   });
+                            .setCallback((data) => {
+
+                                if (data.action == google.picker.Action.PICKED) {
+                                var fileId = data.docs[0].id;
+                                alert('The user selected: ' + fileId);
+                                }
+                            }
+                            )
 
                           picker.build().setVisible(true);
                       }}
         >
-            <button>Click Picker</button>
+            <span>Click for Picker</span>
             <div className="google"></div>
         </GooglePicker>
     </div>
@@ -60,3 +91,14 @@ const Picker = () => {
 }
 
 export default Picker
+
+
+// .setCallback((data) => {
+
+//     if (data.action == google.picker.Action.PICKED) {
+//       var fileId = data.docs[0].id;
+//       alert('The user selected: ' + fileId);
+//     }
+
+// }
+// )

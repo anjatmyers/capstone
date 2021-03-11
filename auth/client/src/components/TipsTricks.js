@@ -14,22 +14,21 @@ let tipsLanguage = useSelector((state => state.auth.language))
 console.log(tipsLanguage)
 
 
-
-
 // SET VARIABLE TO CHANGE JSON FILE RETREIVAL TO EQUAL STATE
 
 useEffect(()=>{
     const getData = () =>{ //Eventually, set ("javaScript.json") to (`${tips}.json`) to change with state
         axios.get(`TipsTricks/${tipsLanguage}.json`)
-        .then(res =>{
-            console.log(res);
-            setTips(res.data.Python);
-            console.log(res.data.Python)
+         .then(res =>{
+          console.log(res.data[tipsLanguage])  
+         setTips(res.data[tipsLanguage]);
         }).catch(error =>(console.log('there was an error')))
     }
 
     getData();
 }, [tipsLanguage])
+
+console.log(tips)
 
 let displayTipsTricks = tips.map(tips =>{
     return <li>{tips.Tip}</li>
