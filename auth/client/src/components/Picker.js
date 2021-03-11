@@ -31,7 +31,7 @@ const Picker = () => {
   return (
     <>
       <div className="container">
-      {/* <GooglePicker clientId={CLIENT_ID}
+      <GooglePicker clientId={CLIENT_ID}
                     developerKey={DEVELOPER_KEY}
                     scope={SCOPE}
                     onChange={data => console.log('on change:', data)}
@@ -39,11 +39,11 @@ const Picker = () => {
                     multiselect={true}
                     navHidden={true}
                     authImmediate={false}
-                    mimeTypes={['image/png', 'image/jpeg', 'image/jpg']}
+                    mimeTypes={['text/plain', 'application/vnd.google-apps.file', 'application/vnd.google-apps.folder']}
                     viewId={'DOCS'}>
         <span>Click me!</span>
         <div className="google"></div>
-      </GooglePicker> */}
+      </GooglePicker>
         <br/>
         <hr/>
         <br/>
@@ -55,12 +55,12 @@ const Picker = () => {
                       multiselect={true}
                       navHidden={true}
                       authImmediate={false}
-                      viewId={'FOLDERS'}
+                      viewId={'DOCS'}
                       createPicker={ (google, oauthToken) => {
-                          const googleViewId = google.picker.ViewId.FOLDERS;
+                          const googleViewId = google.picker.ViewId.DOCS;
                           const docsView = new google.picker.DocsView(googleViewId)
                               .setIncludeFolders(true)
-                              .setMimeTypes('application/vnd.google-apps.folder')
+                              .setMimeTypes(['text/plain', 'application/vnd.google-apps.file', 'application/vnd.google-apps.folder'])
                               .setSelectFolderEnabled(true);
 
                           const picker = new window.google.picker.PickerBuilder()
