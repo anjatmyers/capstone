@@ -7,7 +7,8 @@ import Signin from './components/auth/Signin';
 import Signout from './components/auth/Signout';
 import Signup from './components/auth/Signup';
 
-import MasterEditor from './components/MasterEditor'
+import MasterEditor from './components/MasterEditor';
+import CompleteCallback from './components/CompleteCallback';
 import Login from "./components/auth/Login";
 
 import BaseLayout from './components/layout/BaseLayout';
@@ -61,12 +62,7 @@ const saveToLocalStorage = (reduxGlobalState) => {
 
 
 }
-const loadFromLocalStorage = (reduxGlobalState) => {
-  
-  const serializeState = localStorage.getItem('state');
 
-
-}
 
 const loadFromLocalStorage = (reduxGlobalState) => {
   const serializeState = localStorage.getItem('state');
@@ -78,7 +74,6 @@ const loadFromLocalStorage = (reduxGlobalState) => {
     return JSON.parse(serializeState);
     // returns a JS object representing local storage
   }
-
 
 }
 
@@ -124,7 +119,7 @@ ReactDOM.render(
 
             {/* <Route path='/signin' component={Signin}/> */}
             <Route path='/login' component={Login}/>
-
+            <Route path='/completecallback/:code' component={CompleteCallback}/>
 
           </Switch>
       </ThemeProvider>
