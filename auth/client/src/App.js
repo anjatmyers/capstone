@@ -16,7 +16,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Button from "@material-ui/core/Button"
-import {Modal, Button} from 'react-bootstrap'
+// import {Modal, Button} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux';
 import {getURL, folderStatus} from './actions/index';
 
@@ -263,7 +263,7 @@ export default function App() {
         <Typography paragraph>
           Resources Can go here
         </Typography>
-        {
+        {/* {
           hasFolders === false
           ?
           <button type="button" onClick={handleShow}>
@@ -290,7 +290,7 @@ export default function App() {
               <Button variant="secondary" onClick={handleClose}>Close</Button>
             </Modal.Footer>
           </Modal.Dialog>
-        </Modal>
+        </Modal> */}
 
         
         <div>
@@ -306,7 +306,7 @@ export default function App() {
         <br></br>
         <p><Link to="/signout">Sign Out</Link></p>
 
-        {/* <Picker /> */}
+        <Picker />
 
       </main>
       {/* End of main content window */}
