@@ -14,7 +14,7 @@ const Login = () => {
 
   const paperStyle = {
     padding: 20,
-    height: "70vh",
+    height: 450,
     width: 350,
     margin: "20px auto",
   };
