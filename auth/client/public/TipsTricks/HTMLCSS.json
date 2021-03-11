@@ -1,0 +1,18 @@
+{
+    "HTML/CSS": [{
+        "Tip": "HTML (HyperText Markup Language) and CSS (Cascading StyleSheets) make up a huge chunk of the internet as we know it!"
+    }, {
+        "Tip": "You can use CSS on it's own to style your pages, or you can use a library or framework to enhance your look!  Some popular ones include Bootstrap, Material UI, Tailwind or SASS." 
+    }, {
+        "Tip": "When using FlexBox, make sure you keep your opening and closing DIV tags in their proper order!  A missing tag can result in a lot of backtracking!"
+    }, {
+        "Tip": "UI = User Interface, UX = User Experience"
+    }, {
+        "Tip": "Don't forget to LINK your style sheet in the header of your HTML document! "
+    }, {
+        "Tip": "On a CSS sheet, an ID tag is noted by a '#', while a CLASS is noted by a '.' before the indicator."
+    }, {
+        "Tip": "When adding JavaScript 'Script' tags to your HTML page, it's usually best practice to place them at the bottom of your document, above the closing 'body' tag!"
+    }
+]
+}
