@@ -15,8 +15,9 @@ const db = require('../models')
 let oAuth2Client = {}
 
 router.get('/googleAuth', (req, res) => {
-    res.send(req.query.code)
+    // res.send(req.query.code)
     let code = req.query.code;
+   
     
     try{
 
@@ -28,21 +29,12 @@ router.get('/googleAuth', (req, res) => {
           oAuth2Client.getToken(code, async (err, token) => {
               if (err) return console.error("Error retrieving access token", err);
               oAuth2Client.setCredentials(token);
-              // Store the token to disk for later program executions
-
-              // let storedToken = await db.auth.create({
-              //     token: token.access_token,
-              //     refresh_token: token.refresh_token,
-              //     scope: token.scope,
-              //     token_type: token.token_type
-              // })
-
-            // let userToken = await db.auth.findAll({where: {id: 21}}, {raw: true})
-            // console.log(userToken[0].dataValues.token)
             
             });
 
-        // res.redirect('http://localhost:3000/')
+            });
+
+    
 
         
     }
@@ -71,13 +63,15 @@ router.post('/getURL', (req, res) => {
               client_secret,
               redirect_uris[0]
             );
-            console.log(oAuth2Client)
+            console.log("oAuth2Client: 82",oAuth2Client)
             // Check if we have previously stored a token.
             fs.readFile(TOKEN_PATH, (err, token) => {
               if (err) return getNewToken(oAuth2Client, callback);
               oAuth2Client.setCredentials(JSON.parse(token));
+              
               callback(oAuth2Client);
             });
+            
           }
 
           
