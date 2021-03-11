@@ -16,17 +16,21 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Button from "@material-ui/core/Button"
+import {Modal, Button} from 'react-bootstrap'
+import {useDispatch, useSelector} from 'react-redux';
+import {getURL, folderStatus} from './actions/index';
+
 import MasterEditor from "./components/MasterEditor"
 import { DiJsBadge, DiPython, DiDatabase, DiHtml5, DiTerminal } from "react-icons/di";
-import {useDispatch} from 'react-redux';
-
-import {getURL} from './actions/index'
 import {setLanguage} from './actions/index'
 
+
 import {Link} from 'react-router-dom'
+import Picker from './components/Picker';
 
 
 const drawerWidth = 240;
+
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -103,6 +107,10 @@ export default function App() {
   const [open, setOpen] = React.useState(false);
   const dispatch = useDispatch();
 
+  const hasFolders = useSelector(state => state.auth.folderStatus);
+  // dispatch(folderStatus(false))
+  console.log(hasFolders)
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -120,6 +128,17 @@ export default function App() {
     console.log(language);
     dispatch(setLanguage(language))
   }
+
+  const [show, setShow] = useState(false);
+
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const handleDownload = () => {
+    dispatch(folderStatus(true))
+  }
+  
   
 
   return (
@@ -218,17 +237,56 @@ export default function App() {
         })}
       >
         <div className={classes.drawerHeader} />
+
+        <Typography paragraph>
+          Note Taking Goes Here
+        </Typography>
+        <Typography paragraph>
+          Resources Can go here
+        </Typography>
+        {
+          hasFolders === false
+          ?
+          <button type="button" onClick={handleShow}>
+            Open Modal
+          </button>
+          :
+          <h4>Your folders are set up!</h4> 
+        }
+
+        <Modal show={show} className="modal-info">
+          <Modal.Dialog className="p-0 m-0">
+            <Modal.Header closeButton onClick={handleClose}>
+              <Modal.Title className="row d-flex justify-content-center">
+                <div className="modal-title text-center"></div>
+              </Modal.Title>
+            </Modal.Header>
+            <Modal.Body>
+              <div className="row d-flex justify-content-center m-2">
+                Have you downloaded your folders yet?
+              </div>
+            </Modal.Body>
+            <Modal.Footer>
+              <Button variant="primary" onClick={handleDownload}>Download</Button>
+              <Button variant="secondary" onClick={handleClose}>Close</Button>
+            </Modal.Footer>
+          </Modal.Dialog>
+        </Modal>
+
         
         <div>
 
           <MasterEditor/>
 
         </div>
+
         
         <button onClick={handleDocs}>Get Google Docs</button>
         <p><Link to="/feature">Go to page 2</Link></p>
         <br></br>
         <p><Link to="/signout">Sign Out</Link></p>
+
+        {/* <Picker /> */}
 
       </main>
       {/* End of main content window */}

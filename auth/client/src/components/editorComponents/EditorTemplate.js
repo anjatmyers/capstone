@@ -21,7 +21,10 @@ export default function EditorTemplate(props) {
 
     function handleChange(editor, data, value) {
         setInput(value)
+
     }
+
+    console.log(input)
 
   return (
     <div className={heading}>

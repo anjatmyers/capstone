@@ -9,6 +9,10 @@ app.use(function(req, res, next) {
   });
 //   ^ this middleware will allow access for all CORS
 
+app.set('view engine', 'ejs')
+
+app.use(express.static('public'));
+
 
 app.use(require('./routes/authentications'));
 app.use(require('./routes/googleauth'));
