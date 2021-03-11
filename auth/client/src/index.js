@@ -68,6 +68,7 @@ const loadFromLocalStorage = (reduxGlobalState) => {
 
 }
 
+
 const loadFromLocalStorage = (reduxGlobalState) => {
   const serializeState = localStorage.getItem('state');
 
@@ -81,6 +82,7 @@ const loadFromLocalStorage = (reduxGlobalState) => {
 
 
 }
+
 
 
 

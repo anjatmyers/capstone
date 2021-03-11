@@ -29,31 +29,13 @@ router.get('/googleAuth', (req, res) => {
           oAuth2Client.getToken(code, async (err, token) => {
               if (err) return console.error("Error retrieving access token", err);
               oAuth2Client.setCredentials(token);
-
-              // console.log("token: 32",token)
-              // Store the token to disk for later program executions
-              // console.log(token.access_token, token.refresh_token, token.scope, token.token_type)
-              // console.log("stringified token: 35", JSON.stringify(token))
-              // console.log('Oauth2Client: 36',oAuth2Client)
-        
-            //   let storedToken = await db.googleTokens.create({
-            //       id: 1,
-            //       token: JSON.stringify(token),
-            //   })
-
-            // let userToken = await db.googleTokens.findAll({where: {id: 1}}, {raw: true})
-            // console.log(userToken)
-            // console.log(userToken[0].dataValues.token)
-
-            // console.log(drive.listFiles(userToken[0].dataValues.token));
-            // drive.listFiles(oAuth2Client);
-            // console.log(drive.createFile(oAuth2Client));
             
-            // res.json(token)
-            // res.redirect("http://localhost:3000/home")
+            });
+
             });
 
     
+
         
     }
     catch(error){
