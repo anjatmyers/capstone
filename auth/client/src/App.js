@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React, {useState} from 'react';
-=======
 import React, { useState } from 'react';
->>>>>>> main
 import clsx from 'clsx';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
@@ -21,17 +17,13 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import {Modal, Button} from 'react-bootstrap'
 import { DiJsBadge, DiPython, DiDatabase, DiHtml5 } from "react-icons/di";
-<<<<<<< HEAD
 import {useDispatch, useSelector} from 'react-redux';
 import {getURL, folderStatus} from './actions/index';
-=======
-import {useDispatch} from 'react-redux';
-
-import {getURL} from './actions/index'
 import {setLanguage} from './actions/index'
 
->>>>>>> main
+
 import {Link} from 'react-router-dom'
+import Picker from './components/Picker';
 
 
 const drawerWidth = 240;
@@ -101,7 +93,7 @@ export default function App() {
   const dispatch = useDispatch();
 
   const hasFolders = useSelector(state => state.auth.folderStatus);
-  dispatch(folderStatus(false))
+  // dispatch(folderStatus(false))
   console.log(hasFolders)
 
   const handleDrawerOpen = () => {
@@ -117,28 +109,22 @@ export default function App() {
     dispatch(getURL());
   }
 
-<<<<<<< HEAD
+  const handleClick = (language) => {
+    console.log(language);
+    dispatch(setLanguage(language))
+  }
+
   const [show, setShow] = useState(false);
+
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const handleDownload = () => {
-    
-    // dispatch(folderStatus(true))
-
-    dispatch(getURL());
-
+    dispatch(folderStatus(true))
   }
   
-
-=======
-  const handleClick = (language) => {
-    console.log(language);
-    dispatch(setLanguage(language))
-  }
   
->>>>>>> main
   return (
     <div className={classes.root}>
       <CssBaseline />
@@ -255,6 +241,8 @@ export default function App() {
         <p><Link to="/feature">Go to page 2</Link></p>
         <br></br>
         <p><Link to="/signout">Sign Out</Link></p>
+
+        {/* <Picker /> */}
 
       </main>
     </div>

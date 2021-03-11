@@ -183,6 +183,17 @@ function createSQLFolder(auth){
 
 }
 
+function trashFile(fileId) {
+
+    const drive = google.drive({version: 'v3', auth});
+
+    let request = drive.files.trash({
+      'fileId': fileId
+    });
+    request.execute(function(resp) { });
+    console.log("File moved to trash: ", fileId )
+  }
+
 
 const drive = {
     listFiles,
@@ -191,7 +202,8 @@ const drive = {
     createJSFolder,
     createPYFolder,
     createHTMLCSSFolder,
-    createSQLFolder
+    createSQLFolder,
+    trashFile
 }
 
 module.exports = drive;
