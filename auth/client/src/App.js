@@ -26,7 +26,11 @@ import {setLanguage} from './actions/index'
 
 
 import {Link} from 'react-router-dom'
+
+import axios from 'axios';
+
 import Picker from './components/Picker';
+
 
 
 const drawerWidth = 240;
@@ -122,6 +126,21 @@ export default function App() {
 // function for google docs button
   const handleDocs = () => {
     dispatch(getURL());
+  }
+  const getFiles = () => {
+    
+    const files = async () => {
+      
+      let response = await axios.post('http://localhost:3001/files', {}, {
+        headers: {
+        "content-type": "application/json",
+        authorization: localStorage.getItem('token'),
+        }})
+
+        console.log(response.data)
+    }
+    files();
+    
   }
 
   const handleClick = (language) => {
@@ -282,6 +301,7 @@ export default function App() {
 
         
         <button onClick={handleDocs}>Get Google Docs</button>
+        <button onClick={getFiles}>Get Files</button>
         <p><Link to="/feature">Go to page 2</Link></p>
         <br></br>
         <p><Link to="/signout">Sign Out</Link></p>
