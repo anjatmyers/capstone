@@ -1,0 +1,14 @@
+{
+    "sql": [{
+        "Tip": "SQL stands for Structured Query Language, and is the primary language used for working with relational databases."
+    }, {
+        "Tip": "CRUD = Create Read Update Delete.  A good database makes it easy to do all of these things."
+    }, {
+        "Tip": "There are many different dialects of SQL, including MySQL, PostresQL, ORACLE, and MSSQL.  Most of the syntax is the same but there are some differences."
+    }, {
+        "Tip": "A PRIMARY KEY identify records on a table, while a FORIEGN KEY establishes the relationship between different tables."
+    }, {
+        "Tip": "An outline, or map, of a database is often referred to as a SCHEMA."
+    }
+]
+}

@@ -35,7 +35,7 @@
     color: white;
 }
 .code-mirror-wrapper {
-    border: black;
+    border: 1px solid black;
 }
 .runButton {
     display: flex;

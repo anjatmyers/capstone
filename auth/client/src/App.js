@@ -13,6 +13,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
+import Grid from "@material-ui/core/Grid"
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Button from "@material-ui/core/Button"
@@ -32,6 +33,7 @@ import axios from 'axios';
 import DeleteFile from './components/pickerComponents/DeleteFile';
 import UpdateFile from './components/pickerComponents/UpdateFile';
 
+import Resources from "./components/Resources"
 
 
 const drawerWidth = 240;
@@ -84,6 +86,7 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.leavingScreen,
     }),
     marginLeft: -drawerWidth,
+    marginTop: theme.spacing(3),
   },
   contentShift: {
     transition: theme.transitions.create('margin', {
@@ -101,6 +104,16 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     width: "100%",
     
+  },
+  toolbar: {
+    minHeight: 95,
+    alignItems: 'center',
+    paddingTop: theme.spacing(2),
+    paddingBottom: theme.spacing(2),
+  },
+  ListItemText:{
+    padding: theme.spacing(3),
+    fontSize: 20,
   }
 }));
 
@@ -173,7 +186,7 @@ export default function App() {
         })}
       >
 
-        <Toolbar>
+        <Toolbar className={classes.toolbar}>
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -244,8 +257,8 @@ export default function App() {
         </List>
         <Divider />
         <List>
-          <ListItem button key={"6"}>
-            <ListItemIcon><DiJsBadge /></ListItemIcon>
+          <ListItem button component={Link} to="/feature" key={"6"}>
+            <ListItemIcon> <DiJsBadge /></ListItemIcon> 
             <ListItemText primary={"Second List"}></ListItemText>
           </ListItem>
         </List>
@@ -258,47 +271,21 @@ export default function App() {
       >
         <div className={classes.drawerHeader} />
 
-        <Typography paragraph>
-          Note Taking Goes Here
-        </Typography>
-        <Typography paragraph>
-          Resources Can go here
-        </Typography>
-        {/* {
-          hasFolders === false
-          ?
-          <button type="button" onClick={handleShow}>
-            Open Modal
-          </button>
-          :
-          <h4>Your folders are set up!</h4> 
-        }
-
-        <Modal show={show} className="modal-info">
-          <Modal.Dialog className="p-0 m-0">
-            <Modal.Header closeButton onClick={handleClose}>
-              <Modal.Title className="row d-flex justify-content-center">
-                <div className="modal-title text-center"></div>
-              </Modal.Title>
-            </Modal.Header>
-            <Modal.Body>
-              <div className="row d-flex justify-content-center m-2">
-                Have you downloaded your folders yet?
-              </div>
-            </Modal.Body>
-            <Modal.Footer>
-              <Button variant="primary" onClick={handleDownload}>Download</Button>
-              <Button variant="secondary" onClick={handleClose}>Close</Button>
-            </Modal.Footer>
-          </Modal.Dialog>
-        </Modal> */}
-
+        <Grid
+  container
+  direction="column"
+  justify="flex-start"
+  alignItems="flex-start"
+>
         
-        <div>
-
+        <Grid item>
           <MasterEditor/>
+          </Grid>
+        
 
-        </div>
+        <Grid item>
+          <Resources />
+          </Grid>
 
         
         <button onClick={handleDocs}>Get Google Docs</button>
@@ -309,7 +296,7 @@ export default function App() {
 
         <DeleteFile />
         <UpdateFile />
-
+        </Grid>
       </main>
       {/* End of main content window */}
     </div>
