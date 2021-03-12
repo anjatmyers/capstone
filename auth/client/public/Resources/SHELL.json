@@ -1,0 +1,14 @@
+{
+    "shell": [{
+        "Link": "https://www.learnshell.org/"
+    }, {
+        "Link": "https://www.shellscript.sh/"
+    }, {
+        "Link": "https://tldp.org/LDP/abs/html/why-shell.html"
+    }, {
+        "Link": "https://devhints.io/bash"
+    }, {
+        "Link": "https://www.educative.io/blog/bash-shell-command-cheat-sheet"
+    }
+]
+}

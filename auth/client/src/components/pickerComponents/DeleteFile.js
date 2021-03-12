@@ -90,7 +90,8 @@ const DeleteFiles = () => {
                       }}
         >
 
-            <button>Delete File</button>
+            
+            <button className='btn btn-danger m-2'>Delete File</button>
 
             <div className="google"></div>
         </GooglePicker>

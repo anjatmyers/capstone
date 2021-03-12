@@ -175,6 +175,7 @@ router.post('/completeAuth', requireAuth,(req, res) => {
     let body = req.body.input
 
     const drive = await auth(id);
+
   
     // try{
 
@@ -240,6 +241,22 @@ router.post('/completeAuth', requireAuth,(req, res) => {
       //   break;
       default:
         console.log("Error saving the file")
+
+    let file = await drive.files.create({
+        requestBody: {
+            name: req.body.title,
+            mimeType: 'text/plain'
+          },
+          media: {
+            mimeType: 'text/plain',
+            body: req.body.input
+          }
+      })
+      res.send('new file created on google drive.')
+    }
+    catch(err){
+        res.send('could not make new file')
+
     }
 
     // const drive = await auth(id);

@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
+import Paper from "@material-ui/core/Paper"
 import axios from 'axios'
+
 import '../editorComponents/editorstyles.css'
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/material.css'
@@ -13,6 +15,7 @@ import {Controlled as ControlledEditor} from 'react-codemirror2'
 
 export default function EditorTemplate(props) {
     const [input, setInput] = useState('')
+    const [title, setTitle] = useState('')
 
     const {
         language,
@@ -29,8 +32,13 @@ export default function EditorTemplate(props) {
     const saveFile = () => {
 
         const files = async () => {
-            console.log(language)
-            let response = await axios.post(`http://localhost:3001/createFile/${language}`, {input}, {
+            
+            let response = await axios.post('http://localhost:3001/createFile',
+             {
+                input: input,
+                title: title
+            }, {
+
             headers: {
             "content-type": "application/json",
             authorization: localStorage.getItem('token'),
@@ -46,6 +54,7 @@ export default function EditorTemplate(props) {
 
   return (
     <div className={heading}>
+        
     <div className="editor-container">
         <div className="editor-title">
             <h3>{displayName}</h3>
@@ -59,16 +68,24 @@ export default function EditorTemplate(props) {
              lint: true,
              mode: language,
              theme: 'material',
-             lineNumbers: true
+             lineNumbers: true,
+             cursorBlinkRate: 900,
          }}
         />
 
     </div>
-    <input type="email" placeholder="Title this snippet"
-                // value={email}
-                // onChange={(e)=>setEmail(e.target.value)}
+
+    <input className="input m-2 p-1 " type="email" placeholder="Title this snippet"
+                value={title}
+                onChange={(e)=>setTitle(e.target.value)}
               />
-    <button onClick={saveFile}>Save to Google Drive</button>
+    <button className='btn btn-secondary m-2' onClick={saveFile}>Save to Google Drive</button>
+
+
+    
+
     </div>
+
+    
   );
 }

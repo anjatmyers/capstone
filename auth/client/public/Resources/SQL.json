@@ -1,0 +1,14 @@
+{
+    "sql": [{
+        "Link": "https://www.learnsql.com/"
+    }, {
+        "Link": "https://docs.microsoft.com/en-us/sql/?view=sql-server-ver15"
+    }, {
+        "Link": "https://www.ibm.com/cloud/learn/relational-databases"
+    }, {
+        "Link": "https://launchschool.com/books/sql/read/introduction"
+    }, {
+        "Link": "https://www.thebalancecareers.com/what-is-sql-and-uses-2071909"
+    }
+]
+}

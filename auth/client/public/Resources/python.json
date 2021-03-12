@@ -1,0 +1,14 @@
+{
+    "python": [{
+        "Link": "https://www.python.org/about/gettingstarted/"
+    }, {
+        "Link": "https://www.learnpython.org/"
+    }, {
+        "Link": "https://www.infoworld.com/article/3204016/what-is-python-powerful-intuitive-programming.html"
+    },  {
+        "Link": "https://www.infoworld.com/article/3008915/24-python-libraries-for-every-python-developer.html"
+    }, {
+        "Link": "https://towardsdatascience.com/best-python-libraries-for-every-python-developer-77daab4fa40e"
+    }
+]
+}
