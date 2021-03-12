@@ -33,10 +33,12 @@ export default function EditorTemplate(props) {
 
         const files = async () => {
             
+
             let response = await axios.post(`http://localhost:3001/createFile/${language}`,
+
              {
                 input: input,
-                title: title
+                title: title,
             }, {
 
             headers: {

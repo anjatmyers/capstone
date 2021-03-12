@@ -58,14 +58,15 @@ router.post('/update', async (req, res) => {
   
       const results = await drive.files.get({ 
         fileId: fileID, 
+        mimeType: 'text/plain'
       });
 
-      console.log(results.media)
-    // }
+      console.log("UPDATE***********", results.media)
 
-  //   catch(err){
-  //     res.send('error occurred')
-  //   }
+    // }
+    // catch(err){
+    //   res.send('error occurred')
+    // }
   
   })
 
@@ -243,39 +244,10 @@ router.post('/completeAuth', requireAuth,(req, res) => {
       default:
         console.log("Error saving the file")
 
-    // let file = await drive.files.create({
-    //     requestBody: {
-    //         name: req.body.title,
-    //         mimeType: 'text/plain'
-    //       },
-    //       media: {
-    //         mimeType: 'text/plain',
-    //         body: req.body.input
-    //       }
-    //   })
-    //   res.send('new file created on google drive.')
-    // }
-    // catch(err){
-    //     res.send('could not make new file')
 
     }
 
-    // const drive = await auth(id);
-    // let file = await drive.files.create({
-    //     requestBody: {
-    //         name: 'NEW FILE C',
-    //         mimeType: 'text/plain'
-    //       },
-    //       media: {
-    //         mimeType: 'text/plain',
-    //         body: req.body.input
-    //       }
-    //   })
-    //   res.send('new file created on google drive.')
-    // }
-    // catch(err){
-    //     res.send('could not make new file')
-    // }
+  
 })
 
 
