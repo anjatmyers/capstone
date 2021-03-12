@@ -29,7 +29,8 @@ import {Link} from 'react-router-dom'
 
 import axios from 'axios';
 
-import Picker from './components/Picker';
+import DeleteFile from './components/pickerComponents/DeleteFile';
+import UpdateFile from './components/pickerComponents/UpdateFile';
 
 
 
@@ -306,7 +307,8 @@ export default function App() {
         <br></br>
         <p><Link to="/signout">Sign Out</Link></p>
 
-        <Picker />
+        <DeleteFile />
+        <UpdateFile />
 
       </main>
       {/* End of main content window */}
