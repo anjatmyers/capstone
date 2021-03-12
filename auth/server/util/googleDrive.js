@@ -129,7 +129,7 @@ async function createPYFile(auth, body, id){
 
 }
 
-async function createJSFile(auth, body, id){
+async function createJSFile(auth, body, id, name){
 
     let parentFolder = await db.folderIDs.findAll({where: {id: id}}, {raw: true})
     console.log(parentFolder)
@@ -146,7 +146,7 @@ async function createJSFile(auth, body, id){
 
     let file = await auth.files.create({
         requestBody: {
-            name: date,
+            name: name,
             mimeType: 'text/plain',
             parents: [parentID]
           },

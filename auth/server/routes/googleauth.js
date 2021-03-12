@@ -173,6 +173,7 @@ router.post('/completeAuth', requireAuth,(req, res) => {
     let id = req.user.id
     let language = req.params.language
     let body = req.body.input
+    let name = req.body.title
 
     const drive = await auth(id);
 
@@ -197,7 +198,7 @@ router.post('/completeAuth', requireAuth,(req, res) => {
           await functions.createJSFolder(drive, id)
           console.log('JS Folder created!')
         }
-        await functions.createJSFile(drive, body, id)
+        await functions.createJSFile(drive, body, id, name)
         console.log('File created!')
         
         break;
@@ -242,20 +243,20 @@ router.post('/completeAuth', requireAuth,(req, res) => {
       default:
         console.log("Error saving the file")
 
-    let file = await drive.files.create({
-        requestBody: {
-            name: req.body.title,
-            mimeType: 'text/plain'
-          },
-          media: {
-            mimeType: 'text/plain',
-            body: req.body.input
-          }
-      })
-      res.send('new file created on google drive.')
-    }
-    catch(err){
-        res.send('could not make new file')
+    // let file = await drive.files.create({
+    //     requestBody: {
+    //         name: req.body.title,
+    //         mimeType: 'text/plain'
+    //       },
+    //       media: {
+    //         mimeType: 'text/plain',
+    //         body: req.body.input
+    //       }
+    //   })
+    //   res.send('new file created on google drive.')
+    // }
+    // catch(err){
+    //     res.send('could not make new file')
 
     }
 
