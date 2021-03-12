@@ -50,10 +50,87 @@
 .notes-section{
     width: 100%;
     height: 100px;
-    margin-top: 5px;
+    margin-top: 15px;
 }
 
-.tipsList {
-    
+.tipsDiv {
+    padding-top: 5px;
+}
 
+
+/*LISTS FOR TIPS AND TRICKS */
+.headlineJS {
+    background-color: rgb(34, 34, 34);
+    color: #f7df1e;
+    text-align: center;
+
+}
+.ULlistJS {
+    list-style: square;
+    background-color: #f7df1e;
+    color: rgb(34, 34, 34);
+    padding-bottom: 10px;
+
+}
+
+.headlinePY {
+    background-color: #3776ab;
+    color: #f7df1e;
+    text-align: center;
+}
+
+.ULlistPY {
+    list-style: square;
+    background-color: #f7df1e;
+    color: #3776ab;
+    padding-bottom: 10px;
+}
+
+.headlineSQL {
+    background-color: rgb(204, 99, 0);
+    color: white;
+    text-align: center;
+}
+
+.ULlistSQL {
+    background-color: white;
+    color: rgb(204, 99, 0);
+    list-style: square;
+    padding-bottom: 10px;
+}
+
+.headlineShell {
+    background-color: rgb(19, 1, 1);
+    color: white;
+    text-align: center;
+}
+
+.ULlistShell {
+    list-style: square;
+    padding-bottom: 10px;
+    color:rgb(19, 1, 1);
+    background-color: white;
+}
+
+.headlineHTMLCSS {
+    background-color: (rgb(230, 10, 10));
+    color:rgb(69, 38, 245);
+    text-align: center;
+}
+
+.ULlistHTMLCSS {
+    background-color: rgb(69, 38, 245);
+    color:white;
+    padding-bottom: 10px;
+}
+
+/*END OF TIPS AND TRICKS LIST */
+
+.tipsHeadline {
+    text-align: center;
+    font-weight: bolder;
+
+}
+li {
+    padding-top: 10px;
 }

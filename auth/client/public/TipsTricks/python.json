@@ -11,8 +11,6 @@
         "Tip": "Python variables are typically set to a data type.  The most common types are Strings, Numeric Types (integers, floats, ranges), Sequences (lists, tuples), and Booleans (true/false)."
     }, {
         "Tip": "There are many different libraries within python that help manipulate data (pandas), visualize it (matplotlib) or format it (Jupyter Notebooks)."
-    }, {
-        "Tip": "want to see your results?  Don't forget to print() them!"
     }
 ]
 }

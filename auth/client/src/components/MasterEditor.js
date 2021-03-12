@@ -85,6 +85,53 @@ const setLanguage = (language) =>{
   }
 }
 
+const setTipStyles = (language) =>{
+  switch(language){
+    case "javaScript":
+      return (
+        < TipsTricks 
+        headline = "headlineJS"
+        listColors = "ULlistJS"
+        />        
+      )
+    case "python":
+      return (
+        < TipsTricks 
+        headline = "headlinePY"
+        listColors = "ULlistPY"
+        />
+      )
+      case "sql":
+        return (
+        <TipsTricks 
+        headline = "headlineSQL"
+        listColors = "ULlistSQL"
+        />
+      )
+      case "shell":
+        return (
+        <TipsTricks 
+        headline = "headlineShell"
+        listColors = "ULlistShell"
+        />
+      )
+      case "html":
+        return (
+        <TipsTricks 
+        headline = "headlineHTMLCSS"
+        listColors = "ULlistHTMLCSS"
+        />
+      )
+      default:
+        return <TipsTricks 
+        headline = "headlineJS"
+        listColors = "ULlistJS"
+        />
+    }
+  }
+
+
+
   return (
     <>
     {setLanguage(language)}
@@ -102,7 +149,7 @@ const setLanguage = (language) =>{
     
     </div>
     <div>
-    < TipsTricks />
+    {setTipStyles(language)}
     </div>
   </>
   )
