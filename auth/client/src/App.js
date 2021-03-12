@@ -24,7 +24,6 @@ import MasterEditor from "./components/MasterEditor"
 import { DiJsBadge, DiPython, DiDatabase, DiHtml5, DiTerminal } from "react-icons/di";
 import {setLanguage} from './actions/index'
 
-
 import {Link} from 'react-router-dom'
 
 import axios from 'axios';
@@ -125,6 +124,7 @@ export default function App() {
 
 // function for google docs button
   const handleDocs = () => {
+
     dispatch(getURL());
   }
   const getFiles = () => {
@@ -138,6 +138,11 @@ export default function App() {
         }})
 
         console.log(response.data)
+        let fileResponse = response.data.files
+        console.log(fileResponse)
+        // fileResponse.forEach((file) => {
+        //   console.log(`${file.id}: ${file.name}`)
+        // })
     }
     files();
     
@@ -300,7 +305,7 @@ export default function App() {
         </div>
 
         
-        <button onClick={handleDocs}>Get Google Docs</button>
+        <button onClick={handleDocs}>Allow Access to Google Drive</button>
         <button onClick={getFiles}>Get Files</button>
         {/* <button onClick={()=>saveFile}>Save to Google Drive</button> */}
         <p><Link to="/feature">Go to page 2</Link></p>

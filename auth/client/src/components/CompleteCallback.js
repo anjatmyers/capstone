@@ -25,7 +25,7 @@ const CompleteCallback = () => {
     }
 
     completeAuth();
-    history.push('/feature')
+    history.push('/home')
     
 
   }, []);

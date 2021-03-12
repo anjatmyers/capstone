@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import axios from 'axios'
 import '../editorComponents/editorstyles.css'
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/material.css'
@@ -24,11 +25,24 @@ export default function EditorTemplate(props) {
 
     }
     // console.log(input);
+
     const saveFile = () => {
-            console.log('need to get files')
+
+        const files = async () => {
+            
+            let response = await axios.post('http://localhost:3001/createFile', {input}, {
+            headers: {
+            "content-type": "application/json",
+            authorization: localStorage.getItem('token'),
+            }})
+    
+            console.log(response.data)
+        }
+        files();
+        console.log('file created')
         }
 
-    console.log(input)
+    
 
   return (
     <div className={heading}>
@@ -50,7 +64,11 @@ export default function EditorTemplate(props) {
         />
 
     </div>
-    {/* <button onClick={saveFile}>Save to Google Drive</button> */}
+    <input type="email" placeholder="Title this snippet"
+                // value={email}
+                // onChange={(e)=>setEmail(e.target.value)}
+              />
+    <button onClick={saveFile}>Save to Google Drive</button>
     </div>
   );
 }

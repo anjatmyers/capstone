@@ -77,6 +77,7 @@ const Picker = () => {
                                 alert('The user selected: ' + fileId);
                                 }
                             }
+                            
                             )
 
                           picker.build().setVisible(true);
