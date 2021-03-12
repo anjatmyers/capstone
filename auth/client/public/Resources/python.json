@@ -1,14 +1,14 @@
 {
     "python": [{
-        "Tip": "Python is considered a high level language, meaning it was built on top of other languages like C.  It's built for speed and it's most common use is data analysis."
+        "Link": "https://www.python.org/about/gettingstarted/"
     }, {
-        "Tip": "Indentation is everything in Python!  An improper indent can stop your code cold!"
+        "Link": "https://www.learnpython.org/"
     }, {
-        "Tip": "In Python, functions begin with a 'def' prefix in order to indicate it is a function."
+        "Link": "https://www.infoworld.com/article/3204016/what-is-python-powerful-intuitive-programming.html"
     },  {
-        "Tip": "Python variables are typically set to a data type.  The most common types are Strings, Numeric Types (integers, floats, ranges), Sequences (lists, tuples), and Booleans (true/false)."
+        "Link": "https://www.infoworld.com/article/3008915/24-python-libraries-for-every-python-developer.html"
     }, {
-        "Tip": "There are many different libraries within python that help manipulate data (pandas), visualize it (matplotlib) or format it (Jupyter Notebooks)."
+        "Link": "https://towardsdatascience.com/best-python-libraries-for-every-python-developer-77daab4fa40e"
     }
 ]
 }
