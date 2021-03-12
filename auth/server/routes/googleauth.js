@@ -44,6 +44,30 @@ router.post('/delete', async (req, res) => {
   
   })
 
+router.post('/update', async (req, res) => {
+    
+    let fileID = req.body.id
+    let userID = req.body.userID
+
+    console.log(fileID)
+
+    // try{
+  
+      const drive = await auth(userID);
+  
+      const results = await drive.files.get({ 
+        fileId: fileID, 
+      });
+
+      console.log(results.data.media)
+    // }
+
+  //   catch(err){
+  //     res.send('error occurred')
+  //   }
+  
+  })
+
 
 router.post('/getURL',  (req, res) => {
     
@@ -171,12 +195,4 @@ router.post('/completeAuth', requireAuth,(req, res) => {
 
 module.exports = router;
 
-
-
-
-
-
-    
-
-    
 

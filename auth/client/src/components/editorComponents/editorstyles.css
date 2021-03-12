@@ -47,7 +47,7 @@
     border-top-right-radius: 2.5%;
 }
 .code-mirror-wrapper {
-    border: black;
+    border: 1px solid black;
 }
 .runButton {
     display: flex;
