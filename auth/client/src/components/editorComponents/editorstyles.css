@@ -50,10 +50,111 @@
 .notes-section{
     width: 100%;
     height: 100px;
-    margin-top: 5px;
+    margin-top: 15px;
 }
 
-.tipsList {
-    
 
+
+
+/*LISTS FOR TIPS AND TRICKS */
+.tipsDivJS {
+    background-color: rgb(34, 34, 34);
+
+}
+
+.headlineJS {
+    background-color: rgb(34, 34, 34);
+    color: #f7df1e;
+    text-align: center;
+    padding-top: 8px;
+
+}
+.ULlistJS {
+    list-style: square;
+    background-color: #f7df1e;
+    color: rgb(34, 34, 34);
+    padding-bottom: 10px;
+
+}
+
+.tipsDivPY {
+    background-color: #3776ab;
+}
+
+.headlinePY {
+    background-color: #3776ab;
+    color: #f7df1e;
+    text-align: center;
+    padding-top: 8px;
+}
+
+.ULlistPY {
+    list-style: square;
+    background-color: #f7df1e;
+    color: #3776ab;
+    padding-bottom: 10px;
+}
+
+.tipsDivSQL {
+    background-color: rgb(204, 99, 0);
+}
+
+.headlineSQL {
+    background-color: rgb(204, 99, 0);
+    color: white;
+    text-align: center;
+    padding-top: 8px;
+}
+
+.ULlistSQL {
+    background-color: white;
+    color: rgb(204, 99, 0);
+    list-style: square;
+    padding-bottom: 10px;
+}
+
+.tipsDivShell {
+    background-color: rgb(19, 1, 1);
+}
+
+.headlineShell {
+    background-color: rgb(19, 1, 1);
+    color: white;
+    text-align: center;
+    padding-top: 8px;
+}
+
+.ULlistShell {
+    list-style: square;
+    padding-bottom: 10px;
+    color:rgb(19, 1, 1);
+    background-color: white;
+}
+
+.tipsDivHTML {
+    background-color: rgb(230, 10, 10);
+}
+
+.headlineHTMLCSS {
+    background-color: rgb(230, 10, 10);
+    color: white;
+    text-align: center;
+    padding-top: 8px;
+}
+
+.ULlistHTMLCSS {
+    background-color: rgb(69, 38, 245);
+    color:white;
+    padding-bottom: 10px;
+}
+
+/*END OF TIPS AND TRICKS LIST */
+
+.tipsHeadline {
+    text-align: center;
+    font-weight: bolder;
+
+}
+li {
+    padding-top: 10px;
 }

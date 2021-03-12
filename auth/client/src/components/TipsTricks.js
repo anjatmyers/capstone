@@ -1,17 +1,22 @@
 import React, {useState, useRef} from 'react'
 import axios from 'axios'
 import {useEffect} from 'react'
-import {useDispatch} from 'react-redux'
-import {setTipsData} from '../actions/index'
 import {useSelector} from 'react-redux'
 
 
-const TipsTricks = () => {
+const TipsTricks = (props) => {
+
+const {
+  headline,
+  listColors,
+  tipsDiv
+} = props
 
 const [tips, setTips] = useState([])
 
 let tipsLanguage = useSelector((state => state.auth.language))
 console.log(tipsLanguage)
+
 
 
 // SET VARIABLE TO CHANGE JSON FILE RETREIVAL TO EQUAL STATE
@@ -34,10 +39,13 @@ let displayTipsTricks = tips.map(tips =>{
     return <li>{tips.Tip}</li>
 })
 
+
+
   return (
     <>
-      <div className="tipsDiv">
-          <ul className="tipsList">
+      <div className={tipsDiv}>
+        <h3 className={headline}>{tipsLanguage} Tips and Tricks</h3>
+          <ul className={listColors}>
               {displayTipsTricks}
           </ul>
       </div>

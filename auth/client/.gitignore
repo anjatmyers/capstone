@@ -24,3 +24,7 @@ yarn-error.log*
 
 # Local Netlify folder
 .netlify
+
+# Picker Auth
+# /components/pickerComponents/PickerAuth.js
+PickerAuth

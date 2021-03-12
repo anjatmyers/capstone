@@ -27,7 +27,9 @@ import {setLanguage} from './actions/index'
 import {Link} from 'react-router-dom'
 
 import axios from 'axios';
+
 import DeleteFile from './components/pickerComponents/DeleteFile';
+import UpdateFile from './components/pickerComponents/UpdateFile';
 
 
 
@@ -312,6 +314,9 @@ export default function App() {
         <p><Link to="/signout">Sign Out</Link></p>
 
         <DeleteFile />
+
+        <UpdateFile />
+
 
       </main>
       {/* End of main content window */}

@@ -4,10 +4,6 @@
     }, {
         "Tip": "CRUD = Create Read Update Delete.  A good database makes it easy to do all of these things."
     }, {
-        "Tip": "SQL itself is case-insensitive, but it is good practice to write key words like SELECT and LIKE in all caps to make your code clear and readable."
-    }, {
-        "Tip": "The asterisk (*) implies that ALL of the items attached to it will be retrieved in a query.  For example 'SELECT *' means select everything."
-    }, {
         "Tip": "There are many different dialects of SQL, including MySQL, PostresQL, ORACLE, and MSSQL.  Most of the syntax is the same but there are some differences."
     }, {
         "Tip": "A PRIMARY KEY identify records on a table, while a FORIEGN KEY establishes the relationship between different tables."
