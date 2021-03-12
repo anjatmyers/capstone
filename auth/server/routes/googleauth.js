@@ -16,35 +16,7 @@ const db = require('../models');
 const auth = require('../util/drive')
 
 const oAuth2Client = new google.auth.OAuth2(
-    keys.client_id, keys.client_secret, keys.redirect_uris[0]);
-
-
-router.post('/files', requireAuth, async (req, res) => {
-    
-    let id = req.user.id
-    try{
-  
-      const drive = await auth(id);
-      
-      const results = await drive.files.list({
-        pageSize: 10,
-        fields: 'nextPageToken, files(id, name)',
-      }) 
-  
-      const files = results.data.files;
-     
-      let output = '';  //this was const instead of let :) 
-      files.forEach(file =>{
-        output += `${file.name} (${file.id}) <br />`
-    })
-  
-      res.json({files})
-    }
-    catch(err){
-      res.send('error occurred')
-    }
-  
-  })
+  keys.client_id, keys.client_secret, keys.redirect_uris[0]);
 
   // wasn't working with requireAuth
 router.post('/delete', async (req, res) => {
@@ -74,7 +46,7 @@ router.post('/delete', async (req, res) => {
 
 
 router.post('/getURL',  (req, res) => {
-  
+    
     //req.user.id
     const authUrl = oAuth2Client.generateAuthUrl({
       access_type: 'offline',
@@ -99,6 +71,7 @@ router.post('/getURL',  (req, res) => {
 
 
 router.post('/completeAuth', requireAuth,(req, res) => {
+    
   
     let code = decodeURIComponent(req.body.code);
     
@@ -140,7 +113,58 @@ router.post('/completeAuth', requireAuth,(req, res) => {
     }
   })
 
+// get list of files from G drive
+  router.post('/files', requireAuth, async (req, res) => {
+    
+    let id = req.user.id
+    // try{
+  
+      const drive = await auth(id);
+      
+      const results = await drive.files.list({
+        pageSize: 20,
+        fields: 'nextPageToken, files(id, name)',
+      }) 
+  
+      const files = results.data.files;
+     
+      let output = '';  //this was const instead of let :) 
+      files.forEach(file =>{
+        output += `${file.name} (${file.id}) <br />`
+    })
+  
+      res.json({files})
+    // }
+    // catch(err){
+    //   res.send('error occurred')
+    // }
+  
+  })
 
+  // create new file in G drive
+  router.post('/createFile', requireAuth, async (req, res) => {
+
+    let id = req.user.id
+    console.log(req.body)
+    try{
+
+    const drive = await auth(id);
+    let file = await drive.files.create({
+        requestBody: {
+            name: 'NEW FILE C',
+            mimeType: 'text/plain'
+          },
+          media: {
+            mimeType: 'text/plain',
+            body: req.body.input
+          }
+      })
+      res.send('new file created on google drive.')
+    }
+    catch(err){
+        res.send('could not make new file')
+    }
+})
 
 
 

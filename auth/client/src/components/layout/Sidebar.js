@@ -16,7 +16,7 @@ import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import { DiJsBadge, DiPython, DiDatabase, DiHtml5 } from "react-icons/di";
-
+import {Link} from 'react-router-dom';
 const drawerWidth = 240;
 
 const useStyles = makeStyles((theme) => ({
@@ -129,22 +129,22 @@ export default function PersistentDrawerLeft() {
         </div>
         <Divider />
         <List>
-        <ListItem button key={"dfkjad"}>
+        <ListItem button key={"js"}>
             <ListItemIcon><DiJsBadge /></ListItemIcon>
             <ListItemText primary={"JavaScript"}></ListItemText>
           </ListItem>
 
-          <ListItem button key={"dfkjad"}>
+          <ListItem button key={"py"}>
             <ListItemIcon><DiPython /></ListItemIcon>
             <ListItemText primary={"Python"}></ListItemText>
           </ListItem>
 
-          <ListItem button key={"dfkjad"}>
+          <ListItem button key={"htmlcss"}>
             <ListItemIcon><DiHtml5 /></ListItemIcon>
             <ListItemText primary={"HTML/CSS"}></ListItemText>
           </ListItem>
 
-          <ListItem button key={"dfkjad"}>
+          <ListItem button key={"sql"}>
             <ListItemIcon><DiDatabase /></ListItemIcon>
             <ListItemText primary={"SQL"}></ListItemText>
           </ListItem>
@@ -152,7 +152,7 @@ export default function PersistentDrawerLeft() {
         </List>
         <Divider />
         <List>
-          <ListItem button key={"dfkjad"}>
+          <ListItem button key={"list"}>
             <ListItemIcon><DiJsBadge /></ListItemIcon>
             <ListItemText primary={"Second List"}></ListItemText>
           </ListItem>
