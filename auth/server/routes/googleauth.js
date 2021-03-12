@@ -174,6 +174,7 @@ router.post('/completeAuth', requireAuth,(req, res) => {
     let id = req.user.id
     let language = req.params.language
     let body = req.body.input
+    let name = req.body.title
 
     const drive = await auth(id);
 
@@ -242,6 +243,7 @@ router.post('/completeAuth', requireAuth,(req, res) => {
       //   break;
       default:
         console.log("Error saving the file")
+
 
     }
 
