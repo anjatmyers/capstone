@@ -29,8 +29,8 @@ export default function EditorTemplate(props) {
     const saveFile = () => {
 
         const files = async () => {
-            
-            let response = await axios.post('http://localhost:3001/createFile', {input}, {
+            console.log(language)
+            let response = await axios.post(`http://localhost:3001/createFile/${language}`, {input}, {
             headers: {
             "content-type": "application/json",
             authorization: localStorage.getItem('token'),

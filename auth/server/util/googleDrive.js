@@ -1,85 +1,18 @@
 const { google } = require("googleapis");
 const express = require('express');
 const router = express.Router();
+const db = require('../models');
 
 
-function listFiles(auth) {
-    const drive = google.drive({version: 'v3', auth});
-    drive.files.list({pageSize: 10, fields: 'nextPageToken, files(id, name)'})
-    .then(res =>{
-        const files = res.data.files;
-        if (files.length) {
-            console.log('Files:');
-            files.map((file) => {
-            console.log(`${file.name} (${file.id})`);
-            });
-        } else {
-            console.log('No files found.');
-        }
-    })
-    .catch(err =>{
-        console.log('The API returned an error: ' + err)
-    })}
+async function createNotesFolder(auth, id){
 
-
-function createFile(auth){
-    const drive = google.drive({version: 'v3', auth});
-    drive.files.create({
-        requestBody: {
-            name: 'Test',
-            mimeType: 'text/plain'
-          },
-          media: {
-            mimeType: 'text/plain',
-            body: 'Hello World. Creating a file from the terminal.'
-          }
-      })
-      .then(res =>{
-        console.log(res.data);
-      })
-      .catch(err =>{
-        console.log(err);
-      })
-}
-
-function createNotesFolder(auth){
-    const drive = google.drive({version: 'v3', auth});
-
-    let fileMetadataParent = {
-        'name': 'Bootcamp Survival Guide',
-        'mimeType': 'application/vnd.google-apps.folder'
-    };
-
-    drive.files.create({
-        resource: fileMetadataParent,
-        fields: 'id'
-        }, async function (err, file) {
-        if (err) {
-          // Handle error
-            console.error(err);
-        } else {
-            parentID = file.data.id
-            console.log("File Name: ", file.config.data.name, " File ID: ", file.data.id);
-
-            // let storedNotesFolder = await db.folderIDs.create({
-            //     id: 1,
-            //     folderID: file.data.id,
-            //     folderName: file.config.data.name
-            // })
-        }
-    });
-
-}
-
-function createJSFolder(auth){
-    const drive = google.drive({version: 'v3', auth});
     let fileMetadata = {
-        'name': 'JavaScript',
+        'name': 'Bootcamp Survival Guide',
         'mimeType': 'application/vnd.google-apps.folder',
-        parents: ['10ZSdhU1iA3H99MusuczcVMnspAakuRUz']
+        // parents: ['10ZSdhU1iA3H99MusuczcVMnspAakuRUz']
     };
 
-    drive.files.create({
+    let masterFolder = await auth.files.create({
         resource: fileMetadata,
         fields: 'id'
         }, async function (err, file) {
@@ -89,25 +22,32 @@ function createJSFolder(auth){
         } else {
             console.log("File Name: ", file.config.data.name, " File ID: ", file.data.id);
 
-            // let storedJSFolder = await db.userFolders.create({
-            //     userID: 1,
-            //     folderID: file.data.id,
-            //     folderName: file.config.data.name
-            // })
-        }
+            let storedMasterFolder = await db.folderIDs.update({
+                        root: file.data.id
+                    },
+                    {where: {
+                        id: id,
+                    }})
+            }
     });
 
 }
 
-function createPYFolder(auth){
-    const drive = google.drive({version: 'v3', auth});
+
+
+async function createPYFolder(auth, id){
+
+    let parentFolder = await db.folderIDs.findAll({where: {id: id}}, {raw: true})
+    console.log(parentFolder[0].dataValues.root)
+    let parentID = parentFolder[0].dataValues.root
+
     let fileMetadata = {
         'name': 'Python',
         'mimeType': 'application/vnd.google-apps.folder',
-        parents: ['10ZSdhU1iA3H99MusuczcVMnspAakuRUz']
+        parents: [parentID]
     };
 
-    drive.files.create({
+    let pythonFolder = await auth.files.create({
         resource: fileMetadata,
         fields: 'id'
         }, async function (err, file) {
@@ -117,93 +57,119 @@ function createPYFolder(auth){
         } else {
             console.log("File Name: ", file.config.data.name, " File ID: ", file.data.id);
 
-            // let storedJSFolder = await db.userFolders.create({
-            //     userID: 1,
-            //     folderID: file.data.id,
-            //     folderName: file.config.data.name
-            // })
-        }
+            let storedPYFolder = await db.folderIDs.update({
+                        python: file.data.id
+                    },
+                    {where: {
+                        id: id,
+                    }})
+            }
     });
 
 }
 
-function createHTMLCSSFolder(auth){
-    const drive = google.drive({version: 'v3', auth});
+async function createJSFolder(auth, id){
+
+    let parentFolder = await db.folderIDs.findAll({where: {id: id}}, {raw: true})
+    console.log("Inside create js folder function " + parentFolder[0].dataValues.root)
+    let parentID = parentFolder[0].dataValues.root
+
     let fileMetadata = {
-        'name': 'HTML/CSS',
+        'name': 'Javascript',
         'mimeType': 'application/vnd.google-apps.folder',
-        parents: ['10ZSdhU1iA3H99MusuczcVMnspAakuRUz']
+        parents: [parentID]
     };
 
-    drive.files.create({
+    let jsFolder = await auth.files.create({
         resource: fileMetadata,
         fields: 'id'
         }, async function (err, file) {
         if (err) {
           // Handle error
-            console.error(err);
+            console.error("Making js folder error " + err);
         } else {
             console.log("File Name: ", file.config.data.name, " File ID: ", file.data.id);
 
-            // let storedJSFolder = await db.userFolders.create({
-            //     userID: 1,
-            //     folderID: file.data.id,
-            //     folderName: file.config.data.name
-            // })
-        }
+            let storedJSFolder = await db.folderIDs.update({
+                        javascript: file.data.id
+                    },
+                    {where: {
+                        id: id,
+                    }})
+            }
     });
 
 }
 
-function createSQLFolder(auth){
-    const drive = google.drive({version: 'v3', auth});
-    let fileMetadata = {
-        'name': 'SQL',
-        'mimeType': 'application/vnd.google-apps.folder',
-        parents: ['10ZSdhU1iA3H99MusuczcVMnspAakuRUz']
-    };
+async function createPYFile(auth, body, id){
 
-    drive.files.create({
-        resource: fileMetadata,
-        fields: 'id'
-        }, async function (err, file) {
-        if (err) {
-          // Handle error
-            console.error(err);
-        } else {
-            console.log("File Name: ", file.config.data.name, " File ID: ", file.data.id);
+    let parentFolder = await db.folderIDs.findAll({where: {id: id}}, {raw: true})
+    console.log(parentFolder[0].dataValues.python)
+    let parentID = parentFolder[0].dataValues.python
+    let date = new Date()
 
-            // let storedJSFolder = await db.userFolders.create({
-            //     userID: 1,
-            //     folderID: file.data.id,
-            //     folderName: file.config.data.name
-            // })
-        }
-    });
+    // let fileMetadataParent = {
+    //     'name': "Python",
+    //     'mimeType': 'application/vnd.google-apps.folder'
+    // };
+
+    console.log(parentID)
+
+    let file = await auth.files.create({
+        requestBody: {
+            name: date,
+            mimeType: 'text/plain',
+            parents: [parentID]
+          },
+          media: {
+            mimeType: 'text/plain',
+            body: body
+          }
+      })
 
 }
 
-function trashFile(fileId) {
+async function createJSFile(auth, body, id){
 
-    const drive = google.drive({version: 'v3', auth});
+    let parentFolder = await db.folderIDs.findAll({where: {id: id}}, {raw: true})
+    console.log(parentFolder)
+    console.log("Inside JS FIle function line 135 " + parentFolder[0].dataValues.javascript)
+    let parentID = parentFolder[0].dataValues.javascript
+    let date = new Date()
 
-    let request = drive.files.trash({
-      'fileId': fileId
-    });
-    request.execute(function(resp) { });
-    console.log("File moved to trash: ", fileId )
-  }
+    // let fileMetadataParent = {
+    //     'name': "Python",
+    //     'mimeType': 'application/vnd.google-apps.folder'
+    // };
+
+    console.log(parentID)
+
+    let file = await auth.files.create({
+        requestBody: {
+            name: date,
+            mimeType: 'text/plain',
+            parents: [parentID]
+          },
+          media: {
+            mimeType: 'text/plain',
+            body: body
+          }
+      })
+    //   res.send('new file created on google drive.')
+
+}
+
+
+
+
 
 
 const drive = {
-    listFiles,
-    createFile,
     createNotesFolder,
-    createJSFolder,
     createPYFolder,
-    createHTMLCSSFolder,
-    createSQLFolder,
-    trashFile
+    createPYFile,
+    createJSFolder,
+    createJSFile,
 }
 
 module.exports = drive;
