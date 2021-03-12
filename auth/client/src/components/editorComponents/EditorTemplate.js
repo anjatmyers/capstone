@@ -38,6 +38,7 @@ export default function EditorTemplate(props) {
                 input: input,
                 title: title
             }, {
+
             headers: {
             "content-type": "application/json",
             authorization: localStorage.getItem('token'),

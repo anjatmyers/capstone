@@ -76,7 +76,7 @@ const UpdateFile = () => {
                                 let fileBody = data.docs[0]
                                 console.log(fileBody)
                                 // alert(fileName + " has been deleted!");
-                                // updateFiles(fileId)
+                                updateFiles(fileId)
                                 }
                             }
                             )
