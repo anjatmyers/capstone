@@ -1,5 +1,6 @@
 import React from 'react'
 import GooglePicker from 'react-google-picker'
+
 import axios from 'axios';
 import{ DEVELOPER_KEY, CLIENT_ID, PROJECT_ID, SCOPE} from './PickerAuth'
 
@@ -41,9 +42,11 @@ const DeleteFiles = () => {
       }
 
 
+
   return (
     <>
       <div className="container">
+
         <GooglePicker clientId={CLIENT_ID}
                       developerKey={DEVELOPER_KEY}
                       scope={SCOPE}
@@ -52,6 +55,7 @@ const DeleteFiles = () => {
                       multiselect={true}
                       navHidden={true}
                       authImmediate={false}
+
                       viewId={'DOCS'}
                       sandbox="allow-scripts"
                       createPicker={ (google, oauthToken) => {
@@ -59,6 +63,7 @@ const DeleteFiles = () => {
                           const docsView = new google.picker.DocsView(googleViewId)
                               .setIncludeFolders(true)
                               .setMimeTypes(['text/plain', 'application/vnd.google-apps.file', 'application/vnd.google-apps.folder'])
+
                               .setSelectFolderEnabled(true);
 
                           const picker = new window.google.picker.PickerBuilder()
@@ -71,24 +76,29 @@ const DeleteFiles = () => {
                             .setCallback((data) => {
 
                                 if (data.action == google.picker.Action.PICKED) {
+
                                 let fileId = data.docs[0].id;
                                 let fileName = data.docs[0].name
                                 alert(fileName + " has been deleted!");
                                 deleteFiles(fileId)
                                 }
                             }
+
                             )
 
                           picker.build().setVisible(true);
                       }}
         >
+
             <button>Delete File</button>
+
             <div className="google"></div>
         </GooglePicker>
     </div>
     </>
   )
 }
+
 
 export default DeleteFiles
 
