@@ -46,6 +46,32 @@ router.post('/files', requireAuth, async (req, res) => {
   
   })
 
+  // wasn't working with requireAuth
+router.post('/delete', async (req, res) => {
+    
+    let fileID = req.body.id
+    let userID = req.body.userID
+
+    try{
+  
+      const drive = await auth(userID);
+  
+      const results = await drive.files.update({ 
+        fileId: fileID, 
+        requestBody: { trashed: true } 
+      });
+
+      
+    
+      console.log("File deleted successfully")
+    }
+
+    catch(err){
+      res.send('error occurred')
+    }
+  
+  })
+
 
 router.post('/getURL',  (req, res) => {
   
