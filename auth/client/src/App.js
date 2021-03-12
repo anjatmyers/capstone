@@ -281,9 +281,17 @@ export default function App() {
   direction="column"
   justify="flex-start"
   alignItems="flex-start"
->
-        
+
+
+>  
+    <div className="mt-3 m-2">
+    
+    <h2>Code Editor</h2>
+        <h5 className="mb-3">Save important code snippets from class:</h5>
+         </div >
         <Grid item>
+          
+  
           <MasterEditor/>
           </Grid>
         
@@ -292,21 +300,32 @@ export default function App() {
           <Resources />
           </Grid>
 
+       
         
-        <button onClick={handleDocs}>Allow Access to Google Drive</button>
-        <button onClick={getFiles}>Get Files</button>
+
+
+        <div className="buttonDiv d-flex">
+        <button className='btn btn-success m-2 mr-3' onClick={handleDocs}>Allow Access to Google Drive</button>
+        {/* <button onClick={getFiles}>Get Files</button> */}
         {/* <button onClick={()=>saveFile}>Save to Google Drive</button> */}
-        <p><Link to="/feature">Go to page 2</Link></p>
-        <br></br>
-        <p><Link to="/signout">Sign Out</Link></p>
-
-        <DeleteFile />
-
+        
+        <div>
         <UpdateFile />
+        </div>
+
+
+        <div>
+        <DeleteFile />
+        </div>
+        
+        
+        </div>
+        
+
+        <h5 className="mt-4"><Link to="/feature">Resources</Link></h5>
+        <br></br>
 
         </Grid>
-=======
-
 
 
       </main>

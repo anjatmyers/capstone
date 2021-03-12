@@ -27,16 +27,17 @@ const Signin = () => {
   }
 
   return( 
+  // <div className="container d-flex justify-content-center align-items-center">
   <div className="mt-5">
   
-    <div className="grid align__item">
+    <div className="grid align-item">
 
       <div className="register">
 
         <img height="100px" src="" alt=""/>
       
 
-        <h2>Sign In</h2>
+        <h2 className="">Sign In</h2>
 
         <form onSubmit={handleSubmit}  className="form">
 
@@ -66,7 +67,11 @@ const Signin = () => {
 
     </div>
   
-  </div>);
+  </div>
+  // </div>
+  // end container div
+  
+  );
 };
 
 export default Signin;

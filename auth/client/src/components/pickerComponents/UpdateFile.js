@@ -84,7 +84,7 @@ const UpdateFile = () => {
                           picker.build().setVisible(true);
                       }}
         >
-            <button>Update File</button>
+            <button className='btn btn-warning m-2'>Update File</button>
             <div className="google"></div>
         </GooglePicker>
     </div>

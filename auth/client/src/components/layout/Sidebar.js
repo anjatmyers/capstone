@@ -80,6 +80,7 @@ export default function PersistentDrawerLeft() {
   const classes = useStyles();
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
+  
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -88,6 +89,9 @@ export default function PersistentDrawerLeft() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
+
+
+  
 
   return (
     <div className={classes.root}>
@@ -151,10 +155,10 @@ export default function PersistentDrawerLeft() {
 
         </List>
         <Divider />
-        <List>
-          <ListItem button key={"list"}>
+        <List >
+          <ListItem button key={"list"} >
             <ListItemIcon><DiJsBadge /></ListItemIcon>
-            <ListItemText primary={"Second List"}></ListItemText>
+            <ListItemText primary={"Second List"} ></ListItemText>
           </ListItem>
         </List>
       </Drawer>
@@ -164,12 +168,12 @@ export default function PersistentDrawerLeft() {
         })}
       >
         <div className={classes.drawerHeader} />
-        <Typography paragraph>
+        {/* <Typography paragraph>
           Note Taking Goes Here
         </Typography>
         <Typography paragraph>
           Resources Can go here
-        </Typography>
+        </Typography> */}
       </main>
     </div>
   );
