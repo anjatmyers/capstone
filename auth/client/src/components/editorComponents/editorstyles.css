@@ -6,33 +6,45 @@
 
 .top-pane {
     background-color: rgb(34, 34, 34);
-    color: #f7df1e;
+    color: #fdd900;
+    border-top-left-radius: 2.5%;
+    border-top-right-radius: 2.5%;
    
 
 }
 .py-top-pane {
-    background-color: #3776ab;
-    color: #f7df1e;
+    background-color: #1e6685;
+    color: #ffd500;
+    border-top-left-radius: 2.5%;
+    border-top-right-radius: 2.5%;
    
 
 }
 .xml-top-pane {
-    background-color: rgb(230, 10, 10);
+    background-color: rgb(143, 25, 25);
+    color: white;
+    border-top-left-radius: 2.5%;
+    border-top-right-radius: 2.5%;
 }
 
 .css-top-pane {
-    background-color: rgb(69, 38, 245);
+    background-color: rgb(101, 97, 121);
     color: white;
+
 }
 
 .shell-top-pane {
     background-color: rgb(19, 1, 1);
     color: white;
+    border-top-left-radius: 2.5%;
+    border-top-right-radius: 2.5%;
 }
 
 .sql-top-pane {
-    background-color: rgb(204, 99, 0);
+    background-color: #c65808;
     color: white;
+    border-top-left-radius: 2.5%;
+    border-top-right-radius: 2.5%;
 }
 .code-mirror-wrapper {
     border: black;
@@ -59,62 +71,77 @@
 /*LISTS FOR TIPS AND TRICKS */
 .tipsDivJS {
     background-color: rgb(34, 34, 34);
+    border-radius: 8%;
 
 }
 
 .headlineJS {
-    background-color: rgb(34, 34, 34);
-    color: #f7df1e;
+    background-color: #202020;
+    color: #fdd900;
     text-align: center;
     padding-top: 8px;
 
 }
 .ULlistJS {
     list-style: square;
-    background-color: #f7df1e;
+    background-color: #ffe251;
     color: rgb(34, 34, 34);
     padding-bottom: 10px;
+    font-size: 18px;
+    border-bottom-left-radius: 2.5%;
+    border-bottom-right-radius: 2.5%;
 
 }
 
 .tipsDivPY {
-    background-color: #3776ab;
+    background-color: #1e6685;
+    border-radius: 8%;
+    
 }
 
 .headlinePY {
-    background-color: #3776ab;
-    color: #f7df1e;
+    background-color: #1e6685;
+    color: #ffd500;
     text-align: center;
     padding-top: 8px;
 }
 
 .ULlistPY {
     list-style: square;
-    background-color: #f7df1e;
-    color: #3776ab;
+    background-color: #ffe251;
+    color: #224c6d;
     padding-bottom: 10px;
+    font-size: 18px;
+    border-bottom-left-radius: 2.5%;
+    border-bottom-right-radius: 2.5%;
 }
 
 .tipsDivSQL {
-    background-color: rgb(204, 99, 0);
+    /* background-color: rgb(204, 99, 0); */
+    background-color: #c65808;
+    border-radius: 8%;
 }
 
 .headlineSQL {
-    background-color: rgb(204, 99, 0);
+    background-color: #c65808;
     color: white;
     text-align: center;
     padding-top: 8px;
 }
 
 .ULlistSQL {
-    background-color: white;
-    color: rgb(204, 99, 0);
+    background-color: rgb(244, 244, 244);
+    color: rgb(150, 73, 0);
     list-style: square;
     padding-bottom: 10px;
+    font-size: 18px;
+    border-bottom-left-radius: 2.5%;
+    border-bottom-right-radius: 2.5%;
 }
 
 .tipsDivShell {
     background-color: rgb(19, 1, 1);
+    border-radius: 8%;
 }
 
 .headlineShell {
@@ -127,25 +154,32 @@
 .ULlistShell {
     list-style: square;
     padding-bottom: 10px;
-    color:rgb(19, 1, 1);
-    background-color: white;
+    color:rgb(33, 33, 33);
+    background-color: rgb(245, 245, 245);
+    font-size: 18px;
+    border-bottom-left-radius: 2.5%;
+    border-bottom-right-radius: 2.5%;
 }
 
 .tipsDivHTML {
-    background-color: rgb(230, 10, 10);
+    background-color: rgb(143, 25, 25);
+    border-radius: 8%;
 }
 
 .headlineHTMLCSS {
-    background-color: rgb(230, 10, 10);
+    background-color: rgb(143, 25, 25);
     color: white;
     text-align: center;
     padding-top: 8px;
 }
 
 .ULlistHTMLCSS {
-    background-color: rgb(69, 38, 245);
-    color:white;
+    background-color: rgb(226, 226, 232);
+    color:rgb(91, 88, 109);
     padding-bottom: 10px;
+    font-size: 18px;
+    border-bottom-left-radius: 2.5%;
+    border-bottom-right-radius: 2.5%;
 }
 
 /*END OF TIPS AND TRICKS LIST */

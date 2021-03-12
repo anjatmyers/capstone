@@ -263,12 +263,12 @@ export default function App() {
       >
         <div className={classes.drawerHeader} />
 
-        <Typography paragraph>
+        {/* <Typography paragraph>
           Note Taking Goes Here
         </Typography>
         <Typography paragraph>
           Resources Can go here
-        </Typography>
+        </Typography> */}
         {/* {
           hasFolders === false
           ?
@@ -299,24 +299,36 @@ export default function App() {
         </Modal> */}
 
         
-        <div>
+        <div className="mt-3 m-2">
+
+        <h2>Code Editor</h2>
+        <h5 className="mb-3">Save important code snippets from class:</h5>
 
           <MasterEditor/>
 
+        </div >
+        
+
+
+        <div className="buttonDiv d-flex">
+        <button className='btn btn-success m-2 mr-3' onClick={handleDocs}>Allow Access to Google Drive</button>
+        {/* <button onClick={getFiles}>Get Files</button> */}
+        {/* <button onClick={()=>saveFile}>Save to Google Drive</button> */}
+        
+        <div>
+        <UpdateFile />
         </div>
 
-        
-        <button onClick={handleDocs}>Allow Access to Google Drive</button>
-        <button onClick={getFiles}>Get Files</button>
-        {/* <button onClick={()=>saveFile}>Save to Google Drive</button> */}
-        <p><Link to="/feature">Go to page 2</Link></p>
-        <br></br>
-        <p><Link to="/signout">Sign Out</Link></p>
-
+        <div>
         <DeleteFile />
+        </div>
+        
+        
+        </div>
+        
 
-        <UpdateFile />
-
+        <h5 className="mt-4"><Link to="/feature">Resources</Link></h5>
+        <br></br>
 
       </main>
       {/* End of main content window */}

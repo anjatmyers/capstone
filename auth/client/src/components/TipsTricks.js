@@ -43,11 +43,13 @@ let displayTipsTricks = tips.map(tips =>{
 
   return (
     <>
+    <div className="">
       <div className={tipsDiv}>
         <h3 className={headline}>{tipsLanguage} Tips and Tricks</h3>
           <ul className={listColors}>
               {displayTipsTricks}
           </ul>
+      </div>
       </div>
     </>
   )

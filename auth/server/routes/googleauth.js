@@ -151,7 +151,7 @@ router.post('/completeAuth', requireAuth,(req, res) => {
     const drive = await auth(id);
     let file = await drive.files.create({
         requestBody: {
-            name: 'NEW FILE C',
+            name: req.body.title,
             mimeType: 'text/plain'
           },
           media: {
