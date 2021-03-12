@@ -25,10 +25,10 @@ const UpdateFile = () => {
 
     
         const files = async () => {
-            console.log(id)
+
             let userID = localStorage.getItem('id')
-            console.log(userID)
-          let response = await axios.post('http://localhost:3001/update', {id, userID}, {
+
+            let response = await axios.post('http://localhost:3001/update', {id, userID}, {
             headers: {
             "content-type": "application/json",
             authorization: localStorage.getItem('token'),
@@ -73,8 +73,10 @@ const UpdateFile = () => {
                                 if (data.action == google.picker.Action.PICKED) {
                                 let fileId = data.docs[0].id;
                                 let fileName = data.docs[0].name
-                                alert(fileName + " has been deleted!");
-                                updateFiles(fileId)
+                                let fileBody = data.docs[0]
+                                console.log(fileBody)
+                                // alert(fileName + " has been deleted!");
+                                // updateFiles(fileId)
                                 }
                             }
                             )
