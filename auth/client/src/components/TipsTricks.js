@@ -8,7 +8,8 @@ const TipsTricks = (props) => {
 
 const {
   headline,
-  listColors
+  listColors,
+  tipsDiv
 } = props
 
 const [tips, setTips] = useState([])
@@ -42,7 +43,7 @@ let displayTipsTricks = tips.map(tips =>{
 
   return (
     <>
-      <div className="tipsDiv">
+      <div className={tipsDiv}>
         <h3 className={headline}>{tipsLanguage} Tips and Tricks</h3>
           <ul className={listColors}>
               {displayTipsTricks}

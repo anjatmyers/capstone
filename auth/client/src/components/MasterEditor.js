@@ -92,6 +92,7 @@ const setTipStyles = (language) =>{
         < TipsTricks 
         headline = "headlineJS"
         listColors = "ULlistJS"
+        tipsDiv = "tipsDivJS"
         />        
       )
     case "python":
@@ -99,6 +100,7 @@ const setTipStyles = (language) =>{
         < TipsTricks 
         headline = "headlinePY"
         listColors = "ULlistPY"
+        tipsDiv = "tipsDivPY"
         />
       )
       case "sql":
@@ -106,6 +108,7 @@ const setTipStyles = (language) =>{
         <TipsTricks 
         headline = "headlineSQL"
         listColors = "ULlistSQL"
+        tipsDiv = "tipsDivSQL"
         />
       )
       case "shell":
@@ -113,6 +116,7 @@ const setTipStyles = (language) =>{
         <TipsTricks 
         headline = "headlineShell"
         listColors = "ULlistShell"
+        tipsDiv = "tipsDivShell"
         />
       )
       case "html":
@@ -120,6 +124,7 @@ const setTipStyles = (language) =>{
         <TipsTricks 
         headline = "headlineHTMLCSS"
         listColors = "ULlistHTMLCSS"
+        tipsDiv = "tipsDivHTML"
         />
       )
       default:
