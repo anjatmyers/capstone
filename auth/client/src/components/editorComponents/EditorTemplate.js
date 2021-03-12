@@ -1,5 +1,7 @@
 import React, {useState} from 'react';
+import Paper from "@material-ui/core/Paper"
 import axios from 'axios'
+
 import '../editorComponents/editorstyles.css'
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/material.css'
@@ -46,6 +48,7 @@ export default function EditorTemplate(props) {
 
   return (
     <div className={heading}>
+        
     <div className="editor-container">
         <div className="editor-title">
             <h3>{displayName}</h3>
@@ -59,16 +62,23 @@ export default function EditorTemplate(props) {
              lint: true,
              mode: language,
              theme: 'material',
-             lineNumbers: true
+             lineNumbers: true,
+             cursorBlinkRate: 900,
          }}
         />
 
     </div>
+
+    
+
     <input type="email" placeholder="Title this snippet"
                 // value={email}
                 // onChange={(e)=>setEmail(e.target.value)}
               />
     <button onClick={saveFile}>Save to Google Drive</button>
+
     </div>
+
+    
   );
 }
