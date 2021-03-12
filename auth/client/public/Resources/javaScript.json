@@ -1,15 +1,15 @@
 {
     "javaScript": [{
         
-        "Tip": "Know your variable types!  Use LET when setting a variable that you want to update without redeclaring it, CONST when you want to assign a specific, fixed value to a variable.  VAR is an older declaration that comes with some issues.  Be wary before using."
+        "Link": "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/"
     }, {
-        "Tip": "When JavaScript is used by itself, it's often called 'vanilla'.  Often, though, it is used with a library,  like NODE.js, REACT, or ANGULAR."
+        "Link": "https://eloquentjavascript.net/"
     }, {
-        "Tip": "Mind your equal signs!  '=' sets a value to a variable. '==' checks if two values are equal to each other. '===' checks if the values not only equal each other, but if they are the same data type."
+        "Link": "http://jsforcats.com/"
     }, {
-        "Tip": "Logging data to the console?  Consider using 'console.table' as opposed to 'console.log'."
+        "Link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
     }, {
-        "Tip": "Internet browsers have their own JavaScript engines built into them!  V8 powers Google Chrome, SpiderMonkey comes in FireFox, JavaScriptCore runs Apple's Safari Browser, and Chekra is the engine originally implemented in Microsoft Internet Explorer."
+        "Link": "https://websitesetup.org/javascript-cheat-sheet/"
     }
 ]
 }

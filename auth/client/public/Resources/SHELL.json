@@ -1,14 +1,14 @@
 {
     "shell": [{
-        "Tip": "Not sure where you are?  Use PWD (Print Working Directory) to give the path of the directory you're currently in!"
+        "Link": "https://www.learnshell.org/"
     }, {
-        "Tip": "Remember to use 'ls-a' when in a directory to list all the hidden files."
+        "Link": "https://www.shellscript.sh/"
     }, {
-        "Tip": "to go back to your home directory, use 'CD ~' from wherever you are."
+        "Link": "https://tldp.org/LDP/abs/html/why-shell.html"
     }, {
-        "Tip": "You can move CREATE ('touch'), REMOVE ('rm'), MOVE ('mv') or COPY ('cp') files in your shell terminal!"
+        "Link": "https://devhints.io/bash"
     }, {
-        "Tip": "Getting a permissions error?  Put 'sudo' at the start of your command to initialize a command as the admin user."
+        "Link": "https://www.educative.io/blog/bash-shell-command-cheat-sheet"
     }
 ]
 }
