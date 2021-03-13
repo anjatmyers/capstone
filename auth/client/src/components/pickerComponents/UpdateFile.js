@@ -34,7 +34,7 @@ const UpdateFile = () => {
             authorization: localStorage.getItem('token'),
             }})
     
-            console.log(response.data)
+            // console.log(response.data)
         }
         files();
         
@@ -74,7 +74,8 @@ const UpdateFile = () => {
                                 let fileId = data.docs[0].id;
                                 let fileName = data.docs[0].name
                                 let fileBody = data.docs[0]
-                                console.log(fileBody)
+                                console.log("data object:",data)
+                                console.log("filebody object",fileBody)
                                 // alert(fileName + " has been deleted!");
                                 updateFiles(fileId)
                                 }

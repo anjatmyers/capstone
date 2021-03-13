@@ -52,7 +52,9 @@ router.post('/update', async (req, res) => {
   
       const results = await drive.files.get({ 
         fileId: fileID, 
+        mimeType: 'text/plain'
       });
+
 
       console.log(results.media)
     }
@@ -176,6 +178,7 @@ router.post('/completeAuth', requireAuth,(req, res) => {
 
     const drive = await auth(id);
 
+
     try{
 
       let folder = await db.folderIDs.findAll({where: {id: id}}, {raw: true})
@@ -233,6 +236,7 @@ router.post('/completeAuth', requireAuth,(req, res) => {
     catch(err){
         res.send('could not make new file')
     }
+
 })
 
 module.exports = router;
