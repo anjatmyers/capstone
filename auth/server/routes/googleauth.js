@@ -33,26 +33,20 @@ router.post('/delete', async (req, res) => {
         fileId: fileID, 
         requestBody: { trashed: true } 
       });
-
-      
-    
       console.log("File deleted successfully")
     }
-
     catch(err){
       res.send('error occurred')
     }
-  
   })
+
 
 router.post('/update', async (req, res) => {
     
     let fileID = req.body.id
     let userID = req.body.userID
 
-    console.log(fileID)
-
-    // try{
+    try{
   
       const drive = await auth(userID);
   
@@ -61,26 +55,39 @@ router.post('/update', async (req, res) => {
       });
 
       console.log(results.media)
-    // }
+    }
 
-  //   catch(err){
-  //     res.send('error occurred')
-  //   }
+    catch(err){
+      res.send('error occurred')
+    }
   
   })
 
 
-router.post('/getURL',  (req, res) => {
+router.post('/getURL',  async (req, res) => {
     
     //req.user.id
+    let id = req.body.userID;
+  
     const authUrl = oAuth2Client.generateAuthUrl({
       access_type: 'offline',
       scope: SCOPES
     });
-  
+
+    try{
+      let folderIDs = await db.folderIDs.create({
+        id: id,
+      })
+    } 
+    
+    catch(error){
+      console.log(error)
+    }
+
     res.json(authUrl)
     
   })
+
 
   router.get('/googleAuth', (req, res) => {
   
@@ -91,13 +98,11 @@ router.post('/getURL',  (req, res) => {
   
     
       res.redirect(`http://localhost:3000/completeCallback/${encodeURIComponent(code)}`)
-  
   })
 
 
 router.post('/completeAuth', requireAuth,(req, res) => {
     
-  
     let code = decodeURIComponent(req.body.code);
     
     console.log("user id from jwt: ", req.user.id);
@@ -109,10 +114,7 @@ router.post('/completeAuth', requireAuth,(req, res) => {
           if (err) return console.error("Error retrieving access token", err);
             oAuth2Client.setCredentials(JSON.stringify(token));
             // Store the token to disk for later program executions
-  
-            //console.log(JSON.stringify(token))
-  
-            //console.log(token);
+
             let expiry_date = token.expiry_date.toString();
   
             let results = await db.auth.create({
@@ -123,14 +125,11 @@ router.post('/completeAuth', requireAuth,(req, res) => {
               token_type: token.token_type,
               expiry_date : expiry_date
             })
-          
 
           // res.json(token);
           console.log("successfully stored token in db")
           res.send('successful')
       });
-  
-      
     }
     catch(error){
         console.log('error while trying to get user token', error)
@@ -138,18 +137,15 @@ router.post('/completeAuth', requireAuth,(req, res) => {
     }
   })
 
-// get list of files from G drive
+
   router.post('/files', requireAuth, async (req, res) => {
     
     let id = req.user.id
-    // try{
+
+    try{
   
       const drive = await auth(id);
 
-      let folderIDs = await db.user.create({
-        id: id
-      })
-      
       const results = await drive.files.list({
         pageSize: 20,
         fields: 'nextPageToken, files(id, name)',
@@ -157,22 +153,21 @@ router.post('/completeAuth', requireAuth,(req, res) => {
   
       const files = results.data.files;
      
-      let output = '';  //this was const instead of let :) 
+      let output = ''; 
       files.forEach(file =>{
         output += `${file.name} (${file.id}) <br />`
     })
   
       res.json({files})
-    // }
-    // catch(err){
-    //   res.send('error occurred')
-    // }
-  
+    }
+    catch(err){
+      res.send('error occurred')
+    }
   })
 
+  
   // create new file in G drive
   router.post('/createFile/:language', requireAuth, async (req, res) => {
-
 
     let id = req.user.id
     let language = req.params.language
@@ -181,100 +176,64 @@ router.post('/completeAuth', requireAuth,(req, res) => {
 
     const drive = await auth(id);
 
-  
-    // try{
+    try{
 
-    let folder = await db.folderIDs.findAll({where: {id: id}}, {raw: true})
-    // console.log(folder[0].dataValues.javascript)
+      let folder = await db.folderIDs.findAll({where: {id: id}}, {raw: true})
 
-    console.log("LINE 185 -------------- " + language)
+      switch (language) {
+        case "javascript": 
+          if (!(folder[0].dataValues.root)){
+            await functions.createNotesFolder(drive, id)
+          }
+          if(!(folder[0].dataValues.javascript)){
+            await functions.createJSFolder(drive, id)
+          }
+          await functions.createJSFile(drive, body, id, name)
+          break;
+        case "python": 
+          if (!(folder[0].dataValues.root)){
+            await functions.createNotesFolder(drive, id)
+          }
+          if(!(folder[0].dataValues.python)){
+            await functions.createPYFolder(drive, id)
+          }
+          await functions.createPYFile(drive, body, id, name)
+          break;
+        case "htmlcss": 
+          if (!(folder[0].dataValues.root)){
+            await functions.createNotesFolder(drive, id)
+          }
+          if(!(folder[0].dataValues.htmlcss)){
+            await functions.createHTMLCSSFolder(drive, id)
+          }
+          await functions.createHTMLCSSFile(drive, body, id, name)
+          break;
+        case "sql": 
+          if (!(folder[0].dataValues.root)){
+            await functions.createNotesFolder(drive, id)
+          }
+          if(!(folder[0].dataValues.sql)){
+            await functions.createSQLFolder(drive, id)
+          }
+          await functions.createSQLFile(drive, body, id, name)
+          break;
+        case "shell": 
+          if (!(folder[0].dataValues.root)){
+            await functions.createNotesFolder(drive, id)
+          }
+          if(!(folder[0].dataValues.shell)){
+            await functions.createShellFolder(drive, id)
+          }
+          await functions.createShellFile(drive, body, id, name)
+          break;
+        default:
+          console.log("Error saving the file")
 
-    switch (language) {
-      case "javascript": 
-        if (!(folder[0].dataValues.root)){
-          await functions.createNotesFolder(drive, id)
-        }
-        if(!(folder[0].dataValues.javascript)){
-          await functions.createJSFolder(drive, id)
-        }
-        await functions.createJSFile(drive, body, id, name)
-        break;
-      case "python": 
-        if (!(folder[0].dataValues.root)){
-          await functions.createNotesFolder(drive, id)
-        }
-        if(!(folder[0].dataValues.python)){
-          await functions.createPYFolder(drive, id)
-        }
-        await functions.createPYFile(drive, body, id, name)
-        break;
-      case "htmlcss": 
-        if (!(folder[0].dataValues.root)){
-          await functions.createNotesFolder(drive, id)
-        }
-        if(!(folder[0].dataValues.htmlcss)){
-          await functions.createHTMLCSSFolder(drive, id)
-        }
-        await functions.createHTMLCSSFile(drive, body, id, name)
-        break;
-      case "sql": 
-        if (!(folder[0].dataValues.root)){
-          await functions.createNotesFolder(drive, id)
-        }
-        if(!(folder[0].dataValues.sql)){
-          await functions.createSQLFolder(drive, id)
-        }
-        await functions.createSQLFile(drive, body, id, name)
-        break;
-      case "shell": 
-        if (!(folder[0].dataValues.root)){
-          await functions.createNotesFolder(drive, id)
-        }
-        if(!(folder[0].dataValues.shell)){
-          await functions.createShellFolder(drive, id)
-        }
-        await functions.createShellFile(drive, body, id, name)
-        break;
-      default:
-        console.log("Error saving the file")
-
-    // let file = await drive.files.create({
-    //     requestBody: {
-    //         name: req.body.title,
-    //         mimeType: 'text/plain'
-    //       },
-    //       media: {
-    //         mimeType: 'text/plain',
-    //         body: req.body.input
-    //       }
-    //   })
-    //   res.send('new file created on google drive.')
-    // }
-    // catch(err){
-    //     res.send('could not make new file')
-
+    }}
+    catch(err){
+        res.send('could not make new file')
     }
-
-    // const drive = await auth(id);
-    // let file = await drive.files.create({
-    //     requestBody: {
-    //         name: 'NEW FILE C',
-    //         mimeType: 'text/plain'
-    //       },
-    //       media: {
-    //         mimeType: 'text/plain',
-    //         body: req.body.input
-    //       }
-    //   })
-    //   res.send('new file created on google drive.')
-    // }
-    // catch(err){
-    //     res.send('could not make new file')
-    // }
 })
-
-
-
 
 module.exports = router;
 

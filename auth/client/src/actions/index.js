@@ -8,7 +8,8 @@ export const getURL = () => {
     return async dispatch =>{
 
         try{
-            let response = await axios.post('http://localhost:3001/getURL');
+            let userID = localStorage.getItem('id')
+            let response = await axios.post('http://localhost:3001/getURL', {userID});
 
             console.log(response.data);
 
