@@ -34,7 +34,7 @@ export default function EditorTemplate(props) {
         const files = async () => {
             
             let response = await axios.post(`http://localhost:3001/createFile/${language}`,
-             {
+            {
                 input: input,
                 title: title
             }, {
@@ -48,6 +48,7 @@ export default function EditorTemplate(props) {
         }
         files();
         console.log('file created')
+        alert(title + " has been saved!");
         }
 
     
@@ -80,9 +81,6 @@ export default function EditorTemplate(props) {
                 onChange={(e)=>setTitle(e.target.value)}
               />
     <button className='btn btn-secondary m-2' onClick={saveFile}>Save to Google Drive</button>
-
-
-    
 
     </div>
 

@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 
 
+
 const bcrypt = require('bcryptjs');
 const db = require('../models');
 // ^allows us to encrypt passwords
@@ -71,6 +72,9 @@ router.post('/signup', async (req, res) => {
     // models - we need to store the new info in our db 
     try{
     let records = await db.user.findAll({where: {email: email}})
+    // let folderIDs = await db.user.create({
+    //     id: records.dataValues.id
+    // })
     // ^checking if the username already exists, if this call brings back data we need to send an error
     if(records.length === 0){
         // add new record

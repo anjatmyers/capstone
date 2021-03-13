@@ -145,6 +145,10 @@ router.post('/completeAuth', requireAuth,(req, res) => {
     // try{
   
       const drive = await auth(id);
+
+      let folderIDs = await db.user.create({
+        id: id
+      })
       
       const results = await drive.files.list({
         pageSize: 20,
@@ -181,65 +185,56 @@ router.post('/completeAuth', requireAuth,(req, res) => {
     // try{
 
     let folder = await db.folderIDs.findAll({where: {id: id}}, {raw: true})
-
     // console.log(folder[0].dataValues.javascript)
 
     console.log("LINE 185 -------------- " + language)
 
     switch (language) {
       case "javascript": 
-        console.log("inside javascript switch case")
         if (!(folder[0].dataValues.root)){
-          console.log("Inside making all folders")
           await functions.createNotesFolder(drive, id)
-          console.log('Master folder created!')
         }
-        if (!(folder[0].dataValues.javascript)){
+        if(!(folder[0].dataValues.javascript)){
           await functions.createJSFolder(drive, id)
-          console.log('JS Folder created!')
         }
         await functions.createJSFile(drive, body, id, name)
-        console.log('File created!')
-        
         break;
       case "python": 
-      // console.log("line 196 " + id)
         if (!(folder[0].dataValues.root)){
-          functions.createNotesFolder(drive, id)
-          res.send('New Master Notes Folder created.')
-        } 
-        if (!(folder[0].dataValues.python)){
-          functions.createPYFolder(drive, id)
-          res.send('New Python Folder created.')
+          await functions.createNotesFolder(drive, id)
         }
-        console.log("===============+++++++++")
-        functions.createPYFile(drive, body, id)
-        res.send('New file created.')
+        if(!(folder[0].dataValues.python)){
+          await functions.createPYFolder(drive, id)
+        }
+        await functions.createPYFile(drive, body, id, name)
         break;
-      // case "HTMLCSS": 
-      //   if (folder[0].dataValues.htmlcss){
-      //     functions.createHTMLCSSFile(drive)
-      //   } else {
-      //     functions.createHTMLCSSFolder(drive)
-      //     functions.createHTMLCSSFile(drive)
-      //   }
-      //   break;
-      // case "SQL": 
-      //   if (folder[0].dataValues.sql){
-      //     functionc.createSQLFile(drive)
-      //   } else {
-      //     functions.createSQLFolder(drive)
-      //     functions.createSQLFile(drive)
-      //   }
-      //   break;
-      // case "Shell": 
-      //   if (folder[0].dataValues.shell){
-      //     functions.createShellFile(drive)
-      //   } else {
-      //     functions.createShellFolder(drive)
-      //     functions.createShellFile(drive)
-      //   }
-      //   break;
+      case "htmlcss": 
+        if (!(folder[0].dataValues.root)){
+          await functions.createNotesFolder(drive, id)
+        }
+        if(!(folder[0].dataValues.htmlcss)){
+          await functions.createHTMLCSSFolder(drive, id)
+        }
+        await functions.createHTMLCSSFile(drive, body, id, name)
+        break;
+      case "sql": 
+        if (!(folder[0].dataValues.root)){
+          await functions.createNotesFolder(drive, id)
+        }
+        if(!(folder[0].dataValues.sql)){
+          await functions.createSQLFolder(drive, id)
+        }
+        await functions.createSQLFile(drive, body, id, name)
+        break;
+      case "shell": 
+        if (!(folder[0].dataValues.root)){
+          await functions.createNotesFolder(drive, id)
+        }
+        if(!(folder[0].dataValues.shell)){
+          await functions.createShellFolder(drive, id)
+        }
+        await functions.createShellFile(drive, body, id, name)
+        break;
       default:
         console.log("Error saving the file")
 
