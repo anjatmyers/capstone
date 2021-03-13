@@ -144,8 +144,10 @@ export default function App() {
   const getFiles = () => {
     
     const files = async () => {
+
+      let userID = localStorage.getItem('id')
       
-      let response = await axios.post('http://localhost:3001/files', {}, {
+      let response = await axios.post('http://localhost:3001/files', {userID}, {
         headers: {
         "content-type": "application/json",
         authorization: localStorage.getItem('token'),
