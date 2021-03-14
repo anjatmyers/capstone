@@ -10,10 +10,7 @@ import Signup from './components/auth/Signup';
 import MasterEditor from './components/MasterEditor';
 import CompleteCallback from './components/CompleteCallback';
 import Login from "./components/auth/Login";
-
-import BaseLayout from './components/layout/BaseLayout';
 import "./assets/styles.scss";
-
 import {createStore, applyMiddleware, compose} from 'redux';
 import reduxThunk from 'redux-thunk';
 import {Provider} from 'react-redux';

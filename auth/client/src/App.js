@@ -35,7 +35,7 @@ import UpdateFile from './components/pickerComponents/UpdateFile';
 import Resources from "./components/Resources"
 
 
-const drawerWidth = 240;
+const drawerWidth = 280;
 
 
 const useStyles = makeStyles((theme) => ({
@@ -268,6 +268,7 @@ export default function App() {
           </ListItem>
         </List>
       </Drawer>
+
       {/* Start of main content window */}
       <main
         className={clsx(classes.content, {
@@ -281,17 +282,15 @@ export default function App() {
   direction="column"
   justify="flex-start"
   alignItems="flex-start"
-
-
 >  
+
     <div className="mt-3 m-2">
     
     <h2>Code Editor</h2>
         <h5 className="mb-3">Save important code snippets from class:</h5>
          </div >
+
         <Grid item>
-          
-  
           <MasterEditor/>
           </Grid>
         
