@@ -1,4 +1,5 @@
-$base-bgcolor: #506d94;
+$base-bgcolor: #5a779d;
+// $base-bgcolor: #439a86;
 $base-color: #1d1c1c;
 $base-font-weight: 300;
 $base-font-size: 1rem;
@@ -149,5 +150,37 @@ a {
     border: 1px solid black
   }
 }
+
+@media ( max-width: 480px ) {
+  .logo { width: 200px; }
+  .welcome {font-size: 30px;}
+  .name {font-size: 30px;}
+  }
+@media ( min-width: 481px ) and ( max-width: 768px ) {
+  .logo { width: 250px; }
+  .welcome {font-size: 30px;}
+    .name {font-size: 30px;}
+  }
+@media ( min-width: 769px ) and ( max-width: 1024px ) {
+  .logo { width: 300px; }
+  .welcome {font-size: 30px;}
+  .name {font-size: 40px;}
+  }
+  @media ( min-width:1025px ) and ( max-width: 1280px ) {
+  .logo { width: 400px; }
+  .welcome {font-size: 40px;}
+  .name {font-size: 30px;}
+  }
+  @media ( min-width: 1081px ) {
+  .logo { width: 500px; }
+  .welcome {font-size: 40px;}
+  .name {font-size: 45px;}
+  }
+  .logo { height: auto; }
+  .name {font-family: 'Merriweather', serif;}
+  .projectDescription {
+    font-size: 25px;
+    color: white;
+  }
 
 

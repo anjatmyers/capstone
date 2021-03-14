@@ -1,7 +1,8 @@
 import React from 'react'
 import GooglePicker from 'react-google-picker'
 import axios from 'axios';
-import{ DEVELOPER_KEY, CLIENT_ID, PROJECT_ID, SCOPE} from './PickerAuth'
+import{ DEVELOPER_KEY, CLIENT_ID, PROJECT_ID, SCOPE} from './PickerAuth';
+import {useSelector} from 'react-redux';
 
 
 
@@ -20,15 +21,19 @@ const UpdateFile = () => {
 
   //   // Scope to use to access user's Drive items.
   //   const SCOPE = ['https://www.googleapis.com/auth/drive'];
+  const editorInput = useSelector(state => state.auth.editorInput);
+
 
     const updateFiles = (id) => {
 
+     
+      console.log("editorInput======", editorInput)
     
         const files = async () => {
 
             let userID = localStorage.getItem('id')
 
-            let response = await axios.post('http://localhost:3001/update', {id, userID}, {
+            let response = await axios.post('http://localhost:3001/update', {id, userID, editorInput}, {
             headers: {
             "content-type": "application/json",
             authorization: localStorage.getItem('token'),
@@ -43,7 +48,8 @@ const UpdateFile = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="">
+      {/* <div className="container"> */}
         <GooglePicker clientId={CLIENT_ID}
                       developerKey={DEVELOPER_KEY}
                       scope={SCOPE}
@@ -74,8 +80,8 @@ const UpdateFile = () => {
                                 let fileId = data.docs[0].id;
                                 let fileName = data.docs[0].name
                                 let fileBody = data.docs[0]
-                                console.log("data object:",data)
-                                console.log("filebody object",fileBody)
+                                // console.log("data object:",data)
+                                // console.log("filebody object",fileBody)
                                 // alert(fileName + " has been deleted!");
                                 updateFiles(fileId)
                                 }
@@ -85,7 +91,7 @@ const UpdateFile = () => {
                           picker.build().setVisible(true);
                       }}
         >
-            <button className='btn btn-warning m-2'>Update File</button>
+            <button className='btn btn-warning '>Update</button>
             <div className="google"></div>
         </GooglePicker>
     </div>
