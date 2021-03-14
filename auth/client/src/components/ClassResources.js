@@ -5,7 +5,7 @@ import {Card, ListGroup, ListGroupItem} from 'react-bootstrap'
 
 const ClassResources = () => {
     return (
-        <div className="col mx-2 mx-lg-5 w-100  justify-content-center">
+        <div className="col mx-1 mx-lg-5 w-100  justify-content-center">
         <Card className="w-100" style={{ width: '18rem' }}>
         <Card.Img variant="top" src="../../images/digitalcrafts.png" style={{backgroundColor: "#00ACA4", margin: "0px"}}/>
         <Card.Body>

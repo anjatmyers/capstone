@@ -326,8 +326,6 @@ export default function App() {
 
 
         
-           <div className="d-flex align-items-end ">
-          <h2 className="mb-0 mr-2 mt-5">Code Editor</h2>
 
         <div className="col-lg-8 col-md-12">
 
