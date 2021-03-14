@@ -32,6 +32,9 @@ import DeleteFile from './components/pickerComponents/DeleteFile';
 import UpdateFile from './components/pickerComponents/UpdateFile';
 
 import Resources from "./components/Resources"
+import ClassResources from './components/ClassResources';
+import AssessmentCard from './components/AssesmentCard';
+import Assessment from './components/Assesment';
 
 
 const drawerWidth = 280;
@@ -324,10 +327,13 @@ export default function App() {
         {/* end of code editor */}
 
         
-        <div className="col-lg-4 mt-4">
-          
-        <Resources />
+        <div className="col-lg-4 mt-2 mt-lg-4 ">
+          <div className="row justify-content-center mx-2 mx-lg-3"><Resources /></div>
+          <div className="row justify-content-center text-center"><ClassResources /></div>
+          <div className="row justify-content-center text-center">< AssessmentCard/></div>
+        
           </div> 
+          {/* end Resources Div */}
           </div>
           {/* end main container div */}
         

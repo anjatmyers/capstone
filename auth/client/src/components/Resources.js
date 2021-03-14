@@ -5,6 +5,7 @@ import {useEffect} from 'react'
 import {useSelector} from 'react-redux'
 import Button from "@material-ui/core/Button"
 import { ListItem, List } from '@material-ui/core';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 
 
 
@@ -44,7 +45,8 @@ const Resources = (props) => {
     
     let displayLinks = Links.map(Links =>{
         console.log(Links.Link)
-        return <div color="inherit" onClick={()=>handleClick(`${Links.Link}`)}>{Links.Link}</div>
+        return <div className="m-1" color="inherit" ><ExitToAppIcon fontSize="large" onClick={()=>handleClick(`${Links.Link}`)}/>{Links.Link} </div>
+        
 
 
         
