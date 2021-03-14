@@ -1,6 +1,11 @@
 import React, {useState} from 'react';
 import Paper from "@material-ui/core/Paper"
 import axios from 'axios'
+import {setEditorInput} from '../../actions/index';
+import {useDispatch} from 'react-redux';
+import UpdateFile from '../../components/pickerComponents/UpdateFile';
+import DeleteFile from '../../components/pickerComponents/DeleteFile';
+import AuthorizeGoogle from '../../components/pickerComponents/AuthorizeGoogle';
 
 import '../editorComponents/editorstyles.css'
 import 'codemirror/lib/codemirror.css'
@@ -12,10 +17,12 @@ import 'codemirror/mode/sql/sql'
 import 'codemirror/mode/xml/xml'
 import 'codemirror/mode/css/css'
 import {Controlled as ControlledEditor} from 'react-codemirror2'
+import Button from '@material-ui/core/Button';
 
 export default function EditorTemplate(props) {
     const [input, setInput] = useState('')
     const [title, setTitle] = useState('')
+    const dispatch = useDispatch();
 
     const {
         language,
@@ -25,7 +32,7 @@ export default function EditorTemplate(props) {
 
     function handleChange(editor, data, value) {
         setInput(value)
-
+        dispatch(setEditorInput(input))
     }
     // console.log(input);
 
@@ -51,7 +58,7 @@ export default function EditorTemplate(props) {
         files();
         console.log('file created')
         }
-
+        
     
 
   return (
@@ -77,12 +84,20 @@ export default function EditorTemplate(props) {
 
     </div>
 
-    <input className="input m-2 p-1 " type="email" placeholder="Title this snippet"
-                value={title}
-                onChange={(e)=>setTitle(e.target.value)}
-              />
-    <button className='btn btn-secondary m-2' onClick={saveFile}>Save to Google Drive</button>
+    <div className="container-fluid d-flex justify-content-start">
+    <div><input className="input m-1 m-lg-3 p-1 mt-3 mt-lg-4 editorInput" type="email" placeholder="Title this snippet" value={title} onChange={(e)=>setTitle(e.target.value)} /></div>
 
+    <div><button className='btn btn-success mx-1 my-2 m-lg-3' onClick={saveFile} >Save to Drive</button></div>
+    {/* <Button variant="contained" className="mx-1 my-2 m-lg-3 bg-success text-center text-white" >Save to Google Drive</Button> */}
+    
+    <div className="mx-1 my-2 m-lg-3"> <AuthorizeGoogle /></div>
+    <div className="mx-1 my-2 m-lg-3"> <UpdateFile /></div>
+    <div className="mx-1 my-2 m-lg-3"> <DeleteFile /></div>
+    
+   
+       
+    </div>
+    {/* end of buttons/title input div */}
 
     
 

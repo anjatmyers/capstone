@@ -45,7 +45,7 @@ const DeleteFiles = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="">
 
         <GooglePicker clientId={CLIENT_ID}
                       developerKey={DEVELOPER_KEY}
@@ -91,7 +91,7 @@ const DeleteFiles = () => {
         >
 
             
-            <button className='btn btn-danger m-2'>Delete File</button>
+            <button className='btn btn-danger'>Delete</button>
 
             <div className="google"></div>
         </GooglePicker>

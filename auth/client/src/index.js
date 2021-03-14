@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-import Welcome from './components/Welcome';
+import LandingPage from './components/LandingPage';
 import Feature from './components/Feature'; //protect
 import Signin from './components/auth/Signin';
 import Signout from './components/auth/Signout';
@@ -109,7 +109,7 @@ ReactDOM.render(
     <Router>
       <ThemeProvider theme={theme}>
           <Switch>
-            <Route exact path='/' component={Welcome}/>
+            <Route exact path='/' component={LandingPage}/>
             <Route path='/home' component={requireAuth(App)}/>
             <Route path='/signup' component={Signup}/>
             <Route path='/feature' component={requireAuth(Feature)}/>

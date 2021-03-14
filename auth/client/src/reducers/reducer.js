@@ -5,7 +5,8 @@ const initialState = {
     authenticated: "",
     userid: "",
     folderStatus: false,
-    language: ""
+    language: "",
+    editorInput: ""
 }
 
 const reducerTemplate = (state = initialState, action) => {
@@ -31,6 +32,11 @@ const reducerTemplate = (state = initialState, action) => {
             return{
                 ...state,
                 language: action.language
+            }
+        case "SET_INPUT":
+            return{
+                ...state,
+                editorInput: action.data
             }
         default:
             return state;

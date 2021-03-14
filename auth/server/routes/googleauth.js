@@ -49,24 +49,22 @@ router.post('/update', async (req, res) => {
     
     let fileID = req.body.id
     let userID = req.body.userID
+    let editorInput = req.body.editorInput
 
-    console.log(fileID)
+    console.log("EDITOR INPUT::::::::::::::", editorInput)
 
     // try{
   
       const drive = await auth(userID);
+
+      let file = await drive.files.update({
+        fileId: req.body.id,
+        mimeType: 'text/plain',
+        media: {
+        body: editorInput
+        }
+    })
   
-      const results = await drive.files.get({ 
-        fileId: fileID, 
-        mimeType: 'text/plain'
-      });
-
-      console.log("UPDATE***********", results.media)
-
-    // }
-    // catch(err){
-    //   res.send('error occurred')
-    // }
   
   })
 

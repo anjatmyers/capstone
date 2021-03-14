@@ -101,8 +101,9 @@ export default function PersistentDrawerLeft() {
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
+        
       >
-        <Toolbar>
+        <Toolbar >
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -125,9 +126,10 @@ export default function PersistentDrawerLeft() {
         classes={{
           paper: classes.drawerPaper,
         }}
+        
       >
-        <div className={classes.drawerHeader}>
-          <IconButton onClick={handleDrawerClose}>
+        <div className={classes.drawerHeader}  >
+          <IconButton onClick={handleDrawerClose} >
             {theme.direction === 'ltr' ? <ChevronLeftIcon /> : <ChevronRightIcon />}
           </IconButton>
         </div>
@@ -166,6 +168,7 @@ export default function PersistentDrawerLeft() {
         className={clsx(classes.content, {
           [classes.contentShift]: open,
         })}
+        
       >
         <div className={classes.drawerHeader} />
         {/* <Typography paragraph>
