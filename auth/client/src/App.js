@@ -17,6 +17,9 @@ import Grid from "@material-ui/core/Grid"
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Button from "@material-ui/core/Button"
+import Box from "@material-ui/core/Box"
+import SvgIcon from '@material-ui/core/SvgIcon';
+
 // import {Modal, Button} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux';
 import {getURL, folderStatus} from './actions/index';
@@ -70,6 +73,7 @@ const useStyles = makeStyles((theme) => ({
   },
   drawerPaper: {
     width: drawerWidth,
+    backgroundColor: "#f4f8fb"
   },
   drawerHeader: {
     display: 'flex',
@@ -92,6 +96,7 @@ const useStyles = makeStyles((theme) => ({
     backgroundColor: "#f4f8fb"
     
   },
+
   contentShift: {
     transition: theme.transitions.create('margin', {
       easing: theme.transitions.easing.easeOut,
@@ -100,10 +105,12 @@ const useStyles = makeStyles((theme) => ({
     marginLeft: 0,
     
   },
+
   signOut: {
     fontWeight: "bold",
     marginLeft: "auto",
   },
+
   navContent:{
     display: "flex",
     justifyContent: "center",
@@ -118,11 +125,18 @@ const useStyles = makeStyles((theme) => ({
     paddingBottom: theme.spacing(2),
     
   },
-  ListItemText:{
+  ListStyle:{
     padding: theme.spacing(3),
+    fontSize: 50,
+  },
+  listItemText:{
     fontSize: 20,
-    
+    padding: theme.spacing(1),
+  },
+  MuiSvgIcon:{
+    fontSize: "large"
   }
+
 }));
 
 
@@ -237,11 +251,9 @@ export default function App() {
         </div>
         </Toolbar>
 
-
-
-
       </AppBar>
       {/* End of top Navbar */}
+
 
       {/* Start of Drawer */}
       <Drawer
@@ -259,30 +271,30 @@ export default function App() {
           </IconButton>
         </div>
         <Divider />
-        <List >
+        <List className={classes.ListStyle}>
         <ListItem button key={"1"} onClick={()=>dispatch(setLanguage("javaScript"))} value="javaScript">
-            <ListItemIcon><DiJsBadge /></ListItemIcon>
-            <ListItemText primary={"JavaScript"}></ListItemText>
+            <ListItemIcon><SvgIcon viewBox="0 0 128 128" classes={{primary:classes.MuiSvgIcon}}><path fill="#F0DB4F" d="M1.408 1.408h125.184v125.185h-125.184z"></path><path fill="#323330" d="M116.347 96.736c-.917-5.711-4.641-10.508-15.672-14.981-3.832-1.761-8.104-3.022-9.377-5.926-.452-1.69-.512-2.642-.226-3.665.821-3.32 4.784-4.355 7.925-3.403 2.023.678 3.938 2.237 5.093 4.724 5.402-3.498 5.391-3.475 9.163-5.879-1.381-2.141-2.118-3.129-3.022-4.045-3.249-3.629-7.676-5.498-14.756-5.355l-3.688.477c-3.534.893-6.902 2.748-8.877 5.235-5.926 6.724-4.236 18.492 2.975 23.335 7.104 5.332 17.54 6.545 18.873 11.531 1.297 6.104-4.486 8.08-10.234 7.378-4.236-.881-6.592-3.034-9.139-6.949-4.688 2.713-4.688 2.713-9.508 5.485 1.143 2.499 2.344 3.63 4.26 5.795 9.068 9.198 31.76 8.746 35.83-5.176.165-.478 1.261-3.666.38-8.581zm-46.885-37.793h-11.709l-.048 30.272c0 6.438.333 12.34-.714 14.149-1.713 3.558-6.152 3.117-8.175 2.427-2.059-1.012-3.106-2.451-4.319-4.485-.333-.584-.583-1.036-.667-1.071l-9.52 5.83c1.583 3.249 3.915 6.069 6.902 7.901 4.462 2.678 10.459 3.499 16.731 2.059 4.082-1.189 7.604-3.652 9.448-7.401 2.666-4.915 2.094-10.864 2.07-17.444.06-10.735.001-21.468.001-32.237z"></path></SvgIcon></ListItemIcon>
+            <ListItemText classes={{primary:classes.listItemText}} primary={"JavaScript"}></ListItemText>
           </ListItem>
 
           <ListItem button key={"2"} onClick={()=>dispatch(setLanguage("python"))}value="python">
             <ListItemIcon><DiPython /></ListItemIcon>
-            <ListItemText primary={"Python"}></ListItemText>
+            <ListItemText classes={{primary:classes.listItemText}} primary={"Python"}></ListItemText>
           </ListItem>
 
           <ListItem button key={"3"} onClick={()=>dispatch(setLanguage("html"))}value="html">
             <ListItemIcon><DiHtml5 /></ListItemIcon>
-            <ListItemText primary={"HTML/CSS"}></ListItemText>
+            <ListItemText classes={{primary:classes.listItemText}} primary={"HTML/CSS"}></ListItemText>
           </ListItem>
 
           <ListItem button key={"4"} onClick={()=>dispatch(setLanguage("sql"))}value="sql">
             <ListItemIcon><DiDatabase /></ListItemIcon>
-            <ListItemText primary={"SQL"}></ListItemText>
+            <ListItemText classes={{primary:classes.listItemText}} primary={"SQL"}></ListItemText>
           </ListItem>
 
           <ListItem button key={"5"} onClick={()=>dispatch(setLanguage("shell"))}value="shell">
             <ListItemIcon><DiTerminal /></ListItemIcon>
-            <ListItemText primary={"Shell"}></ListItemText>
+            <ListItemText classes={{primary:classes.listItemText}} primary={"Shell"}></ListItemText>
           </ListItem>
 
         </List>
@@ -302,27 +314,17 @@ export default function App() {
         })}
       >
         <div className={classes.drawerHeader} />
-
+{/* Start of content Grid */}
         <Grid
   container
   direction="column"
   justify="flex-start"
-  alignItems="flex-start"
->  
+  alignItems="flex-start">  
 
 
-    <div className="mt-3 m-2">
-    
-    <h2>Code Editor</h2>
-        <h5 className="mb-3">Save important code snippets from class:</h5>
-         </div >
-
-        <Grid item>
-
-   
-        <Grid item>
+        <Grid item xs={12}>
            <div className="d-flex align-items-end ">
-          <h2 className="mb-0 mr-2">Code Editor</h2>
+          <h2 className="mb-0 mr-2 mt-5">Code Editor</h2>
           <h6 className="">save code snippets from class:</h6>
          </div >
 
@@ -330,8 +332,11 @@ export default function App() {
           </Grid>
         
 
-        <Grid item>
+        
+        <Grid item xs={6}>
+          <Box>
           <Resources />
+          </Box>
           </Grid>
 
        
@@ -344,10 +349,9 @@ export default function App() {
         </div>
         
 
-        <h5 className="mt-4"><Link to="/feature">Resources</Link></h5>
-        <br></br>
 
-        </Grid>
+        </Grid> 
+        {/* End of Grid */}
 
 
       </main>

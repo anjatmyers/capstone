@@ -1,14 +1,19 @@
 {
     "html": [{
-        "Link": "https://digital.com/tools/html-cheatsheet/"
+        "Link": "https://digital.com/tools/html-cheatsheet/",
+        "Description": "HTML Cheatsheet"
     }, {
-        "Link": "https://www.onblastblog.com/css3-cheat-sheet/" 
+        "Link": "https://www.onblastblog.com/css3-cheat-sheet/",
+        "Description": "CSS Cheatsheet" 
     },  {
-        "Link": "https://css-tricks.com/"
+        "Link": "https://css-tricks.com/",
+        "Description": "CSS Tricks"
     },  {
-        "Link": "https://www.freecodecamp.org/learn/responsive-web-design/"
+        "Link": "https://www.freecodecamp.org/learn/responsive-web-design/",
+        "Description": "Free Code Camp Web Design"
     }, {
-        "Link": "https://www.internetingishard.com/"
+        "Link": "https://www.internetingishard.com/",
+        "Description": "Internetingishard"
     }
 ]
 }
