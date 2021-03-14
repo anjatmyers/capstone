@@ -146,9 +146,11 @@ export default function App() {
   };
 
 
+// function for google docs button
+// const handleDocs = () => {
+//     dispatch(getURL());
+//   }
 
-    dispatch(getURL());
-  }
   const getFiles = () => {
     
     const files = async () => {
@@ -327,19 +329,7 @@ export default function App() {
 
 
         <div className="buttonDiv d-flex">
-        {/* <button className='btn btn-success m-2 mr-3' onClick={handleDocs}>Allow Access to Google Drive</button> */}
-        {/* <button onClick={getFiles}>Get Files</button> */}
-        {/* <button onClick={()=>saveFile}>Save to Google Drive</button> */}
-        
-        {/* <div>
-        <UpdateFile />
-        </div> */}
 
-
-        {/* <div>
-        <DeleteFile />
-        </div> */}
-        
         
         </div>
         
@@ -354,4 +344,4 @@ export default function App() {
       {/* End of main content window */}
     </div>
   );
-}
+      }
