@@ -1,10 +1,24 @@
 import React from "react";
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import '../assets/styles2.css';
+import Button from '@material-ui/core/Button';
 
 
 
 const LandingPage = () => {
+
+    const history = useHistory();
+
+    const handleRegister = () => {
+        
+        history.push('/signup')
+    }
+    const handleSignIn = () => {
+        
+        history.push('/login')
+    }
+    
+
   return (
     
     <div style={{height: "100vh"}} className="d-flex flex-column justify-content-center align-items-center">
@@ -45,9 +59,14 @@ const LandingPage = () => {
         </div>
         {/* end of mini col ONE in right bottom  */}
         <div className="col  mt-4">
-        <p className="text-white text-center ">Already have an account? <br/><Link className="text-white text-center" to="/login">Log in</Link></p>
-        <p className="text-white text-center ">New here? <br/> <Link className="text-white text-center" to="/signup">Register</Link></p>
+        <p className="text-white text-center ">Already have an account? <br/>
+        <Button variant="contained" className="mx-1 m-lg-3 text-center" onClick={handleSignIn} >Sign In</Button>
+        </p>
+        <p className="text-white text-center ">New here? <br/>
+        <Button variant="contained" className="mx-1 my-2 m-lg-3 text-center" onClick={handleRegister} >Register</Button>
+        </p>
         </div>
+        
          {/* end of mini col TWO in right bottom  */}
     </div>
     {/* end col two in row two */}

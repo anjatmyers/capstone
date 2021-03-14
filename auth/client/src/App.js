@@ -35,6 +35,9 @@ import DeleteFile from './components/pickerComponents/DeleteFile';
 import UpdateFile from './components/pickerComponents/UpdateFile';
 
 import Resources from "./components/Resources"
+import ClassResources from './components/ClassResources';
+import AssessmentCard from './components/AssesmentCard';
+import Assessment from './components/Assesment';
 
 
 const drawerWidth = 280;
@@ -302,57 +305,56 @@ export default function App() {
         <List>
           <ListItem button component={Link} to="/feature" key={"6"}>
             <ListItemIcon> <DiJsBadge /></ListItemIcon> 
-            <ListItemText primary={"Second List"}></ListItemText>
+            <ListItemText primary={"Job Board"}></ListItemText>
           </ListItem>
         </List>
       </Drawer>
 
+
+
       {/* Start of main content window */}
-      <main
+      <main 
         className={clsx(classes.content, {
           [classes.contentShift]: open,
         })}
       >
         <div className={classes.drawerHeader} />
-{/* Start of content Grid */}
-        <Grid
-  container
-  direction="column"
-  justify="flex-start"
-  alignItems="flex-start">  
 
 
-        <Grid item xs={12}>
+        {/* start of main content div */}
+        <div className="container-fluid d-flex row "> 
+
+
+        
            <div className="d-flex align-items-end ">
           <h2 className="mb-0 mr-2 mt-5">Code Editor</h2>
+
+        <div className="col-lg-8 col-md-12">
+
+
+           <div className="d-flex align-items-end ">
+
+          <h2 className="mb-0 mr-2">Code Editor</h2>
           <h6 className="">save code snippets from class:</h6>
          </div >
+         <MasterEditor/>
 
-          <MasterEditor/>
-          </Grid>
-        
-
-        
-        <Grid item xs={6}>
-          <Box>
-          <Resources />
-          </Box>
-          </Grid>
-
-       
-        
-
-
-        <div className="buttonDiv d-flex">
-
-        
         </div>
         
-
-
-        </Grid> 
-        {/* End of Grid */}
-
+        {/* end of code editor */}
+        
+       
+        
+        <div className="col-lg-4 mt-2 mt-lg-4 ">
+          <div className="row justify-content-center mx-2 mx-lg-3"><Resources /></div>
+          <div className="row justify-content-center text-center"><ClassResources /></div>
+          <div className="row justify-content-center text-center">< AssessmentCard/></div>
+        
+          </div> 
+          {/* end Resources Div */}
+          </div>
+          {/* end main container div */}
+        
 
       </main>
       {/* End of main content window */}

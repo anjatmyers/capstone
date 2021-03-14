@@ -6,7 +6,8 @@ const initialState = {
     userid: "",
     folderStatus: false,
     language: "",
-    editorInput: ""
+    editorInput: "",
+    jobs: []
 }
 
 const reducerTemplate = (state = initialState, action) => {
@@ -37,6 +38,11 @@ const reducerTemplate = (state = initialState, action) => {
             return{
                 ...state,
                 editorInput: action.data
+            }
+        case "SEARCHED_JOBS":
+            return{
+                ...state,
+                jobs: action.data
             }
         default:
             return state;

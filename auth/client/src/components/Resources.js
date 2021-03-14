@@ -3,6 +3,10 @@ import {Link} from "@material-ui/core"
 import axios from 'axios'
 import {useEffect} from 'react'
 import {useSelector} from 'react-redux'
+import Button from "@material-ui/core/Button"
+import { ListItem, List } from '@material-ui/core';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+
 
 
 const Resources = (props) => {
@@ -18,6 +22,9 @@ const Resources = (props) => {
     let tipsLanguage = useSelector((state => state.auth.language))
     console.log(tipsLanguage)
     
+    const handleClick = (link) => {
+      window.open(link, '_blank');
+    }
     
     
     // SET VARIABLE TO CHANGE JSON FILE RETREIVAL TO EQUAL STATE
@@ -38,18 +45,35 @@ const Resources = (props) => {
     
     let displayLinks = Links.map(Links =>{
         console.log(Links.Link)
-        return <li><Link href={Links.Link}/> {Links.Link}</li>
+        return <div className="m-1" color="inherit" ><ExitToAppIcon fontSize="large" onClick={()=>handleClick(`${Links.Link}`)}/>{Links.Link} </div>
+        
+
+
+        
     })
     
     
       return (
         <>
-          <div className={tipsDiv}>
-            <h3 className={headline}>{tipsLanguage} Resources</h3>
-              <ul className={listColors}>
-                  {displayLinks}
-              </ul>
+        <div className="card shadow p-3 mb-5 mt-4 bg-white rounded">
+          <div className="card-body">
+                          <div className={tipsDiv}>
+                                    <div className="d-flex align-items-end ml-3">
+                                  {/* <h2 className="mb-0 mr-2">Code Editor</h2> */}
+                                  <h3 className={headline}>{tipsLanguage} Resources</h3>
+                                </div >
+                                      <div className="linkContainer d-flex flex-column">
+                                      <div className={listColors}>
+                                          {displayLinks}
+                                      </div>
+                                      </div>
+                                      {/* end link container */}
+                                  </div>
+            </div>
+            {/* end card body */}
           </div>
+          {/* end card */}
+          
         </>
       )
     }
