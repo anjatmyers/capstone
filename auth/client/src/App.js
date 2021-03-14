@@ -295,59 +295,74 @@ export default function App() {
         </List>
       </Drawer>
 
+
+
       {/* Start of main content window */}
-      <main
+      <main 
         className={clsx(classes.content, {
           [classes.contentShift]: open,
         })}
       >
         <div className={classes.drawerHeader} />
 
+        {/* <Grid
+        container
+        spacing={1}
+        direction="row">
+        
         <Grid
-  container
-  direction="column"
-  justify="flex-start"
-  alignItems="flex-start"
->  
+        container
+        direction="column"
+        item xs={12} lg={9} 
+        justify="center"
+        alignItems="center"> */}
+        {/* code editor heading */}
+
+        {/* start of main content div */}
+        <div className="container-fluid d-flex row ">
 
 
-    <div className="mt-3 m-2">
-    
-    <h2>Code Editor</h2>
-        <h5 className="mb-3">Save important code snippets from class:</h5>
-         </div >
+        <div className="col-lg-8 col-md-12">
 
-        <Grid item>
-        </Grid>
-   
-        <Grid item>
+        <div className="d-flex align-items-end ">
+
            <div className="d-flex align-items-end ">
+
           <h2 className="mb-0 mr-2">Code Editor</h2>
           <h6 className="">save code snippets from class:</h6>
          </div >
+         <MasterEditor/>
 
-          <MasterEditor/>
-          </Grid>
-        
-
-        <Grid item>
-          <Resources />
-          </Grid>
-
-       
-        
-
-
-        <div className="buttonDiv d-flex">
-
-        
         </div>
         
+        {/* end of code editor */}
 
-        <h5 className="mt-4"><Link to="/feature">Resources</Link></h5>
-        <br></br>
+        {/* <Grid container
+              item xs={12} lg={3} 
+              direction="column"
+          
+              
+              > */}
+        <div className="col-lg-4 mt-4">
+          
+        <Resources />
+          </div> 
+          </div>
+          {/* end main container div */}
+        {/* </Grid>
+          
+        </Grid> */}
 
-        </Grid>
+       
+      
+        
+
+
+
+
+        {/* <h5 className="mt-4"><Link to="/feature">Resources</Link></h5>
+        <br></br> */}
+
 
 
       </main>

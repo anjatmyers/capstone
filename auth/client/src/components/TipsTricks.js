@@ -35,20 +35,26 @@ useEffect(()=>{
 
 console.log(tips)
 
-let displayTipsTricks = tips.map(tips =>{
-    return <li>{tips.Tip}</li>
+let displayTipsTricks = tips.map((tips, index) =>{
+
+    return <li className={index % 2 ? `${listColors} list-group-item` : `greyListItem list-group-item`} 
+
+     >{tips.Tip}</li>
 })
 
 
 
   return (
     <>
-    <div className="">
+    <div className="shadow">
       <div className={tipsDiv}>
         <h3 className={headline}>{tipsLanguage} Tips and Tricks</h3>
-          <ul className={listColors}>
+          {/* <ul className={listColors}> */}
+          {/* <div className={listColors}> */}
+          <ul className="list-group">
               {displayTipsTricks}
           </ul>
+          {/* </div> */}
       </div>
       </div>
     </>
