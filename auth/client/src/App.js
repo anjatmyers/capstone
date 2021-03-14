@@ -295,61 +295,44 @@ export default function App() {
         </List>
       </Drawer>
 
+
+
       {/* Start of main content window */}
-      <main
+      <main 
         className={clsx(classes.content, {
           [classes.contentShift]: open,
         })}
       >
         <div className={classes.drawerHeader} />
 
-        <Grid
-  container
-  direction="column"
-  justify="flex-start"
-  alignItems="flex-start"
->  
+
+        {/* start of main content div */}
+        <div className="container-fluid d-flex row "> 
+
+        <div className="col-lg-8 col-md-12">
 
 
-    <div className="mt-3 m-2">
-    
-    <h2>Code Editor</h2>
-        <h5 className="mb-3">Save important code snippets from class:</h5>
-         </div >
-
-        <Grid item>
-        </Grid>
-   
-        <Grid item>
            <div className="d-flex align-items-end ">
+
           <h2 className="mb-0 mr-2">Code Editor</h2>
           <h6 className="">save code snippets from class:</h6>
          </div >
+         <MasterEditor/>
 
-          <MasterEditor/>
-          </Grid>
-        
-
-        <Grid item>
-          <Resources />
-          </Grid>
-
-       
-        
-
-
-        <div className="buttonDiv d-flex">
-
-        
         </div>
         
+        {/* end of code editor */}
 
-        <h5 className="mt-4"><Link to="/feature">Resources</Link></h5>
-        <br></br>
+        
+        <div className="col-lg-4 mt-4">
+          
+        <Resources />
+          </div> 
+          </div>
+          {/* end main container div */}
+        
 
-        </Grid>
-
-
+        
       </main>
       {/* End of main content window */}
     </div>

@@ -18,7 +18,7 @@ const AuthorizeGoogle = () => {
   return (
     <>
       <div className="">
-            <button className='btn btn-primary' onClick={handleDocs}>Access Google Drive</button>
+            <button className='btn btn-sm btn-primary' onClick={handleDocs}>Access Google Drive</button>
        
     </div>
     </>
