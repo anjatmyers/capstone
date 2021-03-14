@@ -1,14 +1,19 @@
 {
     "shell": [{
-        "Link": "https://www.learnshell.org/"
+        "Link": "https://www.learnshell.org/",
+        "Description": "learnshell.org"
     }, {
-        "Link": "https://www.shellscript.sh/"
+        "Link": "https://www.shellscript.sh/",
+        "Description": "shellscript.sh"
     }, {
-        "Link": "https://tldp.org/LDP/abs/html/why-shell.html"
+        "Link": "https://tldp.org/LDP/abs/html/why-shell.html",
+        "Description": "tldp.org"
     }, {
-        "Link": "https://devhints.io/bash"
+        "Link": "https://devhints.io/bash",
+        "Description": "devhints.io/bash"
     }, {
-        "Link": "https://www.educative.io/blog/bash-shell-command-cheat-sheet"
+        "Link": "https://www.educative.io/blog/bash-shell-command-cheat-sheet",
+        "Description": "Shell Cheatsheet"
     }
 ]
 }

@@ -1,15 +1,20 @@
 {
     "javaScript": [{
         
-        "Link": "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/"
+        "Link": "https://www.freecodecamp.org/learn/javascript-algorithms-and-data-structures/",
+        "Description": "Free Code Camp Javascript"
     }, {
-        "Link": "https://eloquentjavascript.net/"
+        "Link": "https://eloquentjavascript.net/",
+        "Description": "Eloquent Javascript"
     }, {
-        "Link": "http://jsforcats.com/"
+        "Link": "http://jsforcats.com/",
+        "Description": "jsforcats"
     }, {
-        "Link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
+        "Link": "https://developer.mozilla.org/en-US/docs/Web/JavaScript",
+        "Description": "MDN Javascript"
     }, {
-        "Link": "https://websitesetup.org/javascript-cheat-sheet/"
+        "Link": "https://websitesetup.org/javascript-cheat-sheet/",
+        "Description": "Javascript Cheat Sheet"
     }
 ]
 }
