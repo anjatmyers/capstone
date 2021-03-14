@@ -45,7 +45,7 @@ const Resources = (props) => {
     
     let displayLinks = Links.map(Links =>{
         console.log(Links.Link)
-        return <div className="m-1" color="inherit" ><ExitToAppIcon fontSize="large" onClick={()=>handleClick(`${Links.Link}`)}/>{Links.Link} </div>
+        return <div className="m-1" color="inherit" ><ExitToAppIcon fontSize="large" onClick={()=>handleClick(`${Links.Link}`)}/>{Links.Description} </div>
         
 
 
