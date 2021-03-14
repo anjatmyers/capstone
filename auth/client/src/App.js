@@ -305,26 +305,12 @@ export default function App() {
       >
         <div className={classes.drawerHeader} />
 
-        {/* <Grid
-        container
-        spacing={1}
-        direction="row">
-        
-        <Grid
-        container
-        direction="column"
-        item xs={12} lg={9} 
-        justify="center"
-        alignItems="center"> */}
-        {/* code editor heading */}
 
         {/* start of main content div */}
-        <div className="container-fluid d-flex row ">
-
+        <div className="container-fluid d-flex row "> 
 
         <div className="col-lg-8 col-md-12">
 
-        <div className="d-flex align-items-end ">
 
            <div className="d-flex align-items-end ">
 
@@ -337,34 +323,16 @@ export default function App() {
         
         {/* end of code editor */}
 
-        {/* <Grid container
-              item xs={12} lg={3} 
-              direction="column"
-          
-              
-              > */}
+        
         <div className="col-lg-4 mt-4">
           
         <Resources />
           </div> 
           </div>
           {/* end main container div */}
-        {/* </Grid>
-          
-        </Grid> */}
-
-       
-      
         
 
-
-
-
-        {/* <h5 className="mt-4"><Link to="/feature">Resources</Link></h5>
-        <br></br> */}
-
-
-
+        
       </main>
       {/* End of main content window */}
     </div>
