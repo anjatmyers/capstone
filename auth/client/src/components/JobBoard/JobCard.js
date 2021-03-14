@@ -53,7 +53,7 @@ const JobCard = () => {
                     </div>
                     <div className="card-text">
                         <p>{job.description}</p>
-                        <Link to={job.redirect_url} />
+                        <Link to={job.redirect_url}>View Job Listing</Link>
                     </div>
                 </div>
             </div>

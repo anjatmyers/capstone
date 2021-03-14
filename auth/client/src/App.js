@@ -290,7 +290,7 @@ export default function App() {
         <List>
           <ListItem button component={Link} to="/feature" key={"6"}>
             <ListItemIcon> <DiJsBadge /></ListItemIcon> 
-            <ListItemText primary={"Second List"}></ListItemText>
+            <ListItemText primary={"Job Board"}></ListItemText>
           </ListItem>
         </List>
       </Drawer>
