@@ -28,7 +28,6 @@ import {setLanguage} from './actions/index'
 import {Link} from 'react-router-dom'
 
 import axios from 'axios';
-
 import DeleteFile from './components/pickerComponents/DeleteFile';
 import UpdateFile from './components/pickerComponents/UpdateFile';
 
@@ -55,9 +54,11 @@ const useStyles = makeStyles((theme) => ({
       easing: theme.transitions.easing.easeOut,
       duration: theme.transitions.duration.enteringScreen,
     }),
+    
   },
   menuButton: {
     marginRight: theme.spacing(2),
+    
   },
   hide: {
     display: 'none',
@@ -65,6 +66,7 @@ const useStyles = makeStyles((theme) => ({
   drawer: {
     width: drawerWidth,
     flexShrink: 0,
+    
   },
   drawerPaper: {
     width: drawerWidth,
@@ -76,6 +78,7 @@ const useStyles = makeStyles((theme) => ({
     // necessary for content to be below app bar
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
+    backgroundColor: "#f4f8fb"
   },
   content: {
     flexGrow: 1,
@@ -86,6 +89,8 @@ const useStyles = makeStyles((theme) => ({
     }),
     marginLeft: -drawerWidth,
     marginTop: theme.spacing(3),
+    backgroundColor: "#f4f8fb"
+    
   },
   contentShift: {
     transition: theme.transitions.create('margin', {
@@ -93,6 +98,7 @@ const useStyles = makeStyles((theme) => ({
       duration: theme.transitions.duration.enteringScreen,
     }),
     marginLeft: 0,
+    
   },
   signOut: {
     fontWeight: "bold",
@@ -103,16 +109,19 @@ const useStyles = makeStyles((theme) => ({
     justifyContent: "center",
     width: "100%",
     
+    
   },
   toolbar: {
     minHeight: 95,
     alignItems: 'center',
     paddingTop: theme.spacing(2),
     paddingBottom: theme.spacing(2),
+    
   },
   ListItemText:{
     padding: theme.spacing(3),
     fontSize: 20,
+    
   }
 }));
 
@@ -136,16 +145,17 @@ export default function App() {
     setOpen(false);
   };
 
-// function for google docs button
-  const handleDocs = () => {
+
 
     dispatch(getURL());
   }
   const getFiles = () => {
     
     const files = async () => {
+
+      let userID = localStorage.getItem('id')
       
-      let response = await axios.post('http://localhost:3001/files', {}, {
+      let response = await axios.post('http://localhost:3001/files', {userID}, {
         headers: {
         "content-type": "application/json",
         authorization: localStorage.getItem('token'),
@@ -161,6 +171,7 @@ export default function App() {
     files();
     
   }
+
 
   const handleClick = (language) => {
     console.log(language);
@@ -189,25 +200,38 @@ export default function App() {
         className={clsx(classes.appBar, {
           [classes.appBarShift]: open,
         })}
+        style={{backgroundColor: "#5a779d", color: 'white'}}
       >
 
-        <Toolbar className={classes.toolbar}>
+        <Toolbar className={classes.toolbar} >
           <IconButton
             color="inherit"
             aria-label="open drawer"
             onClick={handleDrawerOpen}
             edge="start"
             className={clsx(classes.menuButton, open && classes.hide)}
+            
           >
             <MenuIcon />
 
           </IconButton>
           <div className={classes.navContent}>
-          <Typography variant="h6" noWrap>
+          
+
+        <div className="container-fluid d-flex align-items-between justify-content-between">
+
+          <Typography variant="h6" noWrap style={{fontFamily: 'Merriweather, serif', fontSize: '30px'}}>
             Bootcamp Survival Guide
           </Typography>
 
-        <Button size="large" variant="contained" className={classes.signOut}><Link to="/signout">Log Out</Link></Button>
+          <div className="d-flex flex-column justify-content-end">
+          <Button size="small"  variant="contained" className={classes.signOut}><Link to="/signout">Log Out</Link></Button>
+          </div>
+          {/* end button div */}
+          
+          </div>
+          {/* end name and logout button container div */}
+        
         </div>
         </Toolbar>
 
@@ -284,6 +308,7 @@ export default function App() {
   alignItems="flex-start"
 >  
 
+
     <div className="mt-3 m-2">
     
     <h2>Code Editor</h2>
@@ -291,6 +316,14 @@ export default function App() {
          </div >
 
         <Grid item>
+
+   
+        <Grid item>
+           <div className="d-flex align-items-end ">
+          <h2 className="mb-0 mr-2">Code Editor</h2>
+          <h6 className="">save code snippets from class:</h6>
+         </div >
+
           <MasterEditor/>
           </Grid>
         
@@ -304,18 +337,18 @@ export default function App() {
 
 
         <div className="buttonDiv d-flex">
-        <button className='btn btn-success m-2 mr-3' onClick={handleDocs}>Allow Access to Google Drive</button>
+        {/* <button className='btn btn-success m-2 mr-3' onClick={handleDocs}>Allow Access to Google Drive</button> */}
         {/* <button onClick={getFiles}>Get Files</button> */}
         {/* <button onClick={()=>saveFile}>Save to Google Drive</button> */}
         
-        <div>
+        {/* <div>
         <UpdateFile />
-        </div>
+        </div> */}
 
 
-        <div>
+        {/* <div>
         <DeleteFile />
-        </div>
+        </div> */}
         
         
         </div>

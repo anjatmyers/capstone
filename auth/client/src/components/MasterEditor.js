@@ -1,22 +1,13 @@
-import React, { useState, useEffect }from 'react'
+import React, { useState}from 'react'
 import {useSelector} from 'react-redux'
 import EditorTemplate from './editorComponents/EditorTemplate'
 import TipsTricks from './TipsTricks'
-// import JS from './editorComponents/JS'
-// import Shell from './editorComponents/SHELL'
-// import PY from './editorComponents/PY'
-// import SQLsetup from './editorComponents/SQLsetup'
-// import HTMLCSS from './editorComponents/HTMLCSS'
+import Assessment from './Assesment'
+
 
 
 
 function MasterEditor() {
-  // const [javaScript, setjavaScript] = useState('//Console Logs will display in Chrome\'s Developer Tools!  Refresh the page to clear.')
-  // const [python, setPython] = useState('#Add Python code here!')
-  // const [html, setHTML] = useState('<!-- Type your HTML here! -->')
-  // const [css, setCss] = useState('/*Style your CSS here!*/')
-  // const [sql, setSql] = useState('-- Build SQL queries here!')
-  // const [shell, setShell] = useState('#Type shell commands here!')
   const [srcDoc, setSrcDoc] = useState('')
 
 
@@ -135,13 +126,54 @@ const setTipStyles = (language) =>{
     }
   }
 
+  const setAssessHeadline = (language) =>{
+    switch (language) {
+      case "javaScript":
+        return (
+        <Assessment 
+        assessHeadline = "assessHeadlineJS"
+        />
+      )
+      case "python":
+        return (
+        <Assessment 
+        assessHeadline = "assessHeadlinePY"
+        />  
+        )
+      case "sql":
+        return (
+        <Assessment 
+        assessHeadline = "assessHeadlineSQL"
+        />  
+        )
+      case "shell":
+        return (
+        <Assessment 
+        assessHeadline = "assessHeadlineShell"
+        />
+        )
+      case "html":
+        return (
+        <Assessment 
+        assessHeadline = "assessHeadlineHTML"
+        />
+        )
+      default:
+        return (
+        <Assessment 
+        assessHeadline = "assessHeadlineJS"
+        />
+        )
+    }
+  }
+
 
 
   return (
     <>
     {setLanguage(language)}
     
-
+   {/* <br></br> */}
     <div className="console" >
        <iframe className="iFrame"
         // value={javaScript}
@@ -156,6 +188,7 @@ const setTipStyles = (language) =>{
     <div>
     {setTipStyles(language)}
     </div>
+    {setAssessHeadline(language)}
   </>
   )
 }
