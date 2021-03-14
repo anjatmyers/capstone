@@ -193,8 +193,49 @@ li {
     padding-top: 10px;
 }
 
+
 /* title input box for code editor */
 
 .editorInput {
     border-radius: 3%;
+
+/* Self-Assessment */
+
+.assessDiv {
+    align-items: center;
+    text-align: center;
+}
+
+.selfComments {
+    margin-top: 5px;
+    padding-top: 8px;
+    width: 33%;
+    height: 80px;
+}
+
+.assessHeadlineJS {
+    background-color: #202020;
+    color: #fdd900;
+
+}
+
+.assessHeadlinePY {
+    background-color: #1e6685;
+    color: #ffd500;
+}
+
+.assessHeadlineSQL {
+    background-color: #c65808;
+    color: white;
+}
+
+.assessHeadlineShell {
+    background-color: rgb(19, 1, 1);
+    color: white;
+}
+
+.assessHeadlineHTML {
+    background-color: rgb(143, 25, 25);
+    color: white;
+
 }

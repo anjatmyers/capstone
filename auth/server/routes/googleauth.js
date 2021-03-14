@@ -33,17 +33,13 @@ router.post('/delete', async (req, res) => {
         fileId: fileID, 
         requestBody: { trashed: true } 
       });
-
-      
-    
       console.log("File deleted successfully")
     }
-
     catch(err){
       res.send('error occurred')
     }
-  
   })
+
 
 router.post('/update', async (req, res) => {
     
@@ -51,9 +47,9 @@ router.post('/update', async (req, res) => {
     let userID = req.body.userID
     let editorInput = req.body.editorInput
 
-    console.log("EDITOR INPUT::::::::::::::", editorInput)
 
-    // try{
+    try{
+
   
       const drive = await auth(userID);
 
@@ -65,21 +61,43 @@ router.post('/update', async (req, res) => {
         }
     })
   
+
+
+      console.log(results.media)
+    }
+
+    catch(err){
+      res.send('error occurred')
+    }
+
   
   })
 
 
-router.post('/getURL',  (req, res) => {
+router.post('/getURL',  async (req, res) => {
     
     //req.user.id
+    let id = req.body.userID;
+  
     const authUrl = oAuth2Client.generateAuthUrl({
       access_type: 'offline',
       scope: SCOPES
     });
-  
+
+    try{
+      let folderIDs = await db.folderIDs.create({
+        id: id,
+      })
+    } 
+    
+    catch(error){
+      console.log(error)
+    }
+
     res.json(authUrl)
     
   })
+
 
   router.get('/googleAuth', (req, res) => {
   
@@ -90,13 +108,11 @@ router.post('/getURL',  (req, res) => {
   
     
       res.redirect(`http://localhost:3000/completeCallback/${encodeURIComponent(code)}`)
-  
   })
 
 
 router.post('/completeAuth', requireAuth,(req, res) => {
     
-  
     let code = decodeURIComponent(req.body.code);
     
     console.log("user id from jwt: ", req.user.id);
@@ -108,10 +124,7 @@ router.post('/completeAuth', requireAuth,(req, res) => {
           if (err) return console.error("Error retrieving access token", err);
             oAuth2Client.setCredentials(JSON.stringify(token));
             // Store the token to disk for later program executions
-  
-            //console.log(JSON.stringify(token))
-  
-            //console.log(token);
+
             let expiry_date = token.expiry_date.toString();
   
             let results = await db.auth.create({
@@ -122,14 +135,11 @@ router.post('/completeAuth', requireAuth,(req, res) => {
               token_type: token.token_type,
               expiry_date : expiry_date
             })
-          
 
           // res.json(token);
           console.log("successfully stored token in db")
           res.send('successful')
       });
-  
-      
     }
     catch(error){
         console.log('error while trying to get user token', error)
@@ -137,14 +147,15 @@ router.post('/completeAuth', requireAuth,(req, res) => {
     }
   })
 
-// get list of files from G drive
+
   router.post('/files', requireAuth, async (req, res) => {
     
     let id = req.user.id
-    // try{
+
+    try{
   
       const drive = await auth(id);
-      
+
       const results = await drive.files.list({
         pageSize: 20,
         fields: 'nextPageToken, files(id, name)',
@@ -152,22 +163,21 @@ router.post('/completeAuth', requireAuth,(req, res) => {
   
       const files = results.data.files;
      
-      let output = '';  //this was const instead of let :) 
+      let output = ''; 
       files.forEach(file =>{
         output += `${file.name} (${file.id}) <br />`
     })
   
       res.json({files})
-    // }
-    // catch(err){
-    //   res.send('error occurred')
-    // }
-  
+    }
+    catch(err){
+      res.send('error occurred')
+    }
   })
 
+  
   // create new file in G drive
   router.post('/createFile/:language', requireAuth, async (req, res) => {
-
 
     let id = req.user.id
     let language = req.params.language
@@ -176,80 +186,66 @@ router.post('/completeAuth', requireAuth,(req, res) => {
 
     const drive = await auth(id);
 
-  
-    // try{
 
-    let folder = await db.folderIDs.findAll({where: {id: id}}, {raw: true})
+    try{
 
-    // console.log(folder[0].dataValues.javascript)
+      let folder = await db.folderIDs.findAll({where: {id: id}}, {raw: true})
 
-    console.log("LINE 185 -------------- " + language)
+      switch (language) {
+        case "javascript": 
+          if (!(folder[0].dataValues.root)){
+            await functions.createNotesFolder(drive, id)
+          }
+          if(!(folder[0].dataValues.javascript)){
+            await functions.createJSFolder(drive, id)
+          }
+          await functions.createJSFile(drive, body, id, name)
+          break;
+        case "python": 
+          if (!(folder[0].dataValues.root)){
+            await functions.createNotesFolder(drive, id)
+          }
+          if(!(folder[0].dataValues.python)){
+            await functions.createPYFolder(drive, id)
+          }
+          await functions.createPYFile(drive, body, id, name)
+          break;
+        case "htmlcss": 
+          if (!(folder[0].dataValues.root)){
+            await functions.createNotesFolder(drive, id)
+          }
+          if(!(folder[0].dataValues.htmlcss)){
+            await functions.createHTMLCSSFolder(drive, id)
+          }
+          await functions.createHTMLCSSFile(drive, body, id, name)
+          break;
+        case "sql": 
+          if (!(folder[0].dataValues.root)){
+            await functions.createNotesFolder(drive, id)
+          }
+          if(!(folder[0].dataValues.sql)){
+            await functions.createSQLFolder(drive, id)
+          }
+          await functions.createSQLFile(drive, body, id, name)
+          break;
+        case "shell": 
+          if (!(folder[0].dataValues.root)){
+            await functions.createNotesFolder(drive, id)
+          }
+          if(!(folder[0].dataValues.shell)){
+            await functions.createShellFolder(drive, id)
+          }
+          await functions.createShellFile(drive, body, id, name)
+          break;
+        default:
+          console.log("Error saving the file")
 
-    switch (language) {
-      case "javascript": 
-        console.log("inside javascript switch case")
-        if (!(folder[0].dataValues.root)){
-          console.log("Inside making all folders")
-          await functions.createNotesFolder(drive, id)
-          console.log('Master folder created!')
-        }
-        if (!(folder[0].dataValues.javascript)){
-          await functions.createJSFolder(drive, id)
-          console.log('JS Folder created!')
-        }
-        await functions.createJSFile(drive, body, id, name)
-        console.log('File created!')
-        
-        break;
-      case "python": 
-      // console.log("line 196 " + id)
-        if (!(folder[0].dataValues.root)){
-          functions.createNotesFolder(drive, id)
-          res.send('New Master Notes Folder created.')
-        } 
-        if (!(folder[0].dataValues.python)){
-          functions.createPYFolder(drive, id)
-          res.send('New Python Folder created.')
-        }
-        console.log("===============+++++++++")
-        functions.createPYFile(drive, body, id)
-        res.send('New file created.')
-        break;
-      // case "HTMLCSS": 
-      //   if (folder[0].dataValues.htmlcss){
-      //     functions.createHTMLCSSFile(drive)
-      //   } else {
-      //     functions.createHTMLCSSFolder(drive)
-      //     functions.createHTMLCSSFile(drive)
-      //   }
-      //   break;
-      // case "SQL": 
-      //   if (folder[0].dataValues.sql){
-      //     functionc.createSQLFile(drive)
-      //   } else {
-      //     functions.createSQLFolder(drive)
-      //     functions.createSQLFile(drive)
-      //   }
-      //   break;
-      // case "Shell": 
-      //   if (folder[0].dataValues.shell){
-      //     functions.createShellFile(drive)
-      //   } else {
-      //     functions.createShellFolder(drive)
-      //     functions.createShellFile(drive)
-      //   }
-      //   break;
-      default:
-        console.log("Error saving the file")
-
-
+    }}
+    catch(err){
+        res.send('could not make new file')
     }
 
-  
 })
-
-
-
 
 module.exports = router;
 

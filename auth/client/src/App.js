@@ -145,12 +145,33 @@ export default function App() {
     setOpen(false);
   };
 
-// // function for google docs button
-//   const handleDocs = () => {
 
-//     dispatch(getURL());
-//   }
-// end google auth button function 
+
+    dispatch(getURL());
+  }
+  const getFiles = () => {
+    
+    const files = async () => {
+
+      let userID = localStorage.getItem('id')
+      
+      let response = await axios.post('http://localhost:3001/files', {userID}, {
+        headers: {
+        "content-type": "application/json",
+        authorization: localStorage.getItem('token'),
+        }})
+
+        console.log(response.data)
+        let fileResponse = response.data.files
+        console.log(fileResponse)
+        // fileResponse.forEach((file) => {
+        //   console.log(`${file.id}: ${file.name}`)
+        // })
+    }
+    files();
+    
+  }
+
 
   const handleClick = (language) => {
     console.log(language);

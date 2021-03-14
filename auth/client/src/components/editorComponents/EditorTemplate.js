@@ -44,6 +44,7 @@ export default function EditorTemplate(props) {
             let response = await axios.post(`http://localhost:3001/createFile/${language}`,
 
              {
+
                 input: input,
                 title: title,
             }, {
@@ -57,6 +58,7 @@ export default function EditorTemplate(props) {
         }
         files();
         console.log('file created')
+        alert(title + " has been saved!");
         }
         
     
@@ -87,6 +89,7 @@ export default function EditorTemplate(props) {
     <div className="container-fluid d-flex justify-content-start">
     <div><input className="input m-1 m-lg-3 p-1 mt-3 mt-lg-4 editorInput" type="email" placeholder="Title this snippet" value={title} onChange={(e)=>setTitle(e.target.value)} /></div>
 
+
     <div><button className='btn btn-success mx-1 my-2 m-lg-3' onClick={saveFile} >Save to Drive</button></div>
     {/* <Button variant="contained" className="mx-1 my-2 m-lg-3 bg-success text-center text-white" >Save to Google Drive</Button> */}
     
@@ -100,6 +103,7 @@ export default function EditorTemplate(props) {
     {/* end of buttons/title input div */}
 
     
+
 
     </div>
 
