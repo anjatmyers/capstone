@@ -15,8 +15,8 @@ module.exports = (sequelize, DataTypes) => {
     }
   };
   assess.init({
-    language: DataTypes.ARRAY(DataTypes.STRING),
-    rating: DataTypes.INTEGER,
+    language: DataTypes.STRING,
+    rating: DataTypes.STRING,
     comment: DataTypes.STRING
   }, {
     sequelize,

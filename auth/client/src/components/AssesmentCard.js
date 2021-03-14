@@ -1,11 +1,18 @@
 import React from 'react';
 import {Card, ListGroup, ListGroupItem} from 'react-bootstrap'
+import Assessment from './Assesment'
+import axios from 'axios'
+import {useSelector} from 'react-redux'
 
 const AssesmentCard = () => {
+
+    let language = useSelector((state => state.auth.language))
+
+
     return (
         <div className="mt-3">
             <Card  style={{ width: '18rem' }}>
-            <Card.Header>Header</Card.Header>
+            <Card.Header>Current Status on: {language}</Card.Header>
             <Card.Body>
             <Card.Title>Info Card Title</Card.Title>
             <Card.Text>

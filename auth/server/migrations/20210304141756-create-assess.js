@@ -16,10 +16,10 @@ module.exports = {
         }
       },
       language: {
-        type: Sequelize.ARRAY(Sequelize.TEXT)
+        type: Sequelize.STRING
       },
       rating: {
-        type: Sequelize.INTEGER
+        type: Sequelize.STRING
       },
       comment: {
         type: Sequelize.STRING
