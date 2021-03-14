@@ -143,5 +143,12 @@ export const setEditorInput = (editorInput) => {
     }
 }
 
+export const searchedJobs = (job) => {
+    return {
+        type: "SEARCHED_JOBS",
+        data: job
+    }
+}
+
 
 
