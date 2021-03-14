@@ -290,7 +290,7 @@ export default function App() {
         <List>
           <ListItem button component={Link} to="/feature" key={"6"}>
             <ListItemIcon> <DiJsBadge /></ListItemIcon> 
-            <ListItemText primary={"Second List"}></ListItemText>
+            <ListItemText primary={"Job Board"}></ListItemText>
           </ListItem>
         </List>
       </Drawer>
@@ -321,9 +321,13 @@ export default function App() {
         {/* start of main content div */}
         <div className="container-fluid d-flex row ">
 
+
         <div className="col-lg-8 col-md-12">
 
         <div className="d-flex align-items-end ">
+
+           <div className="d-flex align-items-end ">
+
           <h2 className="mb-0 mr-2">Code Editor</h2>
           <h6 className="">save code snippets from class:</h6>
          </div >

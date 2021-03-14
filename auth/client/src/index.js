@@ -10,6 +10,7 @@ import Signup from './components/auth/Signup';
 import MasterEditor from './components/MasterEditor';
 import CompleteCallback from './components/CompleteCallback';
 import Login from "./components/auth/Login";
+// import Jobs from './components/JobBoard/JobCard'
 import "./assets/styles.scss";
 import {createStore, applyMiddleware, compose} from 'redux';
 import reduxThunk from 'redux-thunk';
@@ -118,6 +119,7 @@ ReactDOM.render(
             {/* <Route path='/signin' component={Signin}/> */}
             <Route path='/login' component={Login}/>
             <Route path='/completecallback/:code' component={CompleteCallback}/>
+            {/* <Route path='/jobs' component={Jobs}/> */}
 
           </Switch>
       </ThemeProvider>
