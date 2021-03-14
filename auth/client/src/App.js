@@ -321,8 +321,7 @@ export default function App() {
 
 
         
-         
-        
+
         <div className="col-lg-8 col-md-12">
 
 
