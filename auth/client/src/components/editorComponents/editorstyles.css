@@ -214,7 +214,7 @@ li {
 }
 
 .assessHeadlineJS {
-    background-color: #202020;
+    background-color: #3A5260;
     color: #fdd900;
 
 }
@@ -225,17 +225,17 @@ li {
 }
 
 .assessHeadlineSQL {
-    background-color: #c65808;
+    background-color: #3C6B65;
     color: white;
 }
 
 .assessHeadlineShell {
-    background-color: rgb(19, 1, 1);
+    background-color: #3A5260;
     color: white;
 }
 
 .assessHeadlineHTML {
-    background-color: rgb(143, 25, 25);
+    background-color: #BB3C45;
     color: white;
 
 }

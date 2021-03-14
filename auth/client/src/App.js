@@ -310,15 +310,8 @@ export default function App() {
   alignItems="flex-start"
 >  
 
-
-    <div className="mt-3 m-2">
-    
-    <h2>Code Editor</h2>
-        <h5 className="mb-3">Save important code snippets from class:</h5>
-         </div >
-
         <Grid item>
-
+        </Grid>
    
         <Grid item>
            <div className="d-flex align-items-end ">
