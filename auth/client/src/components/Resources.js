@@ -36,8 +36,7 @@ const Resources = (props) => {
     const [Links, setLinks] = useState([])
     
     let tipsLanguage = useSelector((state => state.auth.language))
-    console.log(tipsLanguage)
-    
+
     const handleClick = (link) => {
       window.open(link, '_blank');
     }
@@ -48,8 +47,7 @@ const Resources = (props) => {
     useEffect(()=>{
         const getData = () =>{ //Eventually, set ("javaScript.json") to (`${tips}.json`) to change with state
             axios.get(`Resources/${tipsLanguage}.json`)
-             .then(res =>{
-              console.log(res.data[tipsLanguage])  
+             .then(res =>{ 
              setLinks(res.data[tipsLanguage]);
             }).catch(error =>(console.log('there was an error')))
         }
@@ -57,11 +55,10 @@ const Resources = (props) => {
         getData();
     }, [tipsLanguage])
     
-    console.log(Links)
-    
     let displayLinks = Links.map(Links =>{
-        console.log(Links.Link)
+
         return <div className="m-1"  style={{fontSize: "18px"}} onClick={()=>handleClick(`${Links.Link}`)} ><LaunchIcon fontSize="large" /> <Link className={classes.linkStyle} style={{textDecoration: "none"}}>&nbsp; {Links.Description} </Link></div>
+
         
     })
 

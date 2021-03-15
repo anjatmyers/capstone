@@ -23,11 +23,7 @@ const Assessment = (props) => {
             language: language,
             rating: rating,
             comment: comment
-            
         })
-        console.log(results) 
-
-
 
     }
   return (

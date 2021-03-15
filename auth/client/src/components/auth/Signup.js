@@ -35,13 +35,10 @@ const Signup = () => {
 
       // dispatch(getURL());
 
-
-  
       dispatch(signUp({
         email: email,
         password: password
       }, ()=>{
-        console.log('pushing to another page');
         history.push('/home');
       }))
 

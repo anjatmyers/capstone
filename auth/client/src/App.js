@@ -149,8 +149,7 @@ export default function App() {
   const dispatch = useDispatch();
 
   const hasFolders = useSelector(state => state.auth.folderStatus);
-  // dispatch(folderStatus(false))
-  console.log(hasFolders)
+
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -159,12 +158,6 @@ export default function App() {
   const handleDrawerClose = () => {
     setOpen(false);
   };
-
-
-// function for google docs button
-// const handleDocs = () => {
-//     dispatch(getURL());
-//   }
 
   const getFiles = () => {
     
@@ -178,12 +171,8 @@ export default function App() {
         authorization: localStorage.getItem('token'),
         }})
 
-        console.log(response.data)
         let fileResponse = response.data.files
-        console.log(fileResponse)
-        // fileResponse.forEach((file) => {
-        //   console.log(`${file.id}: ${file.name}`)
-        // })
+
     }
     files();
     
@@ -191,7 +180,7 @@ export default function App() {
 
 
   const handleClick = (language) => {
-    console.log(language);
+
     dispatch(setLanguage(language))
   }
 

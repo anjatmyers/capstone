@@ -17,7 +17,6 @@ let language = useSelector((state => state.auth.language))
 
 
 const setLanguage = (language) =>{
-  console.log(language)
   switch(language){
     case "javaScript":
       return (
