@@ -2,11 +2,10 @@ import React, {useState} from 'react';
 import Paper from "@material-ui/core/Paper"
 import axios from 'axios'
 import {setEditorInput} from '../../actions/index';
-import {useDispatch} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import UpdateFile from '../../components/pickerComponents/UpdateFile';
 import DeleteFile from '../../components/pickerComponents/DeleteFile';
 import AuthorizeGoogle from '../../components/pickerComponents/AuthorizeGoogle';
-
 import '../editorComponents/editorstyles.css'
 import 'codemirror/lib/codemirror.css'
 import 'codemirror/theme/material.css'
@@ -34,7 +33,6 @@ export default function EditorTemplate(props) {
         setInput(value)
         dispatch(setEditorInput(input))
     }
-    // console.log(input);
 
     const saveFile = () => {
 
@@ -54,7 +52,6 @@ export default function EditorTemplate(props) {
             authorization: localStorage.getItem('token'),
             }})
     
-            console.log(response.data)
         }
         files();
         console.log('file created')
@@ -86,34 +83,19 @@ export default function EditorTemplate(props) {
 
     </div>
 
-    <div className="container-fluid row justify-content-start d-flex">
-
+    <div className="container-fluid row justify-content-start d-flex align-items-center">
 
     <div className="col-lg-3 col-3"><input className="input m-1 m-lg-3 p-1 mt-3 mt-lg-4 editorInput" type="email" placeholder="Title this snippet" value={title} onChange={(e)=>setTitle(e.target.value)} /></div>
-    {/* end of input title div */}
-   
-   
     <div className="col-lg-8 offset-md-1 offset-0 col-11 d-flex">
     <div><button className='btn btn-sm btn-success mx-1 my-2 my-lg-3' onClick={saveFile} >Save to Drive</button></div>
-    {/* <Button variant="contained" className="mx-1 my-2 m-lg-3 bg-success text-center text-white" >Save to Google Drive</Button> */}
-    
+
     <div className="mx-1 my-2 my-lg-3"> <AuthorizeGoogle /></div>
     <div className="mx-1 my-2 my-lg-3"> <UpdateFile /></div>
     <div className="mx-1 my-2 my-lg-3"> <DeleteFile /></div>
     </div>
     {/* end button div */}
-
-
-   
-       
     </div>
     {/* end of buttons/title input div */}
-
-    
-
-
     </div>
-
-    
   );
 }

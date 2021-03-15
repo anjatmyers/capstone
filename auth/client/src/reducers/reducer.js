@@ -7,7 +7,8 @@ const initialState = {
     folderStatus: false,
     language: "",
     editorInput: "",
-    jobs: []
+    jobs: [],
+    hideButton: true
 }
 
 const reducerTemplate = (state = initialState, action) => {
@@ -43,6 +44,11 @@ const reducerTemplate = (state = initialState, action) => {
             return{
                 ...state,
                 jobs: action.data
+            }
+        case "HIDE_BUTTON":
+            return{
+                ...state,
+                hideButton: action.data
             }
         default:
             return state;

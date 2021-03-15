@@ -22,7 +22,6 @@ async function createNotesFolder(auth, id){
             // Handle error
                 console.error(err);
             } else {
-                console.log("File Name: ", file.config.data.name, " File ID: ", file.data.id);
 
                 await db.folderIDs.update({
                             root: file.data.id
@@ -60,7 +59,6 @@ async function createJSFolder(auth, id){
                 // Handle error
                     console.error("Making js folder error " + err);
                 } else {
-                    console.log("File Name: ", file.config.data.name, " File ID: ", file.data.id);
 
                     let storedJSFolder = await db.folderIDs.update({
                                 javascript: file.data.id
@@ -97,7 +95,6 @@ async function createPYFolder(auth, id){
                 // Handle error
                     console.error("Making js folder error " + err);
                 } else {
-                    console.log("File Name: ", file.config.data.name, " File ID: ", file.data.id);
 
                     let storedPYFolder = await db.folderIDs.update({
                                 python: file.data.id
@@ -134,7 +131,6 @@ async function createHTMLCSSFolder(auth, id){
                 // Handle error
                     console.error("Making js folder error " + err);
                 } else {
-                    console.log("File Name: ", file.config.data.name, " File ID: ", file.data.id);
 
                     let storedHTMLCSSFolder = await db.folderIDs.update({
                                 htmlcss: file.data.id
@@ -171,7 +167,6 @@ async function createSQLFolder(auth, id){
                 // Handle error
                     console.error("Making js folder error " + err);
                 } else {
-                    console.log("File Name: ", file.config.data.name, " File ID: ", file.data.id);
 
                     let storedSQLFolder = await db.folderIDs.update({
                                 sql: file.data.id
@@ -208,7 +203,6 @@ async function createShellFolder(auth, id){
                 // Handle error
                     console.error("Making js folder error " + err);
                 } else {
-                    console.log("File Name: ", file.config.data.name, " File ID: ", file.data.id);
 
                     let storedShellFolder = await db.folderIDs.update({
                                 shell: file.data.id
@@ -259,8 +253,6 @@ async function createPYFile(auth, body, id, name){
         let parentFolder = await db.folderIDs.findAll({where: {id: id}}, {raw: true})
         let parentID = parentFolder[0].dataValues.python
 
-        console.log(parentID)
-
         let file = await auth.files.create({
             requestBody: {
                 name: `${name}.py`,
@@ -289,7 +281,6 @@ async function createHTMLCSSFile(auth, body, id, name){
         let parentFolder = await db.folderIDs.findAll({where: {id: id}}, {raw: true})
         let parentID = parentFolder[0].dataValues.htmlcss
 
-        console.log(parentID)
 
         let file = await auth.files.create({
             requestBody: {
@@ -319,8 +310,6 @@ async function createSQLFile(auth, body, id, name){
         let parentFolder = await db.folderIDs.findAll({where: {id: id}}, {raw: true})
         let parentID = parentFolder[0].dataValues.sql
 
-        console.log(parentID)
-
         let file = await auth.files.create({
             requestBody: {
                 name: name,
@@ -346,8 +335,6 @@ async function createShellFile(auth, body, id, name){
         
         let parentFolder = await db.folderIDs.findAll({where: {id: id}}, {raw: true})
         let parentID = parentFolder[0].dataValues.shell
-
-        console.log(parentID)
 
         let file = await auth.files.create({
             requestBody: {

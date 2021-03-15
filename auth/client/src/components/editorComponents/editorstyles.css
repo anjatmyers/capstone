@@ -191,6 +191,8 @@ li {
 
 .editorInput {
     border-radius: 3%;
+    height: 40px;
+    width: 175px;
 }
 /* Self-Assessment */
 

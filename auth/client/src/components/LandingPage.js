@@ -5,8 +5,6 @@ import '../assets/styles2.css';
 import Background from "../assets/VScode.png"
 import Button from "@material-ui/core/Button"
 
-
-
 const LandingPage = () => {
 
     const history = useHistory();
@@ -29,11 +27,13 @@ const LandingPage = () => {
   return (
     
     <div style={{height: "100vh"}} className="d-flex flex-column justify-content-center align-items-center">
+
      {/* <img height="100px" src="https://avatars.githubusercontent.com/u/67744643?s=200&v=4" alt=""/> */}
      {/* style={{backgroundImage: `url(${Background})`}} */}
      
 
     <div className="col-12 d-flex align-items-center parallax ">
+
 
     <div className="col-lg-6 col-0 bg-danger "></div>
 
@@ -42,19 +42,21 @@ const LandingPage = () => {
   
     {/* <div className="col-lg-5 col d-flex bg-primary flex-column align-items-end "> */}
     
-     {/* <h2 className="text-white display-3 text-center">CRUDS</h2> */}
      <br/>
      {/* <img src="../../images/laptop.png" className=" logo mb-4"></img> */}
     
+
     {/* <h4  className="text-white text-center">A place for all your</h4>
     <h3 className="text-white text-center">Coding Resources to Update your Development Skills</h3> */}
     
     {/* </div> */}
+
     {/* end col one in row two */}
     <div className="col-lg-8 col  offset-lg-1 mt-lg-5 ">
         <div className="col text-center col col-lg-7 offset-lg-3">
         {/* <br/>
         <p className="projectDescription">The place for all your Coding Resources to Upgrade your Development Skills</p>
+
         <br/> */}
         <h2 className="text-white mb-0" style={{fontSize: '45px', fontWeight: 'bold'}}>BugOut </h2>
         <h2 className="text-white mt-0" style={{fontSize: '35px', fontWeight: ''}}>BootCamp Survival Guide </h2>
@@ -62,7 +64,6 @@ const LandingPage = () => {
           {/* style={{width: '250px', marginRight: '20px'}} */}
         
         
-
         </div>
         {/* end of mini col ONE in right bottom  */}
         <div className="col h-25 mt-4" >
