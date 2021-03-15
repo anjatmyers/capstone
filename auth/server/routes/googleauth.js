@@ -103,9 +103,6 @@ router.post('/getURL',  async (req, res) => {
   
     //req.user.id
       let code = req.query.code;
-      
-      console.log('code inside of callback', code);
-  
     
       res.redirect(`http://localhost:3000/completeCallback/${encodeURIComponent(code)}`)
   })
@@ -114,9 +111,6 @@ router.post('/getURL',  async (req, res) => {
 router.post('/completeAuth', requireAuth,(req, res) => {
     
     let code = decodeURIComponent(req.body.code);
-    
-    console.log("user id from jwt: ", req.user.id);
-    console.log(`auth code ${code}`);
     try{
             
       oAuth2Client.getToken(code, async (err, token) => {
@@ -136,8 +130,6 @@ router.post('/completeAuth', requireAuth,(req, res) => {
               expiry_date : expiry_date
             })
 
-          // res.json(token);
-          console.log("successfully stored token in db")
           res.send('successful')
       });
     }

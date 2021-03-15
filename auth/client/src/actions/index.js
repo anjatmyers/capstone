@@ -1,6 +1,5 @@
-import actionTypes from './actionTypes';
 import axios from 'axios';
-
+import actionTypes from './actionTypes';
 
 // function to get oauth URL from back end
 export const getURL = () => {
@@ -10,8 +9,6 @@ export const getURL = () => {
         try{
             let userID = localStorage.getItem('id')
             let response = await axios.post('http://localhost:3001/getURL', {userID});
-
-            console.log(response.data);
 
             window.location.href = response.data;
            
@@ -24,10 +21,8 @@ export const getURL = () => {
 }
 
 
-
 export const signUp = (formData, cb) => {
     
-    console.log(formData);
     //take username and passpword
     //call our server api 
     //wait for an authenticated token 
@@ -39,9 +34,6 @@ export const signUp = (formData, cb) => {
         
         try{
             let response = await axios.post('http://localhost:3001/signup', formData) //formdata will put on header
-
-            console.log(response.data.token);//token
-            console.log(response.data.id[0].id)
 
             //dispatch action to reducer 
 
@@ -73,7 +65,6 @@ export const signIn = (formData, cb) => {
             dispatch({type: "AUTH_USER", data: response.data.token});
             dispatch({type: "USER_ID", data: response.data.id[0].id});
 
-            console.log('signin', response.data.token);
             localStorage.setItem('token', response.data.token);
             localStorage.setItem('id', response.data.id[0].id);
 
@@ -106,8 +97,7 @@ export const signOut = (cb) => {
 
         cb();
     }
-      
-    
+
 }
 
 export const folderStatus = (status) => {
@@ -147,6 +137,13 @@ export const searchedJobs = (job) => {
     return {
         type: "SEARCHED_JOBS",
         data: job
+    }
+}
+
+export const hideButton = (status) => {
+    return {
+        type: "HIDE_BUTTON",
+        data: status
     }
 }
 

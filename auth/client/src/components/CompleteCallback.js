@@ -9,9 +9,7 @@ const CompleteCallback = () => {
 
   useEffect(() => {
     //make api call with jwt and code
-
-    console.log(`client side auth called`, code);
-    
+ 
     const completeAuth = async () => {
         let response = await axios.post('http://localhost:3001/completeAuth',{
             code: code

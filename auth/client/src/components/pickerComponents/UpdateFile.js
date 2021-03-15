@@ -25,9 +25,6 @@ const UpdateFile = () => {
 
 
     const updateFiles = (id) => {
-
-     
-      console.log("editorInput======", editorInput)
     
         const files = async () => {
 
@@ -39,7 +36,6 @@ const UpdateFile = () => {
             authorization: localStorage.getItem('token'),
             }})
     
-            // console.log(response.data)
         }
         files();
         
@@ -71,18 +67,13 @@ const UpdateFile = () => {
                             .addView(docsView)
                             .setOAuthToken(oauthToken)
                             .setDeveloperKey(DEVELOPER_KEY)
-                            //   .setCallback(()=>{
-                            //     console.log('Custom picker is ready!');
-                            //   });
                             .setCallback((data) => {
 
                                 if (data.action == google.picker.Action.PICKED) {
                                 let fileId = data.docs[0].id;
                                 let fileName = data.docs[0].name
                                 let fileBody = data.docs[0]
-                                // console.log("data object:",data)
-                                // console.log("filebody object",fileBody)
-                                // alert(fileName + " has been deleted!");
+                                alert(fileName + " has been updated!");
                                 updateFiles(fileId)
                                 }
                             }

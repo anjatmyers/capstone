@@ -11,16 +11,14 @@ const DeleteFiles = () => {
     const deleteFiles = (id) => {
     
         const files = async () => {
-            console.log(id)
+
             let userID = localStorage.getItem('id')
-            console.log(userID)
+
           let response = await axios.post('http://localhost:3001/delete', {id, userID}, {
             headers: {
             "content-type": "application/json",
             authorization: localStorage.getItem('token'),
             }})
-    
-            console.log(response.data)
         }
         files();
       }

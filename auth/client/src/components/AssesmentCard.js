@@ -15,16 +15,10 @@ const AssesmentCard = () => {
                 let results = res.data
                 let lastResult = results[results.length -1]
                 setRatings(lastResult)
-                console.log(res.data);
             }).catch(error =>console.log(error))
         }
     getData()
     }, [])
- 
-//  let lastRating = Ratings[Ratings.length -1].comment;
-//  console.log(lastRating)
-//  let displayComment = lastRating.comment;
-console.log(Ratings)
 
     return (
         // <div className="mt-3">
