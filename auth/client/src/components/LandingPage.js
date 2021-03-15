@@ -67,13 +67,13 @@ const LandingPage = () => {
         {/* end of mini col ONE in right bottom  */}
         <div className="col h-25 mt-4" >
 
-        <div className=" d-flex">
-          <div className=" col">
+        <div className=" row ">
+          <div className=" col-12 col-lg-6 ">
           <p className="text-white text-center ">Returning User?<br/>
         <Button variant="contained" className="mx-1 my-2  m-lg-3 text-center" onClick={handleSignIn} >Sign In</Button>
         </p>
           </div>
-        <div className=" col">
+        <div className=" col-12 col-lg-6">
         <p className="text-white text-center ">New here? <br/>
         <Button variant="contained" className="mx-1 my-2 m-lg-3 text-center mb-4" onClick={handleRegister} >Register</Button>
         </p>
