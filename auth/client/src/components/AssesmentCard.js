@@ -11,8 +11,10 @@ const AssesmentCard = () => {
 
     return (
         <div className="mt-3">
-            <Card  style={{ width: '18rem' }}>
+
+            <Card className="shadow" style={{ width: '18rem' }}>
             <Card.Header>Current Status on: {language}</Card.Header>
+
             <Card.Body>
             <Card.Title>Info Card Title</Card.Title>
             <Card.Text>
