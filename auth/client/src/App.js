@@ -17,6 +17,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
 import Button from "@material-ui/core/Button"
 import SvgIcon from '@material-ui/core/SvgIcon';
+import BugReportRoundedIcon from '@material-ui/icons/BugReportRounded';
 
 // import {Modal, Button} from 'react-bootstrap'
 import {useDispatch, useSelector} from 'react-redux';
@@ -231,12 +232,14 @@ export default function App() {
 
           </IconButton>
           <div className={classes.navContent}>
-          
-
+          <div className="d-flex align-items-center">
+          <BugReportRoundedIcon style={{ fontSize: 50 }} />
+          </div>
         <div className="container-fluid d-flex align-items-between justify-content-between">
-
+          
+          
           <Typography variant="h6" noWrap style={{fontFamily: 'Merriweather, serif', fontSize: '30px'}}>
-            Bootcamp Survival Guide
+            BugOut
           </Typography>
 
           <div className="d-flex flex-column justify-content-end">
