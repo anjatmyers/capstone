@@ -46,7 +46,7 @@ const Resources = (props) => {
     
     let displayLinks = Links.map(Links =>{
         console.log(Links.Link)
-        return <div className="m-1" color="inherit" style={{fontSize: "18px"}} ><LaunchIcon fontSize="large" onClick={()=>handleClick(`${Links.Link}`)} /> &nbsp; {Links.Description} </div>
+        return <div className="m-1" color="inherit" style={{fontSize: "18px"}} onClick={()=>handleClick(`${Links.Link}`)} ><LaunchIcon fontSize="large" /> &nbsp; {Links.Description} </div>
         
         // borderBottom: "3px solid rgb(212, 212, 212)"
     })
@@ -54,7 +54,7 @@ const Resources = (props) => {
     
       return (
         <>
-        <div className="card shadow p-3 mb-5 mt-4 bg-white rounded">
+        <div className="card shadow p-3 mb-2 mt-4 bg-white rounded">
           <div className="card-body" >
                           <div className={tipsDiv} >
                                     <div className="d-flex align-items-end ml-3">
