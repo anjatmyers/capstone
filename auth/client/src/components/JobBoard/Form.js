@@ -2,6 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useHistory } from 'react-router-dom';
 import { searchedJobs } from '../../actions'
+import {Button} from 'react-bootstrap'
 
 const Form = () => {
 
@@ -59,20 +60,40 @@ const Form = () => {
   // })}
   // }, [jobs])
 
+const handleClick = () => {
+  history.push('/home')
+}
 
-  
 
 
   return (
     <>
       <div class="container">
-        <h1>Job Search App</h1>
-        <h2>Find your perfect job today!</h2>
-          <form>
-            <input type="text" class="form-control" placeholder="Job Title" onChange={(e) => localStorage.setItem('jobTitle', e.target.value)}/>
-            <input type="text" class="form-control" placeholder="Location" onChange={(e) => localStorage.setItem('jobLocation', e.target.value)}/>
-            <button class="btn btn-block btn-primary" onClick={handleSearch}>Search</button>
-          </form>
+       
+       <div className=" text-center">
+
+         <div className="row">
+          <Button className="btn-info mt-3 m-1" onClick={handleClick}>Home</Button>
+         <h2 className="pt-1 text-white text-center w-100 " >Job Board </h2>
+         </div>
+        
+        <h2 className="text-white mt-0"><span style={{fontSize: "25px"}}>It's never to early to start your search!</span></h2>
+        </div> 
+        {/* end title div */}
+        <form>
+          <div className="form-row">
+            <div className="col">
+              <input type="text" className="form-control" placeholder="Job Title" onChange={(e) => localStorage.setItem('jobTitle', e.target.value)}></input>
+            </div>
+            <div className="col">
+              <input type="text" className="form-control" placeholder="City" onChange={(e) => localStorage.setItem('jobLocation', e.target.value)}></input>
+            </div>
+          </div>
+          <div className="col d-flex justify-content-start mt-2"><button class="col col-md-4 offset-md-4 btn btn-info" onClick={handleSearch}>Search</button></div>
+          {/* end button div */}
+        </form>
+
+        
       </div>
     </>
   )

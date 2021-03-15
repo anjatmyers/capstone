@@ -9,7 +9,6 @@
     color: #fdd900;
     border-top-left-radius: 2.5%;
     border-top-right-radius: 2.5%;
-   
 
 }
 .py-top-pane {
@@ -272,4 +271,10 @@ li {
 .greyListItem{
     background-color: #eaf0f5;
     font-size: 16px;
+}
+
+.digitalCrafts{
+    background-color: #00ACA4;
+    background-color: #cbf4f1;
+    background-color: #8ab3c9;
 }

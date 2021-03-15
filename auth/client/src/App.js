@@ -84,6 +84,7 @@ const useStyles = makeStyles((theme) => ({
     ...theme.mixins.toolbar,
     justifyContent: 'flex-end',
     backgroundColor: "#f4f8fb"
+    // backgroundColor: "#f4f8fb"
   },
   content: {
     flexGrow: 1,
@@ -317,7 +318,7 @@ export default function App() {
 
 
         {/* start of main content div */}
-        <div className="container-fluid d-flex row "> 
+        <div className="container-fluid d-flex row ml-md-2 ml-lg-4"> 
 
 
         

@@ -6,8 +6,13 @@ const Feature = () => {
 
   return (
     <>
-      <Form />
-      <JobCard />
+    <div className="container-fluid mx-2">
+
+      <div className=""><Form /></div>
+
+      <div className="mt-4"><JobCard /></div>
+      
+    </div>
     </>
   )
 }

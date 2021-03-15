@@ -1,28 +1,52 @@
 import React from 'react'
 import {Card, ListGroup, ListGroupItem} from 'react-bootstrap'
+import HomeIcon from '@material-ui/icons/Home';
+import ComputerIcon from '@material-ui/icons/Computer';
+import EventNoteIcon from '@material-ui/icons/EventNote';
+import DashboardIcon from '@material-ui/icons/Dashboard';
+import QuestionAnswerIcon from '@material-ui/icons/QuestionAnswer';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import LinkedInIcon from '@material-ui/icons/LinkedIn';
+import RecordVoiceOverIcon from '@material-ui/icons/RecordVoiceOver';
+import ContactSupportIcon from '@material-ui/icons/ContactSupport';
+import {Link} from 'react-router-dom'
 
 // digital crafts teal = #00ACA4
 
 const ClassResources = () => {
+
+    // const handleClick = (link) => {
+    //     window.open(link, "_blank")
+    // }
+    
+
     return (
         <div className="col mx-0 mx-lg-5 w-100  justify-content-center">
         <Card className="w-100 shadow" style={{ width: '18rem' }}>
         <Card.Img variant="top" src="../../images/digitalcrafts.png" style={{backgroundColor: "#00ACA4", margin: "0px"}}/>
         <Card.Body>
-            <Card.Title>Class Resources</Card.Title>
+            <Card.Title style={{ fontSize: '30px'}}>Class Resources</Card.Title>
             <Card.Text>
-            Some quick example text to build on the card title and make up the bulk of
-            the card's content.
+            <span style={{ fontSize: '20px'}}>Cohort: November 2020 - March 2021 </span><br/><br/>
+            <span style={{ fontSize: '16px'}}> Demo Day: March 15th, 2021</span>
             </Card.Text>
         </Card.Body>
-        <ListGroup className="list-group-flush">
-            <ListGroupItem>Cras justo odio</ListGroupItem>
-            <ListGroupItem>Dapibus ac facilisis in</ListGroupItem>
-            <ListGroupItem>Vestibulum at eros</ListGroupItem>
+        <ListGroup className="list-group-flush" style={{ fontSize: '15px'}}>
+            <ListGroupItem ><Link onClick={()=>window.open("https://zoom.us/j/294114284#success", "_blank")}><ComputerIcon/></Link> &nbsp; Zoom Classroom</ListGroupItem>
+            {/* https://zoom.us/j/294114284#success */}
+            <ListGroupItem ><Link onClick={()=>window.open("https://learn.digitalcrafts.com/", "_blank")}><EventNoteIcon/></Link> &nbsp; Class Learning Portal</ListGroupItem>
+            {/* <ListGroupItem >Slack Channel </ListGroupItem> */}
+            {/* https://slack.com/ */}
+            <ListGroupItem ><Link onClick={()=>window.open("https://docs.google.com/spreadsheets/d/1ixIVjWZ9ZKtCe5o47Q86ixsMFS1jQ7mD-v2uGqQ38W8/edit#gid=0", "_blank")}><RecordVoiceOverIcon/></Link> &nbsp; Class Recordings</ListGroupItem>
+           
+            <ListGroupItem ><Link onClick={()=>window.open("https://docs.google.com/spreadsheets/d/1wVQt15pC-civo-gUJQ-u1t2k80LYvamUHDUxeAXTifI/edit#gid=515178626", "_blank")}><ContactSupportIcon/></Link> &nbsp;TA Office Hours</ListGroupItem>
+            
+            <ListGroupItem ><Link onClick={()=>window.open("https://trello.com/en/login", "_blank")}><DashboardIcon /></Link>  &nbsp; Trello Board </ListGroupItem>
+            
         </ListGroup>
-        <Card.Body>
-            <Card.Link href="#">Card Link</Card.Link>
-            <Card.Link href="#">Another Link</Card.Link>
+        <Card.Body >
+            <Card.Link onClick={()=>window.open("https://github.com", "_blank")}><GitHubIcon/> &nbsp; Github</Card.Link>
+            <Card.Link onClick={()=>window.open("https://linkedin.com", "_blank")}><LinkedInIcon/> &nbsp; LinkedIn</Card.Link>
         </Card.Body>
         </Card>
         </div>
