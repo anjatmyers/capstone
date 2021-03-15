@@ -1,14 +1,19 @@
 {
     "sql": [{
-        "Link": "https://www.learnsql.com/"
+        "Link": "https://www.learnsql.com/",
+        "Description": "learnsql.com"
     }, {
-        "Link": "https://docs.microsoft.com/en-us/sql/?view=sql-server-ver15"
+        "Link": "https://docs.microsoft.com/en-us/sql/?view=sql-server-ver15",
+        "Description": "SQL Microsoft Docs"
     }, {
-        "Link": "https://www.ibm.com/cloud/learn/relational-databases"
+        "Link": "https://www.ibm.com/cloud/learn/relational-databases",
+        "Description": "SQL IBM"
     }, {
-        "Link": "https://launchschool.com/books/sql/read/introduction"
+        "Link": "https://launchschool.com/books/sql/read/introduction",
+        "Description": "SQL Launchschool"
     }, {
-        "Link": "https://www.thebalancecareers.com/what-is-sql-and-uses-2071909"
+        "Link": "https://www.thebalancecareers.com/what-is-sql-and-uses-2071909",
+        "Description": "What is SQL?"
     }
 ]
 }
