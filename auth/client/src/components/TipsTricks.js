@@ -33,7 +33,8 @@ useEffect(()=>{
     getData();
 }, [tipsLanguage])
 
-console.log(tips)
+console.log(tipsLanguage)
+
 
 let displayTipsTricks = tips.map((tips, index) =>{
 
@@ -42,13 +43,24 @@ let displayTipsTricks = tips.map((tips, index) =>{
      >{tips.Tip}</li>
 })
 
+let headlineStyle = (string) => {
+  if (string === "sql"){
+    return {textTransform: "uppercase"}
+  }
+  else if (string === "html"){
+    return {textTransform: "uppercase"}
+  }
+  else{
+    return {textTransform: "capitalize"}
+  }
+}
 
 
   return (
     <>
     <div className="shadow">
       <div className={tipsDiv}>
-        <h3 className={headline}>{tipsLanguage} Tips and Tricks</h3>
+        <h3 className={headline} style={headlineStyle(tipsLanguage)}>{tipsLanguage} TIPS AND TRICKS</h3>
           {/* <ul className={listColors}> */}
           {/* <div className={listColors}> */}
           <ul className="list-group">
