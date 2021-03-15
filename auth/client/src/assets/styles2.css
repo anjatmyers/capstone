@@ -10,17 +10,47 @@ NODE JS = #3c873a
 **/
 
 body {
-    background-color: grey;
+    background-color: rgb(152, 152, 152);
+    /* background-image: "../../images/bootcampVScode.png"; */
 }
 
 
 @media screen and ( max-width: 1024px ) {
-    .logo { width: 200px; }
+  .parallax {
+    /* min-height: 500px; */
+  background-image: none;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
+}
+.logo { width: 200px; }
     }
     @media screen and ( min-width:1025px ) and ( max-width: 1280px ) {
+      .parallax {
+        /* min-height: 500px; */
+      background-image: none;
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      
+    }
     .logo { width: 300px; }
     }
     @media screen and ( min-width: 1081px ) {
-    .logo { width: 400px; }
+      .parallax {
+        /* min-height: 500px; */
+      background-image: url('./VScode.png');
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+      
     }
-    .logo { height: auto; }
+    .logo { width: 300px; 
+    }
+    }
+    .logo { width: 300px; 
+    }

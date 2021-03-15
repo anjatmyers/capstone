@@ -30,7 +30,7 @@ Need a code block from class, but don't want to bury it in a huge repository, or
 ### Technologies Used:
 **Languages**
 * JavaScript
-* EJS
+* HTML
 * CSS
 * JSON
 * PostgresQL
