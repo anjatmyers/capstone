@@ -86,7 +86,7 @@ export default function EditorTemplate(props) {
 
     </div>
 
-    <div className="container-fluid row justify-content-start d-flex">
+    <div className="container-fluid row justify-content-start d-flex align-items-center">
 
 
     <div className="col-lg-3 col-3"><input className="input m-1 m-lg-3 p-1 mt-3 mt-lg-4 editorInput" type="email" placeholder="Title this snippet" value={title} onChange={(e)=>setTitle(e.target.value)} /></div>
@@ -95,7 +95,6 @@ export default function EditorTemplate(props) {
    
     <div className="col-lg-8 offset-md-1 offset-0 col-11 d-flex">
     <div><button className='btn btn-sm btn-success mx-1 my-2 my-lg-3' onClick={saveFile} >Save to Drive</button></div>
-    {/* <Button variant="contained" className="mx-1 my-2 m-lg-3 bg-success text-center text-white" >Save to Google Drive</Button> */}
     
     <div className="mx-1 my-2 my-lg-3"> <AuthorizeGoogle /></div>
     <div className="mx-1 my-2 my-lg-3"> <UpdateFile /></div>

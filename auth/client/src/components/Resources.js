@@ -16,7 +16,7 @@ const useStyles = makeStyles((theme)=>({
   cursor: "pointer",
   "&:hover":{
   fontSize: 19,
-  color: "#5a779d"
+  color: "#5a779d",
   }
   }
   
@@ -63,7 +63,6 @@ const Resources = (props) => {
         console.log(Links.Link)
         return <div className="m-1"  style={{fontSize: "18px"}} onClick={()=>handleClick(`${Links.Link}`)} ><LaunchIcon fontSize="large" /> <Link className={classes.linkStyle} style={{textDecoration: "none"}}>&nbsp; {Links.Description} </Link></div>
         
-        // borderBottom: "3px solid rgb(212, 212, 212)"
     })
 
     
