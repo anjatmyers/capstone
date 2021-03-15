@@ -10,7 +10,7 @@
 
 Need a code block from class, but don't want to bury it in a huge repository, or dig through slack for it?  Type in the code editor in the language you need (including error linting and syntax highlighting!)
 
-<img src="auth/client/public/images/codeeditor.jpg" alt="code editor">
+<img src="auth/client/public/images/codeEditor.jpg" alt="code editor">
 
 <br></br>
 *Then save it to your Google Drive, in a folder automatically created for it!*
