@@ -7,10 +7,25 @@ import Button from "@material-ui/core/Button"
 import { ListItem, List } from '@material-ui/core';
 import LaunchIcon from '@material-ui/icons/Launch';
 import { bottom } from '@popperjs/core'
+import { makeStyles, useTheme } from '@material-ui/core/styles';
 
-
+const useStyles = makeStyles((theme)=>({
+  linkStyle: {
+  textDecoration: "none",
+  color: "black",
+  cursor: "pointer",
+  "&:hover":{
+  fontSize: 19,
+  color: "#5a779d"
+  }
+  }
+  
+  }))
 
 const Resources = (props) => {
+
+  const classes = useStyles();
+  const theme = useTheme();
 
     const {
       headline,
@@ -46,7 +61,7 @@ const Resources = (props) => {
     
     let displayLinks = Links.map(Links =>{
         console.log(Links.Link)
-        return <div className="m-1" color="inherit" style={{fontSize: "18px"}} onClick={()=>handleClick(`${Links.Link}`)} ><LaunchIcon fontSize="large" /> &nbsp; {Links.Description} </div>
+        return <div className="m-1"  style={{fontSize: "18px"}} onClick={()=>handleClick(`${Links.Link}`)} ><LaunchIcon fontSize="large" /> <Link className={classes.linkStyle} style={{textDecoration: "none"}}>&nbsp; {Links.Description} </Link></div>
         
         // borderBottom: "3px solid rgb(212, 212, 212)"
     })
