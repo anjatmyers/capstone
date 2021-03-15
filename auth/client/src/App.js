@@ -14,6 +14,7 @@ import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
+import WorkIcon from '@material-ui/icons/Work';
 import ListItemText from '@material-ui/core/ListItemText';
 import Button from "@material-ui/core/Button"
 import SvgIcon from '@material-ui/core/SvgIcon';
@@ -192,6 +193,8 @@ export default function App() {
   const handleDownload = () => {
     dispatch(folderStatus(true))
   }
+
+ 
   
   
 
@@ -292,8 +295,8 @@ export default function App() {
         <Divider />
         <List>
           <ListItem button component={Link} to="/feature" key={"6"}>
-            <ListItemIcon> <DiJsBadge /></ListItemIcon> 
-            <ListItemText primary={"Job Board"}></ListItemText>
+            <ListItemIcon> &nbsp; &nbsp; &nbsp;<WorkIcon fontSize="large"/> &nbsp; &nbsp; &nbsp;</ListItemIcon> 
+            <ListItemText primary={"Job Board"} ></ListItemText>
           </ListItem>
         </List>
       </Drawer>
@@ -332,15 +335,16 @@ export default function App() {
        
         
         <div className="col-lg-4 mt-2 mt-lg-4 ">
-          <div className="row justify-content-center mx-2 mx-lg-3"><Resources /></div>
           <div className="row justify-content-center text-center"><ClassResources /></div>
-          <div className="row justify-content-center text-center">< AssessmentCard/></div>
+          <div className="row justify-content-center mx-2 mx-lg-3"><Resources /></div>
+          <div className="row justify-content-center text-center mx-2 mx-lg-3">< AssessmentCard/></div>
         
           </div> 
           {/* end Resources Div */}
           </div>
           {/* end main container div */}
-        
+
+      
 
       </main>
       {/* End of main content window */}

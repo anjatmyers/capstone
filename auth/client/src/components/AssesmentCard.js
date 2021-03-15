@@ -21,19 +21,39 @@ const AssesmentCard = () => {
     }, [])
 
     return (
-        <div className="mt-3">
+        // <div className="mt-3">
 
-            <Card className="shadow" style={{ width: '18rem' }}>
-            <Card.Header>Current Status on: {language}</Card.Header>
+        //     <Card className="shadow" style={{ width: '18rem' }}>
+            // <Card.Header>Current Status on: {language}</Card.Header>
 
-            <Card.Body>
-            <Card.Title>{Ratings ? Ratings.rating : "No Assessment Available!"}</Card.Title>
-            <Card.Text>
-             {Ratings ? Ratings.comment : "Fill out your Assessment!"}
-            </Card.Text>
-            </Card.Body>
-        </Card>
-        </div>
+            // <Card.Body>
+            // <Card.Title>{Ratings ? Ratings.rating : "No Assessment Available!"}</Card.Title>
+            // <Card.Text>
+            //  {Ratings ? Ratings.comment : "Fill out your Assessment!"}
+            // </Card.Text>
+            // </Card.Body>
+        // </Card>
+        // </div>
+
+<div className="card shadow mt-4 mx-4 bg-white rounded">
+          <div className="card-body" >
+                          <div className="col" >
+                                    <div className="d-flex align-items-end ">
+                                  {/* <h2 className="mb-0 mr-2">Code Editor</h2> */}
+                                  <h2 className="col" style={{fontSize: "24px"}}>Current Comfortability with: {language}</h2>
+                                </div >
+                                      <div className="linkContainer d-flex flex-column" >
+                                      <div className="" style={{fontSize: "16px"}} >
+                                      {Ratings ? Ratings.rating : "Complete Your Checkin' In Form"} <br/>
+                                      {Ratings ? Ratings.comment : ""}
+                                      </div>
+                                      </div>
+                                      {/* end link container */}
+                                  </div>
+            </div>
+            {/* end card body */}
+          </div>
+
     )
     }
 
