@@ -2,7 +2,7 @@
 
 ## A helpful guide to Navigating Coding BootCamp:
 
-<img src="public/images/homescreen.jpg">
+<img src="client/public/images/homescreen.jpg">
 
 > Learning two years of material in anything is hard enough, and coding is no exception.  It requires a lot of late nights, determination, and organization.  That third thing is where we come in.
 
@@ -10,21 +10,21 @@
 
 Need a code block from class, but don't want to bury it in a huge repository, or dig through slack for it?  Type in the code editor in the language you need (including error linting and syntax highlighting!)
 
-<img src="public/images/codeeditor.jpg" alt="code editor">
+<img src="client/public/images/codeeditor.jpg" alt="code editor">
 
 <br></br>
 *Then save it to your Google Drive, in a folder automatically created for it!*
 <br></br>
-<img src="public/images/DriveShot.jpg" alt="Google Drive with created file">
+<img src="client/public/images/DriveShot.jpg" alt="Google Drive with created file">
 <br></br>
 
 
 ### Peronal Assessments to Help you continue to improve! ###
-<img src="public/images/assessment.jpg">
+<img src="client/public/images/assessment.jpg">
 <br></br>
 
 ### Get a feel for what's out there with our integrated Job Board! ###
-<img src="public/images/jobboard.jpg">
+<img src="client/public/images/jobboard.jpg">
 
 
 ### Technologies Used:
@@ -55,5 +55,3 @@ DEVELOPED BY THE TEAM IN ROOM 4:
 * [Ally Deeter](https://github.com/Ardeeter) - Google Drive Integration, API Management
 * [Andrea Myers](https://github.com/anjatmyers) - Google OAuth, Design
 * [Adam C. MacKinnon](https://github.com/AdamCMacKinnon) - Database, Code Editor Construction
-
-
