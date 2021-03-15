@@ -24,5 +24,19 @@ router.post('/assessments', async (req, res) =>{
     }
 })
 
+router.get('/assessments', async (req, res)=>{
+    try {
+        let language = req.body.language
+        let assessInput = await db.assess.findAll({where:{language:language}},{raw: true});
+        console.log(assessInput)
+        res.json(assessInput)
+
+    } catch(error){
+        res.send(error)
+    }
+})
+
+
+
 
 module.exports = router;
