@@ -77,7 +77,7 @@ const handleClick = () => {
          <h2 className="pt-1 text-white text-center w-100 " >Job Board </h2>
          </div>
         
-        <h2 className="text-white mt-0"><span style={{fontSize: "25px"}}>It's never to early to start your search!</span></h2>
+        <h2 className="text-white mt-0"><span style={{fontSize: "25px"}}>It's never too early to start your search!</span></h2>
         </div> 
         {/* end title div */}
         <form>
