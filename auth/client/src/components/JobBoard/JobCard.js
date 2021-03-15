@@ -1,50 +1,34 @@
 import React, { useEffect } from 'react'
 import { useSelector } from "react-redux";
 import { Link } from 'react-router-dom';
+import LaunchIcon from '@material-ui/icons/Launch';
+
+
 const JobCard = () => {
     const jobs = useSelector(state => state.auth.jobs)
-    console.log(jobs);
-    // let jobs = localStorage.getItem('jobs');
-    // console.log(jobs)
-    // let jobs;
-    // useEffect((jobs) => {
-    //     jobs = localStorage.getItem('jobs');
-    // }, [jobs])
-    console.log(jobs);
-//   return (
-//     <>
-//       {jobs.map((job) => {
-//         return (
-//         <div className="card" key={job.id}>
-//             <div className="card-body">
-//                 <div className="card-title">
-//                     <h1>{job.name}</h1>
-//                     <h5>{job.company.name} | {job.location[0].name}</h5>
-//                 </div>
-//                 <div className="card-text">
-//                     <p>{job.contents}</p>
-//                     <Link to={job.refs.landing_page} />
-//                 </div>
-//             </div>
-//         </div>
-//         )
-//         })}
-//     </>
-//   )
+
+    const handleURLRedirect = (link) => {
+      window.open(link, '_blank');
+    }
+    
+
   {if (jobs){
     return (
         <>
           {jobs.map((job) => {
             return (
-            <div className="card" key={job.id}>
+              
+            <div className="card mt-3" key={job.id} style={{backgroundColor: '#dce6ee'}}>
                 <div className="card-body">
-                    <div className="card-title">
-                        <h1>{job.title}</h1>
-                        <h5>`${job.company.display_name} | ${job.location.display_name}`</h5>
-                    </div>
+                    <div className="row">
+                    <div className="card-title my-0 col-12 ml-3 col-lg-5" dangerouslySetInnerHTML={{ __html: `<h3>${job.title}</h3>` }} />
+                    <div className="card-title mt-0 col-12 col-lg-6" dangerouslySetInnerHTML={{ __html: `<h6>${job.company.display_name} | ${job.location.display_name}</h6>` }} />
+                    </div> 
+                        {/* 
+                    </div> */}
                     <div className="card-text">
-                        <p>{job.description}</p>
-                        <Link to={job.redirect_url}>View Job Listing</Link>
+                        <p dangerouslySetInnerHTML={{ __html: `${job.description}` }}/>
+                        <Link onClick={()=>handleURLRedirect(job.redirect_url)} style={{color: "black"}}>View Job Listing &nbsp; <LaunchIcon/></Link>
                     </div>
                 </div>
             </div>
@@ -57,3 +41,4 @@ const JobCard = () => {
 
 
 export default JobCard
+

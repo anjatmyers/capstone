@@ -15,6 +15,7 @@ const Assessment = (props) => {
 
     const handleSubmit = async (e) =>{
         e.preventDefault();
+        window.alert("Assessment recorded.  Keep working at it!")
         let userID = localStorage.getItem("id")
 
         let results = await axios.post('http://localhost:3001/assessments', {
@@ -25,6 +26,7 @@ const Assessment = (props) => {
             
         })
         console.log(results) 
+
 
 
     }
