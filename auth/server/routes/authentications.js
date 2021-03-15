@@ -80,7 +80,6 @@ router.post('/signup', async (req, res) => {
         // add new record
         let user = await db.user.create({email: email, password: password});
         let userID = await db.user.findAll({where: {email: email}}, {raw:true})
-        console.log(userID[0].dataValues.id)
         let jwtToken = token(user)
         // return jwt, pass it back to client
         return res.json({token: jwtToken, id: userID})

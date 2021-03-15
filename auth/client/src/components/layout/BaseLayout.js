@@ -7,7 +7,6 @@ import PersistentDrawerLeft from "./Sidebar"
 const BaseLayout = (props) => {
   return (
     <>
-      {/* <Header /> */}
 
       <PersistentDrawerLeft />
       

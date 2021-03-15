@@ -11,59 +11,11 @@ app.use(function(req, res, next) {
   });
 //   ^ this middleware will allow access for all CORS
 
-app.set('view engine', 'ejs')
-
-app.use(express.static('public'));
-
-
 app.use(require('./routes/authentications'));
 app.use(require('./routes/googleauth'));
 app.use(require('./routes/assessments'));
-
-// app.use(passport.initialize());
-
-// require('./authenticate');
-// app.get("/google", passport.authenticate('google', {scope: ['profile', 'email']}));
-
-// app.get('/google/callback', passport.authenticate('google', {failureRedirect: '/login'}), (req, res) =>{
-//   // res.redirect('/');
-//   res.send('Logged in!');
-// })
 
 
 app.listen(3001, () => {
     console.log('listening on port 3001');
 })
-
-
-// OAuth gives you a token so you don't need your own JWT 
-
-
-// EXAMPLE OF HOW TO USE JWT
-// const jwt = require('jwt-simple');
-// // creates jwt token 
-
-// // user information
-
-// let userInfo = {
-//     id: '12345',
-//     userName: 'Andrea',
-//     email: 'andrea@gmail.com'
-// }
-
-// // create a function that passes in user infomation and returns a jwt token
-
-// const token = (user) => {
-    
-//     let timestamp = new Date().getTime();
-//     // gives current time 
-
-//     return jwt.encode({sub: user.id, name: user.userName, iat: timestamp},  "moqpxotuenvbfhaod");
-//     // encode creates json web token
-// }
-
-// // call function and pass to it our user
-
-// let jwtToken = token(userInfo);
-
-// console.log(jwtToken)

@@ -116,10 +116,8 @@ ReactDOM.render(
             <Route path='/signin' component={Signin}/>
             <Route path='/editor' component={MasterEditor}/>
 
-            {/* <Route path='/signin' component={Signin}/> */}
             <Route path='/login' component={Login}/>
             <Route path='/completecallback/:code' component={CompleteCallback}/>
-            {/* <Route path='/jobs' component={Jobs}/> */}
 
           </Switch>
       </ThemeProvider>
