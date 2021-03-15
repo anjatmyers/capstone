@@ -3,8 +3,6 @@ import { Link, useHistory } from 'react-router-dom';
 import '../assets/styles2.css';
 import Button from '@material-ui/core/Button';
 
-
-
 const LandingPage = () => {
 
     const history = useHistory();
@@ -22,9 +20,7 @@ const LandingPage = () => {
   return (
     
     <div style={{height: "100vh"}} className="d-flex flex-column justify-content-center align-items-center">
-     {/* <img height="100px" src="https://avatars.githubusercontent.com/u/67744643?s=200&v=4" alt=""/> */}
-     
-
+  
     <div className="col-11  d-flex flex-column align-items-center">
 
     <div className="row col mt-5 mt-md-2">
@@ -40,12 +36,8 @@ const LandingPage = () => {
     <div className="row col ">
     <div className="col-lg-5 col  d-flex flex-column align-items-end">
     
-     {/* <h2 className="text-white display-3 text-center">CRUDS</h2> */}
      <br/>
      <img src="../../images/laptop.png" className=" logo mb-4"></img>
-    
-    {/* <h4  className="text-white text-center">A place for all your</h4>
-    <h3 className="text-white text-center">Coding Resources to Update your Development Skills</h3> */}
     
     </div>
     {/* end col one in row two */}
@@ -54,8 +46,7 @@ const LandingPage = () => {
         <br/>
         <p className="projectDescription">The place for all your Coding Resources to Upgrade your Development Skills</p>
         <br/>
-        
-
+      
         </div>
         {/* end of mini col ONE in right bottom  */}
         <div className="col  mt-4">

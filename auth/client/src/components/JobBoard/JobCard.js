@@ -24,8 +24,6 @@ const JobCard = () => {
                     <div className="card-title my-0 col-12 ml-3 col-lg-5" dangerouslySetInnerHTML={{ __html: `<h3>${job.title}</h3>` }} />
                     <div className="card-title mt-0 col-12 col-lg-6" dangerouslySetInnerHTML={{ __html: `<h6>${job.company.display_name} | ${job.location.display_name}</h6>` }} />
                     </div> 
-                        {/* 
-                    </div> */}
                     <div className="card-text">
                         <p dangerouslySetInnerHTML={{ __html: `${job.description}` }}/>
                         <Link onClick={()=>handleURLRedirect(job.redirect_url)} style={{color: "black"}}>View Job Listing &nbsp; <LaunchIcon/></Link>
