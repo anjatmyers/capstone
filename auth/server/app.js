@@ -18,6 +18,7 @@ app.use(express.static('public'));
 
 app.use(require('./routes/authentications'));
 app.use(require('./routes/googleauth'));
+app.use(require('./routes/assessments'));
 
 // app.use(passport.initialize());
 
