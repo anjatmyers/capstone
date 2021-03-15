@@ -10,6 +10,8 @@ const AuthorizeGoogle = () => {
     const dispatch = useDispatch();
     // function for google docs button
 
+    // dispatch(hideButton(true))
+
     const buttonStatus = useSelector(state => state.auth.hideButton)
 
   const handleDocs = () => {

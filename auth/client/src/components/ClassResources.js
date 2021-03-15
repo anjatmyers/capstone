@@ -43,7 +43,6 @@ const ClassResources = () => {
         </Card.Body>
         <ListGroup className="list-group-flush" style={{ fontSize: '15px'}}>
 
-
             <ListGroupItem ><Link className={classes.linkStyle} style={{textDecoration: "none"}} onClick={()=>window.open("https://zoom.us/j/294114284#success", "_blank")}><ComputerIcon/>&nbsp; Zoom Classroom</Link> </ListGroupItem>
             {/* https://zoom.us/j/294114284#success */}
             <ListGroupItem ><Link className={classes.linkStyle} style={{textDecoration: "none"}} onClick={()=>window.open("https://learn.digitalcrafts.com/", "_blank")}><EventNoteIcon/> &nbsp; Class Learning Portal</Link> </ListGroupItem>
