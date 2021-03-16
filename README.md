@@ -1,5 +1,9 @@
 # **BugOut BootCamp Survival Guide**
 
+### VIDEO LINKS ###
+* [Promotional](https://youtu.be/jRF_tAQhgkc)
+* [Walkthrough](https://youtu.be/BxEIdGMztn8)
+
 ## A helpful guide to Navigating Coding BootCamp:
 
 <img src="auth/client/public/images/homescreen.jpg">
